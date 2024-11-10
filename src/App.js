@@ -9,6 +9,7 @@ import About from './components/About/About';
 import Value from './components/Value/Value';
 import Service from './components/Service/Service';
 import Projects from './components/Projects/Projects';
+import Place from './components/Place/Place';
 
 function App() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -68,6 +69,8 @@ function App() {
       <Value/>
       <Service/>
       <Projects/>
+      {/* <Place/> */}
+      
 
 
     </div>

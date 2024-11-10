@@ -1,17 +1,26 @@
-body {
+body{
   margin: 0;
   padding: 0;
-
+  box-sizing: border-box;
   background: #0A1D31;
-  /* background: linear-gradient(to bottom, #0d2038, #030b13); */
-  background-repeat:round;
-  
+  /* border:1px solid white; */
 }
 
 .App{
-  box-sizing:border-box;
+  margin: none;
+  border:none;
+  padding: 0;
+  box-sizing: border-box;
+  background: #0A1D31;
+  /* border:1px solid white; */
 }
 
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+  width: 100%;
+}
 .slider-index-b{
   
   /* z-index:-10; */

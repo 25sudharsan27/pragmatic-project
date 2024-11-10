@@ -1,0 +1,81 @@
+.about-section{
+    display:flex;
+    justify-content:space-between;
+    padding:60px;
+    margin-top:100px;
+}
+
+.about-section-left{
+    width:40%;
+    padding:10px;
+    box-sizing: border-box;
+    padding-right:20px;
+
+}
+.about-section-right{
+    width:50%;
+    padding:10px;
+    /* box-sizing: border-box; */
+    padding-left:20px;
+    
+}
+
+.about-heading {
+    display:inline;
+    position: relative;
+    font-size: 38px;
+    font-weight: 550;
+    font-family: 'Plus Jakarta Display', sans-serif;
+    color: #FFFFFF;
+}
+
+.about-heading::after {
+    content: '';
+    position: absolute;
+    bottom: -13px; /* Adjusts the position of the underline */
+    right: 25%; /* 12.5% to center the underline for 75% width */
+    width:75%; /* The underline width */
+    height: 3px; /* Thickness of the underline */
+    background-color: #71C9C6; /* Underline color */
+}
+
+.about-heading-a{
+}
+
+.about-para1{
+    margin-top:50px;
+    font-size:36px;
+    font-weight:200;
+    font-family:'Plus Jakarta Display', sans-serif;
+    color:#FFFFFF;
+}
+
+.about-para2{
+    line-height: 34px;
+    font-size:20px;
+    font-weight:100;
+    font-family:'Manrope', sans-serif;
+    color:#FFFFFF;
+    word-wrap: break-word; /* Ensures long words break and wrap */
+
+}
+.about-section-right{
+    width:50%;
+}
+#about1, #about2, #about3{
+    /* position: relative; */
+    
+    height:100%;
+    width:25%;
+    
+    padding:10px;
+    padding-left:20px;
+}
+
+
+#about2{
+    transform: translateY(-30px);
+}
+#about3{
+    transform: translateY(10px);
+}

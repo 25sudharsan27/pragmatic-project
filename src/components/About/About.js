@@ -1,8 +1,8 @@
 import './About.css';
 // import { a } from 'react-router-dom';
-import image1 from './images/about1.png';
-import image2 from './images/about2.png';
-import image3 from './images/about3.png';
+import image1 from '../images/about1.png';
+import image2 from '../images/about2.png';
+import image3 from '../images/about3.png';
 
 
 function App() {

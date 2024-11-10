@@ -1,13 +1,13 @@
 import './App.css';
 import { useState,useEffect } from "react";
 import './components/Slider.css';
-import Navbar from './components/Navbar';
+import Navbar from './components/Navbar/Navbar';
 import { FaLongArrowAltRight } from "react-icons/fa";
 // import image from './images/slider.svg';
 import arrow from './components/images/arrow.svg';
-import About from './components/About';
-import Value from './components/Value';
-import Service from './components/Service';
+import About from './components/About/About';
+import Value from './components/Value/Value';
+import Service from './components/Service/Service';
 import Projects from './components/Projects/Projects';
 
 function App() {
@@ -60,7 +60,6 @@ function App() {
           <div
             key={index}
             className={`dot ${index === currentIndex ? "active-dot" : ""}`}
-            // onClick={() => goToSlide(index)}
           ></div>
         ))}
       </div>

@@ -1,8 +1,8 @@
 import './Value.css';
 // import { a } from 'react-router-dom';
-import money1 from './images/money1.svg';
-import money2 from './images/money2.svg';
-import money3 from './images/money3.svg';
+import money1 from '../images/money1.svg';
+import money2 from '../images/money2.svg';
+import money3 from '../images/money3.svg';
 
 function App() {
   return (

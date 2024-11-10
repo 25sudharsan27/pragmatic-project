@@ -3,6 +3,8 @@ body {
   padding: 0;
 
   background: #0A1D31;
+  /* background: linear-gradient(to bottom, #0d2038, #030b13); */
+  background-repeat:round;
   
 }
 
@@ -10,4 +12,8 @@ body {
   box-sizing:border-box;
 }
 
+.slider-index-b{
+  
+  /* z-index:-10; */
+}
 

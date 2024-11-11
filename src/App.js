@@ -39,7 +39,7 @@ function App() {
           <p className="slider-content-p">Project</p>
           <p className="slider-content-p">Consilium</p>
         </div>
-        <div className="slider-button-box">
+        <div id="sl" className="slider-button-box">
           <button className="slider-button">Get Started </button>
           <img src={arrow} alt="arrow" className="slider-arrow" />
         </div>

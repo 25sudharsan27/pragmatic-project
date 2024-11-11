@@ -102,3 +102,29 @@
     z-index: 1000000;
 
 }
+
+
+
+
+@media screen and (max-width : 950px){
+    #sl{
+        margin-left:40px;
+        width:150px;
+    }
+    .slider-button{
+        font-size:12px;
+
+    }
+    .slider-content{
+        margin:10%;
+    }
+    .slider-content-p{
+        font-size:60px;
+    }
+    .Slider{
+        height:600px;
+    }
+    .slider-index-c, .slider-index-b{
+        transform: ScaleX(0.8) ScaleY(0.8);
+    }
+}

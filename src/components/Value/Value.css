@@ -1,5 +1,6 @@
 /* Default styles (for large screens) */
 .value1 {
+    padding-top:70px;
     width: 100%;
     height: 100%;
     background: linear-gradient(to bottom, #000102, #0A1D31);
@@ -29,8 +30,10 @@
   }
   
   .value2-content {
+    position:fixed;
     height: 0.1px;
-    width: 60%;
+    width: 50%;
+  
     margin-top: -238px;
     position: relative;
     z-index: -8;
@@ -40,8 +43,7 @@
   .value {
     display: flex;
     justify-content: space-between;
-    padding: 20px;
-  }
+    padding: 20px;  }
   
   .value-heading {
     font-family: 'Plus Jakarta Display', sans-serif;
@@ -57,6 +59,8 @@
     color: white;
     font-size: 18px;
     font-weight: 200;
+    width:100%;
+    text-wrap: nowrap;
     margin: 0px;
     margin-top: 15px;
     letter-spacing: 1.5px;
@@ -82,41 +86,32 @@
     border-radius: 50%;
     background: #03080d;
   }
+  #value3{
+    height:100%;
+    width:100%;
+  }
   
   /* Mobile Responsive Styles */
   
   /* Small screens (phones) */
-  @media screen and (max-width: 480px) {
+  @media screen and (max-width: 1000px) {
+    #value3{
+      transform:scaleX(0.7) scaleY(0.7);
+    }
     .value {
-      flex-direction: column; /* Stack items vertically */
-      margin: 0; /* Remove large margin */
-      padding: 10px;
+      margin: 0 50px; /* Adjust margins for tablet size */
+      padding: 15px;
     }
-  
-    .value-item {
-      padding: 15px; /* Reduce padding for smaller screens */
+    .value-heading{
+      font-size: 30px;
     }
-  
-    .value-heading {
-      font-size: 30px; /* Adjust font size */
-      text-align: center; /* Center the heading */
+    .value-para{
+      font-size: 15px;
     }
-  
-    .value-para {
-      font-size: 14px; /* Smaller font for paragraphs */
-      text-align: center; /* Center the paragraph text */
+    .value2-content{
+      margin-top:-207px;
     }
-  
-    .value-icon {
-      height: 40px;
-      width: 40px;
-      padding: 30px; /* Adjust icon size */
-    }
-  
-    .value2-content {
-      width: 100%;
-      margin-top: 0;
-    }
+
   }
   
   /* Medium screens (tablets) */
@@ -125,23 +120,32 @@
       margin: 0 50px; /* Adjust margins for tablet size */
       padding: 15px;
     }
-  
-    .value-item {
-      padding: 20px;
+    .value{
+      display:flex;
+      flex-direction: column;
+      align-items: center;
     }
-  
-    .value-heading {
-      font-size: 40px;
-    }
-  
-    .value-para {
-      font-size: 16px;
-    }
-  
+   
     .value-icon {
       height: 45px;
       width: 45px;
       padding: 35px;
+    }
+    .value-item{
+      display:flex;
+      flex-direction:column;
+      justify-content: center;
+      align-items: center;
+      
+    }
+    .value2{
+      display:none;
+    }
+    .value-icon{
+      background:none;
+    }
+    .value{
+      padding:0px;
     }
   }
   

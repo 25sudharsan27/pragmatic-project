@@ -7,6 +7,7 @@ import money3 from '../images/money3.svg';
 function App() {
   return (
     <div className="value1">
+        
         <div className="value">
             <div className="value-item">
                 <img src={money1} alt="i" className="value-icon" />
@@ -28,6 +29,7 @@ function App() {
             <div class="value2-content">
             </div>
         </div>
+        
     </div>
 
   );

@@ -94,14 +94,14 @@ function App() {
         Claims_value:"USD 12.5 Million",
     },{
         date: "2024",
-        place:"India",
+        place:"NewZealand",
         index:1,
         name:"EPC works for Civil Buildings for Airport",
         project_value:"USD 237 Million",
         Claims_value:"USD 12.5 Million",
     },{
         date: "2024",
-        place:"India",
+        place:"Malasia",
         index:1,
         name:"EPC works for Civil Buildings for Airport",
         project_value:"USD 237 Million",
@@ -343,16 +343,25 @@ function App() {
   const [currentPage, setCurrentPage] = useState(1); // For pagination
   const projectsPerPage = 8; // Number of projects per page
 
-
+  const [currentIndexMobile,setCurrentIndexMobile] = useState(0);
   
   const currentProjects = currentIndex === 0
   ? projectDetails  // If "All Projects" is selected, show all projects
   : projectDetails.filter((project) => project.index === currentIndex-1);
 
+  const currentMobileProjects = currentIndexMobile === 0
+    ? projectDetails  // If "All Projects" is selected, show all projects
+    : projectDetails.filter((project) => project.index === currentIndexMobile-1);
+
   const indexOfLastProject = currentPage * projectsPerPage;
   const indexOfFirstProject = indexOfLastProject - projectsPerPage;
   const currentProjectsPage = currentProjects.slice(indexOfFirstProject, indexOfLastProject);
 
+  const handleNavClickMobile = (index) => {
+    setCurrentIndexMobile(index);  // Update the current index
+    console.log(currentMobileProjects);
+
+  };
 
   // Handle navigation click
   const handleNavClick = (index) => {
@@ -376,6 +385,24 @@ function App() {
     }
   };
 
+  const scrollLeft = () => {
+    const slider = document.querySelector(".k1");
+    const containerWidth = document.querySelector(".k8").clientWidth-23;  // Get the container width
+    slider.scrollBy({
+      left: -containerWidth, // Scroll by the container's width to the left
+      behavior: 'smooth', // Smooth scroll
+    });
+  };
+  
+  const scrollRight = () => {
+    const slider = document.querySelector(".k1");
+    const containerWidth = document.querySelector(".k8").clientWidth-23;  // Get the container width
+    slider.scrollBy({
+      left: containerWidth, // Scroll by the container's width to the right
+      behavior: 'smooth', // Smooth scroll
+    });
+  };
+
   return (
     <div className="projects-container">
       <h1 className="projects-heading">Projects</h1>
@@ -385,7 +412,7 @@ function App() {
         breathing life back into the economy.
       </p>
       
-      <div className="projects-nav">
+      <div id="first1" className="projects-nav">
         <div className="projects-nav-item">
           {navItems.map((item, index) => (
             <div
@@ -442,6 +469,56 @@ function App() {
         </button>
       </div>
 
+      <div id="second" className="projects-nav">
+        <div className="projects-nav-item">
+          {navItems.map((item, index) => (
+            <div
+              key={index}
+              onClick={() => handleNavClickMobile(index)}  // Update the index on click
+              className={`nav-item ${index === currentIndexMobile ? 'nav-active' : ''}`} // Conditionally add 'nav-active' class
+            >
+              <img
+                src={item.img}
+                alt={item.name}
+                className="nav-img"
+              />
+              <a className="nav-text">{item.name}</a>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div className="k8">
+        <button className="k9" onClick={scrollLeft}>Prev</button>
+        <div className="k1">
+          {currentMobileProjects.map((project, index) => (
+            <div key={index} className="project-item">
+              <img src={imgproject} alt="project" className="project-img" />
+              <div className="project-item1">
+                <div id="project-image1">
+                  <img
+                    src={navItems[project.index + 1].img}
+                    alt={navItems[project.index + 1].name}
+                    className="project-image"
+                  />
+                  <a className="project-text">{navItems[project.index + 1].name}</a>
+                </div>
+                <h1 className="project-date">{project.date}, {project.place}</h1>
+              </div>
+              <h1 className="project-name">{project.name}</h1>
+              <div className="project-details">
+                <h1 className="project-value1">Project Value : </h1>
+                <h1 className="project-value">{project.project_value}</h1>
+              </div>
+              <div className="project-details">
+                <h1 className="project-value1">Claims Value : </h1>
+                <h1 className="project-value">{project.Claims_value}</h1>
+              </div>
+            </div>
+          ))}
+        </div>
+        <button className="k21" onClick={scrollRight}>Next</button>
+      </div>
 
     </div>
   );

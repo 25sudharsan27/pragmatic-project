@@ -1,85 +1,149 @@
-.value1{
-    width:100%;
-    height:100%;
+/* Default styles (for large screens) */
+.value1 {
+    width: 100%;
+    height: 100%;
     background: linear-gradient(to bottom, #000102, #0A1D31);
     position: relative;
-    z-index:10;
-}
-.value{
-    height:100%;
-    margin:0px 200px;
-}
-
-
-.value::after{
+    z-index: 10;
+  }
+  
+  .value {
+    height: 100%;
+    margin: 0px 15%; 
+  }
+  
+  .value::after {
     content: '';
     position: absolute;
-    bottom: -13px; /* Adjusts the position of the underline */
-    right: 25%; /* 12.5% to center the underline for 75% width */
-    width:75%; /* The underline width */
-    height: 3px; /* Thickness of the underline */
-}
-
-.value2{
-    width:100%;
-    display:flex;
-    justify-content:center;
-}
-.value2-content{
+    bottom: -13px;
+    right: 25%;
+    width: 75%;
+    height: 3px;
+  }
+  
+  .value2 {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    
+  }
+  
+  .value2-content {
     height: 0.1px;
-    width:60%;
-    margin-top:-238px;
+    width: 60%;
+    margin-top: -238px;
     position: relative;
     z-index: -8;
-    border:1px dashed #B2B2B2;
-}
-
-.value{
-    display:flex;
-    justify-content:space-between;
-    padding:20px;
-}
-
-.value-heading{
-    font-family:'Plus Jakarta Display', sans-serif;
-    color:white;
-    font-size:50px;
+    border: 1px dashed #B2B2B2;
+  }
+  
+  .value {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+  }
+  
+  .value-heading {
+    font-family: 'Plus Jakarta Display', sans-serif;
+    color: white;
+    font-size: 50px;
     font-weight: 600;
-    margin:0px;
-    margin-top:15px;
-    
-}
-
-.value-para{
-    font-family:'Manrope', sans-serif;
-    color:white;
-    font-size:18px;
+    margin: 0px;
+    margin-top: 15px;
+  }
+  
+  .value-para {
+    font-family: 'Manrope', sans-serif;
+    color: white;
+    font-size: 18px;
     font-weight: 200;
-    margin:0px;
-    margin-top:15px;
+    margin: 0px;
+    margin-top: 15px;
     letter-spacing: 1.5px;
-}
-.value-item{
-    padding:30px;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    position:relative;
-    z-index:30;
-    
-    
-}
-.value-icon{
-    height:50px;
-    width:50px;
-    margin-bottom:10px;
-    border:1px dashed #71C9C6;
-    border-width:2px;
+  }
+  
+  .value-item {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    z-index: 30;
+  }
+  
+  .value-icon {
+    height: 50px;
+    width: 50px;
+    margin-bottom: 10px;
+    border: 1px dashed #71C9C6;
+    border-width: 2px;
     border-spacing: 5px;
-    padding:40px;
-    border-radius:50%;
+    padding: 40px;
+    border-radius: 50%;
     background: #03080d;
-
-    
-    
-}
+  }
+  
+  /* Mobile Responsive Styles */
+  
+  /* Small screens (phones) */
+  @media screen and (max-width: 480px) {
+    .value {
+      flex-direction: column; /* Stack items vertically */
+      margin: 0; /* Remove large margin */
+      padding: 10px;
+    }
+  
+    .value-item {
+      padding: 15px; /* Reduce padding for smaller screens */
+    }
+  
+    .value-heading {
+      font-size: 30px; /* Adjust font size */
+      text-align: center; /* Center the heading */
+    }
+  
+    .value-para {
+      font-size: 14px; /* Smaller font for paragraphs */
+      text-align: center; /* Center the paragraph text */
+    }
+  
+    .value-icon {
+      height: 40px;
+      width: 40px;
+      padding: 30px; /* Adjust icon size */
+    }
+  
+    .value2-content {
+      width: 100%;
+      margin-top: 0;
+    }
+  }
+  
+  /* Medium screens (tablets) */
+  @media screen and (max-width: 768px) {
+    .value {
+      margin: 0 50px; /* Adjust margins for tablet size */
+      padding: 15px;
+    }
+  
+    .value-item {
+      padding: 20px;
+    }
+  
+    .value-heading {
+      font-size: 40px;
+    }
+  
+    .value-para {
+      font-size: 16px;
+    }
+  
+    .value-icon {
+      height: 45px;
+      width: 45px;
+      padding: 35px;
+    }
+  }
+  
+  /* Large screens (desktop and above) - Default styles will apply */
+  

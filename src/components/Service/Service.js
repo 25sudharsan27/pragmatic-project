@@ -23,6 +23,7 @@ const services = [
 
 const App = () => {
     return (
+        <div>
         <div className="container">
             <div className="circle-layer extra-large-circle"></div>
             <div className="circle-layer large-circle"></div>
@@ -44,6 +45,8 @@ const App = () => {
                     </div>
                 ))}
             </div>
+        </div>
+        
         </div>
     );
 };

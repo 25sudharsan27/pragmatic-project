@@ -102,6 +102,9 @@
 }
 
 @media screen and (max-width: 600px){
+    .about-para1{
+        font-weight:600;
+    }
     .about-section{
         display: flex;
         flex-direction: column;

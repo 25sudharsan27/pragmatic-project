@@ -1,6 +1,6 @@
 /* General Container Styles */
 .projects-container {
-    background: linear-gradient(to bottom, #0A1D31, #0A1D31);
+    background: linear-gradient(to bottom, #0A1D31, #02060a);
     box-sizing: border-box;
 
     width: 100%;
@@ -101,9 +101,10 @@
 .projects {
     height:100%;
     width:100%;
+    padding:50px;
     display:flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-evenly;
     
     /* grid-template-columns: repeat(3, 1fr); */
     padding: 20px; /* Optional padding around the entire grid */

@@ -245,119 +245,12 @@
 
 
 
-  .k8 {
-    position: relative; /* Make sure the buttons are positioned relative to this container */
-    width: 100%; /* Ensure it takes the full width of the parent container */
-    max-width: 100%; /* Prevent overflow if the parent container is too wide */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden; /* Hide overflow if the content exceeds the container */
-  }
-  
-
-
-  .k1 {
-    display: flex;
-    gap: 20px;
-    padding: 20px;
-    scroll-snap-type: x mandatory;
-    overflow-x: auto;
-    scroll-behavior: smooth;
-    
-  }
-  
-  .k10 {
-    flex-shrink: 0;
-    width: 250px; /* Set the width of each project card */
-    background-color: #f4f4f4;
-    padding: 20px;
-    border-radius: 8px;
-    text-align: left;
-  }
-  
-  .k11 {
-    width: 100%;
-    height: auto;
-  }
-  
-  .k12 {
-    display: flex;
-    align-items: center;
-  }
-  
-  .k13 {
-    margin-right: 10px;
-  }
-  
-  .k14 {
-    width: 30px;
-    height: 30px;
-  }
-  
-  .k15 {
-    font-weight: bold;
-  }
-  
-  .k16 {
-    font-size: 14px;
-    color: #555;
-    margin: 10px 0;
-  }
-  
-  .k17 {
-    font-size: 18px;
-    margin: 10px 0;
-  }
-  
-  .k18 {
-    display: flex;
-    justify-content: space-between;
-  }
-  
-  .k19 {
-    font-weight: bold;
-  }
-  
-  .k20 {
-    color: #333;
-  }
-  
-  .k9, .k21 {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: #007bff;
-    color: white;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-    border-radius: 5px;
-    z-index: 10; /* Ensure the buttons are above the content */
-  }
-
-  
-  .k9 {
-    left: 150px;
-  }
-  
-  .k21 {
-    right: 10px;
-  }
-  
-  .k9:disabled, .k21:disabled {
-    background-color: #ccc;
-    cursor: not-allowed;
-  }
-
-.k8{
-    display:none;
-}
-
 #second{
     display:none;
 }
-
+#for-mobile{
+    display:none;
+}
 
 
 
@@ -401,6 +294,17 @@
 }
 
 @media (max-width: 480px) {
+    #for-mobile{
+        width:100%;
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        
+    }
+
+    
+    
+    
     .k8 {
         display: block;
     }
@@ -416,7 +320,7 @@
     }
     .projects-para {
         /* width: 100%; */
-        font-size: 15px;
+        font-size: 13px;
     }
 
     .projects-heading {

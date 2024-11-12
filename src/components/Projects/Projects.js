@@ -342,6 +342,9 @@ function App() {
 
   const [currentPage, setCurrentPage] = useState(1); // For pagination
   const projectsPerPage = 8; // Number of projects per page
+  const [currentPageMobile, setCurrentPageMobile] = useState(1); // For pagination
+  const mobileProjectsPerPage = 1; // Number of projects per page
+
 
   const [currentIndexMobile,setCurrentIndexMobile] = useState(0);
   
@@ -357,20 +360,24 @@ function App() {
   const indexOfFirstProject = indexOfLastProject - projectsPerPage;
   const currentProjectsPage = currentProjects.slice(indexOfFirstProject, indexOfLastProject);
 
+  const indexOfLastProjectMobile = currentPageMobile * mobileProjectsPerPage;
+  const indexOfFirstProjectMobile = indexOfLastProjectMobile - mobileProjectsPerPage;
+  const currentProjectsPageMobile = currentMobileProjects.slice(indexOfFirstProjectMobile, indexOfLastProjectMobile);
+  
+
   const handleNavClickMobile = (index) => {
     setCurrentIndexMobile(index);  // Update the current index
     console.log(currentMobileProjects);
+    setCurrentPageMobile(1);
 
   };
 
   // Handle navigation click
   const handleNavClick = (index) => {
-    console.log("index", index);
+    // console.log("index", index);
 
     setCurrentIndex(index);  // Update the current index
     setCurrentPage(1);
-
-    
   };
 
   const nextPage = () => {
@@ -386,21 +393,17 @@ function App() {
   };
 
   const scrollLeft = () => {
-    const slider = document.querySelector(".k1");
-    const containerWidth = document.querySelector(".k8").clientWidth-23;  // Get the container width
-    slider.scrollBy({
-      left: -containerWidth, // Scroll by the container's width to the left
-      behavior: 'smooth', // Smooth scroll
-    });
+    if (currentPageMobile >= 0) {
+        setCurrentPageMobile(currentPageMobile - 1);
+      }
   };
   
   const scrollRight = () => {
-    const slider = document.querySelector(".k1");
-    const containerWidth = document.querySelector(".k8").clientWidth-23;  // Get the container width
-    slider.scrollBy({
-      left: containerWidth, // Scroll by the container's width to the right
-      behavior: 'smooth', // Smooth scroll
-    });
+    if (currentPageMobile < Math.ceil(currentMobileProjects.length / mobileProjectsPerPage)) {
+        setCurrentPageMobile(currentPageMobile + 1);
+        console.log(currentPageMobile);
+      }
+    
   };
 
   return (
@@ -431,6 +434,7 @@ function App() {
         </div>
       </div>
       <div className="projects">
+        
       {currentProjectsPage.map((project, index) => (
         <div key={index} className="project-item">
             <img src={imgproject} alt="project" className="project-img" />
@@ -488,10 +492,9 @@ function App() {
         </div>
       </div>
 
-      <div className="k8">
-        <button className="k9" onClick={scrollLeft}>Prev</button>
-        <div className="k1">
-          {currentMobileProjects.map((project, index) => (
+      
+        <div id="for-mobile" className="projects2">
+          {currentProjectsPageMobile.map((project, index) => (
             <div key={index} className="project-item">
               <img src={imgproject} alt="project" className="project-img" />
               <div className="project-item1">
@@ -517,7 +520,14 @@ function App() {
             </div>
           ))}
         </div>
-        <button className="k21" onClick={scrollRight}>Next</button>
+        <div id="for-mobile" className="pagination-controls">
+        <button onClick={scrollLeft} disabled={currentPageMobile === 1}>
+          Previous
+        </button>
+        <span className="page-number">Page {currentPageMobile}</span>
+        <button  onClick={scrollRight} disabled={currentPageMobile >= Math.ceil(currentMobileProjects.length / mobileProjectsPerPage)}>
+          Next
+        </button>
       </div>
 
     </div>

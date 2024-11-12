@@ -11,6 +11,9 @@ import Service from './components/Service/Service';
 import Projects from './components/Projects/Projects';
 import Place from './components/Place/Place';
 import Company from './components/Company/Company';
+import Blogs from './components/Blogs/Blogs';
+
+
 function App() {
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -71,7 +74,7 @@ function App() {
       <Projects/>
       {/* <Place/> */}
       <Company/>
-
+      <Blogs/>
 
     </div>
   );

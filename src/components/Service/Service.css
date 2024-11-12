@@ -203,6 +203,9 @@
       
       /* Media query for small screens (e.g., mobile devices) */
       @media screen and (max-width: 730px) {
+        .container{
+            display:none;
+        }
         .container {
           transform: scale(0.4); /* Scale the container to 70% */
         }

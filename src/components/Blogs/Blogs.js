@@ -25,8 +25,31 @@ function App() {
   return (
     <div className="blogs-container">
         <h1 className="blogs-heading">Explore Our Blogs</h1>
-        <div className="blogs">
-            {blogs.map((blog) => (
+        <div id="normalblog" className="blogs">
+            {(blogs.length > 6 ? (blogs.slice(0,6).map((blog) => (
+                <div className="blog">
+                    <img src={blogimg} alt="blog" className="blog-image" />
+                    <div className="blog-line">
+                        <h1 className="blog-heading">{blog.date}</h1>
+                        <p className="blog-reading-time">{blog.readingTime}</p>
+                    </div>
+                    <p className="blog-content">{blog.content.length > 350 ?  ( blog.content.substring(0,350)  ): blog.content}  <a className="seemoreblogs" href=""> <s> </s>see more..</a></p>
+                </div>
+                ))):
+                blogs.map((blog) => (
+                    <div className="blog">
+                    <img src={blogimg} alt="blog" className="blog-image" />
+                    <div className="blog-line">
+                        <h1 className="blog-heading">{blog.date}</h1>
+                        <p className="blog-reading-time">{blog.readingTime}</p>
+                    </div>
+                    <p className="blog-content">{blog.content.length > 350 ?  ( blog.content.substring(0,350)  ): blog.content}  <a className="seemoreblogs" href=""> <s> </s>see more</a></p>
+                    </div>
+                ))
+            )}
+        </div>
+        <div id="mobileblog" className="blogs">
+            {[blogs[0]].map((blog) => (
                 <div className="blog">
                     <img src={blogimg} alt="blog" className="blog-image" />
                     <div className="blog-line">
@@ -37,6 +60,9 @@ function App() {
                 </div>
             )
             )}
+        </div>
+        <div id="mobileblog">
+            <a href="" className="blogs-button">View All Blogs</a>
         </div>
     </div>
   );

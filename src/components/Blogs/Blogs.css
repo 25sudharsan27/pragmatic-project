@@ -73,11 +73,31 @@
     font-family: 'Jost', sans-serif;
     font-size: 15px;
     font-weight: 600;
-    color: white;
+    color: #71C9C6;
     text-decoration: none;
 
 }
+.blogs-button{
+    margin-top:30px;
+    padding:10px 20px;
+    font-family:'Jost', sans-serif;
+    font-size:15px;
+    font-weight:600;
+    color:#FFFFFF;
+    background-color:#71C9C6;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+    text-decoration: none;
+}
+.blogs-button:hover{
+    background-color:#FFFFFF;
+    color:#71C9C6;
+}
 
+#mobileblog{
+    display:none;
+}
 
 @media screen and (max-width: 800px){
     .blogs-heading{
@@ -101,6 +121,15 @@
 }
 
 @media screen and (max-width:450px){
+    #normalblog{
+        display:none;
+    }
+    #mobileblog{
+        display:flex;
+    }
+    .blogs-button{
+        margin-top:-20px;
+    }
     .blogs-heading{
         font-size:25px;
     }

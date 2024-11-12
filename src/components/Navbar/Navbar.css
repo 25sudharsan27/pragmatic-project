@@ -31,4 +31,8 @@
     font-family:'Plus Jakarta Display', sans-serif;
 }
 
-
+@media screen and (max-width:500px){
+    .navbar-right{
+        display:none;
+    }
+}

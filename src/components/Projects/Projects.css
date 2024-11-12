@@ -295,6 +295,10 @@
 }
 
 @media (max-width: 480px) {
+    
+    #second{
+        margin-top:-25px;
+    }
     #for-mobile{
         width:100%;
         display:flex;

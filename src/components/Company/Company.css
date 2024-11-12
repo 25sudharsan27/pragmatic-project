@@ -15,7 +15,7 @@
 }
 
 .company-container{
-    background:linear-gradient(to bottom,  #000000,#010203);
+    background:linear-gradient(to bottom,  #0A1D31,#010203);
     display:flex;
     flex-direction:column;
     width:100%;

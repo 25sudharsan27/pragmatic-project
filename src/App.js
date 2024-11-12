@@ -12,6 +12,7 @@ import Projects from './components/Projects/Projects';
 import Place from './components/Place/Place';
 import Company from './components/Company/Company';
 import Blogs from './components/Blogs/Blogs';
+import Connect from './components/Connect/Connect';
 
 
 function App() {
@@ -75,6 +76,7 @@ function App() {
       {/* <Place/> */}
       <Company/>
       <Blogs/>
+      <Connect/>
 
     </div>
   );

@@ -1,6 +1,6 @@
 /* General Container Styles */
 .projects-container {
-    background: linear-gradient(to bottom, #0A1D31, #02060a);
+    background: linear-gradient(to bottom, #0A1D31, #0A1D31);
     box-sizing: border-box;
 
     width: 100%;
@@ -340,5 +340,9 @@
         height: 20px;
         width: 20px;
         margin:0px;
+    }
+
+    .projects-container{
+        margin-top: -10px;
     }
 }

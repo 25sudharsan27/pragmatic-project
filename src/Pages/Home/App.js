@@ -13,7 +13,7 @@ import Place from '../../components/Place/Place';
 import Company from '../../components/Company/Company';
 import Blogs from '../../components/Blogs/Blogs';
 import Connect from '../../components/Connect/Connect';
-
+import Footer from '../../components/Footer/Footer';
 
 function App() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -77,6 +77,7 @@ function App() {
       <Company/>
       <Blogs/>
       <Connect/>
+      <Footer/>
 
     </div>
   );

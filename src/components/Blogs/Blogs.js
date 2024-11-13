@@ -62,7 +62,7 @@ function App() {
             )}
         </div>
         <div>
-            <a href="" className="blogs-button">View All Blogs</a>
+            <a href="/blogs" className="blogs-button">View All Blogs</a>
         </div>
     </div>
   );

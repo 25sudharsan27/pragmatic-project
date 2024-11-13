@@ -26,7 +26,7 @@ function App() {
     <div className="blogs-container">
         <h1 className="blogs-heading">Explore Our Blogs</h1>
         <div id="normalblog" className="blogs">
-            {(blogs.length > 6 ? (blogs.slice(0,6).map((blog) => (
+            {(blogs.length > 3 ? (blogs.slice(0,3).map((blog) => (
                 <div className="blog">
                     <img src={blogimg} alt="blog" className="blog-image" />
                     <div className="blog-line">
@@ -61,7 +61,7 @@ function App() {
             )
             )}
         </div>
-        <div id="mobileblog">
+        <div>
             <a href="" className="blogs-button">View All Blogs</a>
         </div>
     </div>

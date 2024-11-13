@@ -1,5 +1,7 @@
 .connect{
+    background: linear-gradient(to bottom, #0A1D31, #040b13);
     padding:30px;
+    margin-top:100px;
     display:flex;
     justify-content: space-evenly;
     gap:25px;
@@ -131,7 +133,7 @@
 }
 
 .connect-button{
-    width:fit-content;
+    /* width:fit-content; */
     font-size: 18px;
     padding:10px 20px;
     height:50px;
@@ -141,10 +143,11 @@
     color:white;
     font-family:'Manrope', sans-serif;
     font-weight:600;
+    transition: 0.5s;
 }
 .connect-button:hover{
-    background-color:#71C9C6;
-    color:white;
+    background-color:#ffffff;
+    color:#71C9C6;
     cursor:pointer;
 }
 #conn-mobile{

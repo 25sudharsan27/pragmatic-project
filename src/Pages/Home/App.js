@@ -1,18 +1,18 @@
 import './App.css';
 import { useState,useEffect } from "react";
-import './components/Slider.css';
-import Navbar from './components/Navbar/Navbar';
+import '../../components/Slider.css';
+import Navbar from '../../components/Navbar/Navbar';
 import { FaLongArrowAltRight } from "react-icons/fa";
 // import image from './images/slider.svg';
-import arrow from './components/images/arrow.svg';
-import About from './components/About/About';
-import Value from './components/Value/Value';
-import Service from './components/Service/Service';
-import Projects from './components/Projects/Projects';
-import Place from './components/Place/Place';
-import Company from './components/Company/Company';
-import Blogs from './components/Blogs/Blogs';
-import Connect from './components/Connect/Connect';
+import arrow from '../../components/images/arrow.svg';
+import About from '../../components/About/About';
+import Value from '../../components/Value/Value';
+import Service from '../../components/Service/Service';
+import Projects from '../../components/Projects/Projects';
+import Place from '../../components/Place/Place';
+import Company from '../../components/Company/Company';
+import Blogs from '../../components/Blogs/Blogs';
+import Connect from '../../components/Connect/Connect';
 
 
 function App() {

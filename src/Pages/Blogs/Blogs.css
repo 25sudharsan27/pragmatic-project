@@ -1,0 +1,164 @@
+.blogs-side {
+    width: 30%;
+    height: 88vh;
+    background-color: #08182a;
+    border-top-right-radius: 20px;
+    /* position: fixed; Make sure the sidebar is fixed on the left side */
+    top: 0;
+    left: -30%; /* Hide sidebar off-screen by default on mobile */
+    transition: left 0.3s ease-in-out;
+    z-index: 100; /* Ensure it's above the content */
+}
+
+.blogs-side.visible {
+    left: 0; /* Make sidebar visible when the button is clicked */
+}
+
+.blogs-page {
+    position: relative;
+    display: flex;
+    height: 100%;
+    width: 100%;
+}
+
+/* Styling for the sidebar toggle button (hamburger icon) */
+.sidebar-toggle-btn {
+    /* position: absolute; */
+    top: 20px;
+    left: 20px;
+    background: none;
+    border: none;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+    display: none; /* Hide button on larger screens */
+}
+
+/* Ensure the content has padding when the sidebar is visible on mobile */
+.blogs {
+    width:100%;
+
+    margin-left: 0;
+    padding: 0;
+    height: 86vh;
+    overflow-y: scroll;
+    scrollbar-color: transparent transparent;
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* Sidebar category styling */
+.blog-category-heading {
+    width: 100%;
+    padding: 20px 15px;
+    cursor: pointer;
+    font-size: 20px;
+    color: white;
+    margin-top: 20px;
+    font-family: 'Plus Jakarta Display', sans-serif;
+    transition: 0.5s;
+}
+
+.blog-active {
+    width: 100%;
+    background-color: #71C9C6;
+}
+
+.blog-active1 {
+    color: #08182a;
+}
+
+.blogs-page1 {
+    background-color: #0A1D31;
+    display: flex;
+    margin:0px;
+    
+    height:100vh;
+    overflow: hidden;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 0;
+    padding: 0;
+}
+
+.blog-category {
+    cursor: pointer;
+    padding: 10px 20px;
+    width: 80%;
+    margin-top: 15px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    transition: 0.5s;
+}
+
+.blogs-side1 {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.blog-category-headi {
+    font-family: 'Plus Jakarta Display', sans-serif;
+    font-size: 30px;
+    color: white;
+    margin-top: 20px;
+    padding: 20px 15px;
+    padding-bottom: 0;
+}
+
+.blogs-page {
+    display: flex;
+    position: relative;
+    width: 100%;
+}
+
+/* Mobile view: Sidebar will be hidden off-screen by default */
+@media (max-width: 768px) {
+
+    .blogs-side{
+        position:fixed;
+        height:100%;
+        width:60%;
+    }
+
+    .sidebar-toggle-btn {
+        display: block; /* Show the toggle button on mobile */
+    }
+
+    .blogs-side {
+        left: -100%; /* Sidebar is hidden off-screen by default */
+    }
+
+    .blogs-page {
+        margin-left: 0; /* Ensure content takes full width */
+    }
+
+    .blogs {
+         /* Remove margin on blogs section */
+        position:relative;
+        margin-top:-2px;
+        height:87vh;
+        margin-left:35px;
+    }
+    .blog-category-headi{
+        font-size:20px;
+    }
+    .blog-category-heading{
+        font-size:15px;
+    }
+    
+}
+
+@media (min-width: 769px) {
+    /* On desktop, the sidebar is always visible */
+    .blogs-side {
+        left: 0; /* Sidebar is always visible on desktop */
+    }
+
+    /* Hide the sidebar toggle button on desktop */
+    .sidebar-toggle-btn {
+        display: none;
+    }
+}

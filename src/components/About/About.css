@@ -70,18 +70,20 @@
   }
 
   .about-para1 {
+    font-family: 'Plus Jakarta Display', sans-serif;
+
     margin-top: 50px;
     font-size: 36px;
     font-weight: 200;
-    font-family: 'Plus Jakarta Display', sans-serif;
     color: #FFFFFF;
   }
   
   .about-para2 {
+    font-family: 'Manrope', sans-serif;
+
     line-height: 38px;
     font-size: 20px;
     font-weight: 100;
-    font-family: 'Manrope', sans-serif;
     color: #FFFFFF;
     word-wrap: break-word;
   }

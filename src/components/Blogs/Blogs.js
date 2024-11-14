@@ -73,6 +73,9 @@ function App() {
                     <p className="blog-content">{blog.content.length > 350 ?  ( blog.content.substring(0,350)  ): blog.content}  <a className="seemoreblogs" href=""> <s> </s>see more</a></p>
                 </div>
             )
+
+
+            
             )}
         </div>
         <div data-aos="fade-up" data-aos-delay="100" className="blg-btn">

@@ -65,6 +65,7 @@
 
 }
 
+
 .connect-form{
     display:flex;
     flex-direction:column;
@@ -110,7 +111,6 @@
     border:2px solid #71C9C6;
 
 }
-
 
 .connect-input::placeholder{
     

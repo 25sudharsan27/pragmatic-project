@@ -95,6 +95,8 @@
 
 /* Small screens (phones) */
 @media screen and (max-width: 1000px) {
+  
+  
   #value3{
     transform:scaleX(0.7) scaleY(0.7);
   }

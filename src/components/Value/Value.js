@@ -86,7 +86,7 @@ function App() {
 
       {/* Line animation */}
       <div className="value2">
-        <div className="value2-content" data-aos="zoom-out" data-aos-delay="500"></div>
+        <div className="value2-content" data-aos="zoom-in" data-aos-delay="500"></div>
       </div>
     </div>
   );

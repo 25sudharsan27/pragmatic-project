@@ -318,6 +318,11 @@
         
     }
 
+    .nav-item{
+        cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    }
+
     
     
     

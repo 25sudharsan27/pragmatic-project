@@ -95,29 +95,19 @@
 
 /* Media Query for screens smaller than 1300px */
 @media screen and (max-width: 1000px) {
-  
-  #about11{
-    font-size:20px;
-  }
-  
-  #about22{
-    font-size:20px;
-  }
-  #about33{
-    font-size:16px;
-  }
 
   .about-heading {
-    font-size: 20px; /* Adjust heading font size for medium screens */
+    font-size: 25px; 
   }
 
   .about-para1 {
-    font-size: 20px; /* Adjust paragraph font size for medium screens */
+    font-weight:bold;
+    font-size: 25px;
   }
 
   .about-para2 {
-    font-size: 16px; /* Adjust paragraph font size for medium screens */
-    line-height: 25px;
+    font-size: 10px;
+    line-height: 15px;
   }
 
   #about1, #about2, #about3 {
@@ -170,5 +160,6 @@
 
   .about-para2 {
     font-size: 14px; /* Adjust paragraph font size for mobile screens */
+    line-height: 25px;
   }
 }

@@ -190,8 +190,8 @@
 
 
 
-    @media screen and (max-width: 1200px) {
-        
+    @media screen and (max-width: 1000px) {
+       
         .container {
           transform: scale(0.6); /* Scale the container to 80% */
         }

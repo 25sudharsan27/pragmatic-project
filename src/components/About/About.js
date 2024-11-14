@@ -21,7 +21,7 @@ function App() {
         <div className="about-heading2">
         <h1 className="about-heading" data-aos="fade-up">About Us</h1>
         <div className="about-line" data-aos="about-line-animation" ></div>        </div>
-        <p className="about-para1" data-aos="fade-up" data-aos-delay="100">Your strategic partner for healthy and successful projects</p>
+        <h1 className="about-para1" data-aos="fade-up" data-aos-delay="100">Your strategic partner for healthy and successful projects</h1>
         <p className="about-para2" data-aos="fade-up" data-aos-delay="200">
           Our team of experienced professionals brings a wealth of knowledge and expertise to every project we undertake. From conception to completion, we ensure that every detail is meticulously planned and executed to perfection.
         </p>

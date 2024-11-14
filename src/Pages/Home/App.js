@@ -49,7 +49,7 @@ function App() {
 
   return (
     <div className="App">
-      <Navbar />
+      <Navbar pos="fixed" />
       <div className="Slider">
         
         <div data-aos="fade-right"  className="slider-content">

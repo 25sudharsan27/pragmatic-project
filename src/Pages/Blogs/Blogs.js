@@ -82,7 +82,7 @@ const Blogs = () => {
                 >
                     ☰
                 </button>
-            <Navbar />
+            <Navbar pos="" />
             </div>
             <div className="blogs-page">
                 {/* Sidebar Toggle Button (Only for mobile) */}

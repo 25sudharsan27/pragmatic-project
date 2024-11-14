@@ -27,3 +27,46 @@ html, body {
 }
 
 
+/* For the "Get Started" button animation */
+@keyframes moveLeftToRight {
+  0% {
+    transform: translateX(20px);
+  }
+  50% {
+    transform: translateX(40px); /* Move the button to the right */
+  }
+  100% {
+    transform: translateX(20px); /* Move the button back to the original position */
+  }
+}
+
+@keyframes moveRightToLeft {
+  0% {
+    transform: translateX(20px);
+  }
+  50% {
+    transform: translateX(-0px); /* Move the button to the left */
+  }
+  100% {
+    transform: translateX(20px); /* Move the button back to the original position */
+  }
+}
+
+/* Button that animates back and forth */
+.slider-button-box {
+  cursor: pointer;
+  animation: moveLeftToRight 0.5s ease-in-out infinite alternate, moveRightToLeft 2.5s ease-in-out infinite alternate; /* Both animations apply */
+  transition: all 0.5s ease;
+}
+
+/* When the button is hovered, make it grow */
+.slider-button-box:hover {
+  transform: scale(2); /* Slight grow effect */
+}
+
+/* Arrow inside the button */
+
+
+.Slider{
+
+}

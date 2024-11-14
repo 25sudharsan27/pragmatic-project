@@ -9,6 +9,9 @@ import icon5 from '../images/icon5.svg';
 import icon6 from '../images/icon6.svg';
 import icon7 from '../images/icon7.svg';
 import icon8 from '../images/icon8.svg';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import { useEffect } from 'react';
 
 const services = [
     { label: "Expert Witness / Independent Opinion", icon: icon2 },
@@ -22,24 +25,32 @@ const services = [
 ];
 
 const App = () => {
+    useEffect(() => {
+        AOS.init({
+          duration: 1000,  // Set the animation duration to 1 second
+          once: false,      // Trigger the animation only once when scrolled into view
+          offset:10,
+          startEvent: 'DOMContentLoaded'
+        });
+      }, []);
     return (
         <div>
         <div className="container">
-            <div className="circle-layer extra-large-circle"></div>
-            <div className="circle-layer large-circle"></div>
-            <div className="circle-layer medium-circle"></div>
-            <div className="circle-layer small-circle"></div>
-            <div className="center-circle">Services we offer</div>
+            <div data-aos="zoom-in" data-aos-delay="400" className="circle-layer extra-large-circle"></div>
+            <div data-aos="zoom-in" data-aos-delay="300" className="circle-layer large-circle"></div>
+            <div data-aos="zoom-in" data-aos-delay="200" className="circle-layer medium-circle"></div>
+            <div data-aos="zoom-in" data-aos-delay="100" className="circle-layer small-circle"></div>
+            <div data-aos="zoom-in" className="center-circle">Services we offer</div>
             <div className="outer-circle">
                 {services.map((service, index) => (
                     <div>
                     <div key={index} className={`service-item item-${index + 1}`}>
-                        <span className="label">{service.label}</span>
-                        <div className="dotted-line"></div>
+                        <span data-aos="zoom-in"  data-aos-delay="600" className="label">{service.label}</span>
+                        <div  className="dotted-line"></div>
 
                     </div>
                     <div className={`service-item item1-${index+1}`}>
-                        <img src={service.icon} href="i" className="icon" />
+                        <img data-aos="zoom-in" data-aos-delay="500" src={service.icon} href="i" className="icon" />
 
                     </div>
                     </div>

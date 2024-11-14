@@ -100,11 +100,12 @@
 
 .projects {
     height:100%;
+    
     width:100%;
     padding:50px;
     display:flex;
     flex-wrap: wrap;
-    justify-content: space-evenly;
+    justify-content: center;
     
     /* grid-template-columns: repeat(3, 1fr); */
     padding: 20px; /* Optional padding around the entire grid */
@@ -158,6 +159,7 @@
 }
 
 .project-image{
+    height:20px;
     margin-right:10px;
 }
 
@@ -251,6 +253,15 @@
 }
 #for-mobile{
     display:none;
+}
+
+.project-details1{
+    display:flex;
+    flex-direction: column;
+}
+
+.project-value1{
+    min-width:40%;
 }
 
 

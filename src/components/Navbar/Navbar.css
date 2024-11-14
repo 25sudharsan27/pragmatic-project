@@ -1,11 +1,16 @@
 .navbar{
     width:100%;
     /* margin:30px 30px; */
-    
+    position:fixed;
+    top:0;
     display:flex;
     /* align-items: center; */
     justify-content:space-between;
+    z-index:10000000;
+    /* background-color:rgba(10, 29, 49, 0.1); */
+    
 }
+
 
 .navbar-logo{
     margin:25px;
@@ -20,6 +25,9 @@
     margin-right:50px;
     /* margin:50px 30px; */
     display:flex;
+    background-color:rgba(10, 29, 49, 0.1);
+    backdrop-filter: blur(20px);
+    border-radius:25px;
 
 }
 

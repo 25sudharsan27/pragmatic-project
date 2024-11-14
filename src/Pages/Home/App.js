@@ -14,6 +14,10 @@ import Company from '../../components/Company/Company';
 import Blogs from '../../components/Blogs/Blogs';
 import Connect from '../../components/Connect/Connect';
 import Footer from '../../components/Footer/Footer';
+import AOS from 'aos';  // Import AOS
+import 'aos/dist/aos.css';  // Import AOS styles
+
+
 
 function App() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -34,16 +38,26 @@ function App() {
     "Slide 5 Content",
     "Slide 6 Content",
   ];
+
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,  // Set the animation duration to 1 second
+      once: false,      // Trigger the animation only once when scrolled into view
+      startEvent: 'DOMContentLoaded'
+    });
+  }, []);
+
   return (
     <div className="App">
+      <Navbar />
       <div className="Slider">
-        <Navbar />
-        <div className="slider-content">
+        
+        <div data-aos="fade-right"  className="slider-content">
           <p className="slider-content-p">Pragmatic</p>
           <p className="slider-content-p">Project</p>
           <p className="slider-content-p">Consilium</p>
         </div>
-        <div id="sl" className="slider-button-box">
+        <div data-aos="fade-up" id="sl" className="slider-button-box">
           <button className="slider-button">Get Started </button>
           <img src={arrow} alt="arrow" className="slider-arrow" />
         </div>

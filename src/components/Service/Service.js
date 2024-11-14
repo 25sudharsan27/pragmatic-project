@@ -41,7 +41,7 @@ const App = () => {
         AOS.init({
           duration: 1000,  // Set the animation duration to 1 second
           once: false,      // Trigger the animation only once when scrolled into view
-          offset:10,
+            offset: -50,
           startEvent: 'DOMContentLoaded'
         });
       }, []);

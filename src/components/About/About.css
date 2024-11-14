@@ -1,5 +1,6 @@
 .about-section {
     display: flex;
+    flex-wrap:wrap;
     justify-content: space-evenly;
     margin-top: 100px;
     background: linear-gradient(to bottom, #0A1D31, #000000);
@@ -88,8 +89,12 @@
   #about1,
   #about2,
   #about3 {
-    height: 100%;
-    width: 25%;
+   
+    height:400px;
+    width:180px;
+    min-width:180px;
+    min-height:400px;
+    
   }
   
   #about2 {
@@ -101,7 +106,7 @@
     margin-top: 10px;
   }
   
-  @media screen and (max-width: 1000px) {
+  @media screen and (max-width: 1200px) {
     .about-heading {
       font-size: 20px;
     }
@@ -112,9 +117,15 @@
       font-size: 13px;
       line-height: 25px;
     }
+    #about1,#about2,#about3{
+      height:300px;
+      width:130px;
+      min-width:140px;
+      min-height:300px;
+    }
   }
   
-  @media screen and (max-width: 600px) {
+  @media screen and (max-width: 750px) {
     .about-para1 {
       font-weight: 600;
     }
@@ -137,5 +148,13 @@
       box-sizing: border-box;
       height: 270px;
     }
+    #about1,#about2,#about3{
+      height:210px;
+      width:100px;
+      min-width:100px;
+      min-height:200px;
+
+    }
+
   }
   

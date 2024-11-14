@@ -94,7 +94,10 @@
 }
 
 /* Media Query for screens smaller than 1300px */
-@media screen and (max-width: 1300px) {
+@media screen and (max-width: 1000px) {
+  .about-section-left{
+    transform:scaleX(0.7) scaleY(0.7);
+  }
   .about-heading {
     font-size: 28px; /* Adjust heading font size for medium screens */
   }
@@ -118,6 +121,10 @@
 
 /* Media Query for smaller screens (mobile) */
 @media screen and (max-width: 750px) {
+  .about-section-left{
+    transform:scaleX(1) scaleY(1);
+  }
+  
   .about-para1 {
     font-weight: 600;
     font-size: 24px; /* Adjust heading font size for mobile screens */

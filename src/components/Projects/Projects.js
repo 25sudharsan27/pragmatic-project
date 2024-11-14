@@ -381,7 +381,7 @@ function App() {
         </button>
       </div>
 
-      <div id="second" className="projects-nav">
+      <div  data-aos="zoom-in" data-aos-delay="300" id="second" className="projects-nav">
         <div className="projects-nav-item">
           {navItems.map((item, index) => (
             <div
@@ -401,7 +401,7 @@ function App() {
       </div>
 
       
-        <div id="for-mobile" className="projects2">
+        <div data-aos="fade-left" data-aos-delay="400" id="for-mobile" className="projects2">
           {currentProjectsPageMobile.map((project, index) => (
             <div key={index} className="project-item">
               <img src={imgproject} alt="project" className="project-img" />

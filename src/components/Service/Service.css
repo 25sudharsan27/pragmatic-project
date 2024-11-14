@@ -168,14 +168,14 @@
     z-index: -1;
 }
 
-.item-1 .dotted-line { transform: translate(-0%, -0%) rotate(0deg); }
+/* .item-1 .dotted-line { transform: translate(-0%, -0%) rotate(0deg); }
 .item-2 .dotted-line {margin-left:-150px; margin-top:-10px ; transform: translate(-100%, 0%) rotate(70deg); }
 .item-3 .dotted-line { margin-left:-170px;margin-top:-50px; transform: translate(0%, -0%) rotate(90deg); }
 .item-4 .dotted-line { transform: translate(0%, -90%) rotate(-50deg) ; margin-left:-130px; }
 .item-5 .dotted-line { transform: translate(-0%, -90%) rotate(0deg); }
 .item-6 .dotted-line { transform: translate(-0%, -85%) rotate(-115deg); margin-left:130px; }
 .item-7 .dotted-line { transform: translate(0%, -50%) rotate(90deg);margin-left:155px; }
-.item-8 .dotted-line { transform: translate(0%, -20%) rotate(-250deg); margin-left:130px; }
+.item-8 .dotted-line { transform: translate(0%, -20%) rotate(-250deg); margin-left:130px; } */
 
 
 .item1-1 { top: -8%; left: 50%; transform: translate(-50%, -100%); }

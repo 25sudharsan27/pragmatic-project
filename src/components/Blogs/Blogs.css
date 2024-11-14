@@ -129,10 +129,14 @@
         display:none;
     }
     #mobileblog{
+        margin-top:-150px;
         display:flex;
     }
+    .blg-btn{
+        margin-top:-170px;
+    }
     .blogs-button{
-        margin-top:-20px;
+        margin-top:-200px;
     }
     .blogs-heading{
         font-size:25px;

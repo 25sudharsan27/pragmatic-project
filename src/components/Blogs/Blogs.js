@@ -62,7 +62,7 @@ function App() {
                 ))
             )}
         </div>
-        <div id="mobileblog" className="blogs">
+        <div data-aos="fade-left" data-aos-delay="100" id="mobileblog" className="blogs">
             {[blogs[0]].map((blog) => (
                 <div className="blog">
                     <img src={blogimg} alt="blog" className="blog-image" />
@@ -75,7 +75,7 @@ function App() {
             )
             )}
         </div>
-        <div>
+        <div data-aos="fade-up" data-aos-delay="100" className="blg-btn">
             <a href="/blogs" className="blogs-button">View All Blogs</a>
         </div>
     </div>

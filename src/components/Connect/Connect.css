@@ -99,11 +99,16 @@
     border-radius:5px;
     /* border:1px solid #ffffff; */
     background-color: rgba(51, 131, 133, 0.1);
-    border:1px solid rgb(200, 200, 200);
+    border:2px solid rgb(200, 200, 200);
     color:white;
     margin-top:10px;
     height:40px;
     padding-left:10px;
+    transition:0.5s;
+}
+.connect-input:hover{
+    border:2px solid #71C9C6;
+
 }
 
 

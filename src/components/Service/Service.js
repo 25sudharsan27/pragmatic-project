@@ -24,6 +24,18 @@ const services = [
     { label: "Arbitrary & mediation", icon: icon5 }
 ];
 
+
+const dottedLineStyles = [
+    { transform: "translate(-0%, -0%) rotate(0deg)" },
+    { marginLeft: "-150px", marginTop: "-10px", transform: "translate(-100%, 0%) rotate(70deg)" },
+    { marginLeft: "-170px", marginTop: "-50px", transform: "translate(0%, -0%) rotate(90deg)" },
+    { transform: "translate(0%, -90%) rotate(-50deg)", marginLeft: "-130px" },
+    { transform: "translate(-0%, -90%) rotate(0deg)" },
+    { transform: "translate(-0%, -85%) rotate(-115deg)", marginLeft: "130px" },
+    { transform: "translate(0%, -50%) rotate(90deg)", marginLeft: "155px" },
+    { transform: "translate(0%, -20%) rotate(-250deg)", marginLeft: "130px" }
+  ];
+
 const App = () => {
     useEffect(() => {
         AOS.init({
@@ -45,12 +57,12 @@ const App = () => {
                 {services.map((service, index) => (
                     <div>
                     <div key={index} className={`service-item item-${index + 1}`}>
-                        <span data-aos="zoom-in"  data-aos-delay="600" className="label">{service.label}</span>
-                        <div  className="dotted-line"></div>
+                        <span data-aos="zoom-in"  data-aos-delay="900" className="label">{service.label}</span>
+                        <div style={dottedLineStyles[index]} data-aos="zoom-in" data-aos-delay="800"  className="dotted-line"></div>
 
                     </div>
                     <div className={`service-item item1-${index+1}`}>
-                        <img data-aos="zoom-in" data-aos-delay="500" src={service.icon} href="i" className="icon" />
+                        <img data-aos="zoom-in" data-aos-delay="600" src={service.icon} href="i" className="icon" />
 
                     </div>
                     </div>

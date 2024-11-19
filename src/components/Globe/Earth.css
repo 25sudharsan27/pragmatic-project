@@ -8,12 +8,12 @@
   position: relative;
   height: 100vh;
   width: 100%;
-  overflow: hidden;
 }
 
 
 .glo{
-  background: linear-gradient();
+  background-color:black;
+  padding-top:100px;
 }
 /* Globe Container */
 .w35325 {
@@ -28,7 +28,7 @@
 
   border-radius:12px;
   position: absolute;
-  top: 30px;
+  top: -40px;
   left: 50%;
   transform: translateX(-50%);
   color: white;

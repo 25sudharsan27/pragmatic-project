@@ -9,6 +9,7 @@ const GlobeWithTags = () => {
   const globeRef = useRef(null); // Ref for the globe
   const cameraRef = useRef(null); // Ref for the camera
   const cloudRef = useRef(null); // Ref for the cloud mesh
+  const tagRef = useRef(null); // Ref for the tag element
   const [currentIndex, setCurrentIndex] = useState(0);
 
   // Locations with longitude and latitude
@@ -30,7 +31,7 @@ const GlobeWithTags = () => {
     // Scene and Camera
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000);
-    camera.position.z = 5; // Adjusted the camera position to make globe appear smaller
+    camera.position.z = 5; // Adjusted the camera position to keep the globe at the center of the view
     cameraRef.current = camera;
 
     // Renderer
@@ -72,7 +73,7 @@ const GlobeWithTags = () => {
       depthWrite: false,
       blending: THREE.AdditiveBlending,
     });
-    const cloudGeometry = new THREE.SphereGeometry(0.72, 32, 32); // Clouds are slightly larger (1.05)
+    const cloudGeometry = new THREE.SphereGeometry(0.92, 32, 32); // Clouds are slightly larger (0.92)
     const cloudMesh = new THREE.Mesh(cloudGeometry, cloudMaterial);
     cloudRef.current = cloudMesh;
 
@@ -87,7 +88,7 @@ const GlobeWithTags = () => {
     light1.position.set(5, 3, 5); // Sunlight direction from one side
     scene.add(light1);
 
-    const light2 = new THREE.DirectionalLight(0xffffff, 0.5);
+    const light2 = new THREE.DirectionalLight(0xffffff, 1.1);
     light2.position.set(-5, -3, -5); // Second light from the opposite direction
     scene.add(light2);
 
@@ -98,10 +99,10 @@ const GlobeWithTags = () => {
     scene.add(hemisphereLight);
 
     // Apply scale to reduce globe size
-    earthMesh.scale.set(0.7, 0.7, 0.7);  // Scale down the globe to 70%
+    earthMesh.scale.set(0.9, 0.9, 0.9);  // Scale down the globe to 90%
 
     // Cloud animation (rotate the cloud mesh to simulate slow movement)
-    let cloudRotationSpeed = 0.0001; // Control the speed of cloud movement
+    let cloudRotationSpeed = 0.00005; // Control the speed of cloud movement
 
     // Animation Loop
     const animate = () => {
@@ -117,7 +118,27 @@ const GlobeWithTags = () => {
 
     animate();
 
+    // Adjust camera and tag positioning on window resize
+    const handleResize = () => {
+      const newWidth = window.innerWidth;
+      const newHeight = window.innerHeight;
+      
+      // Update camera aspect ratio
+      camera.aspect = newWidth / newHeight;
+      camera.updateProjectionMatrix();
+
+      // Adjust the renderer size
+      renderer.setSize(newWidth, newHeight);
+
+      // Adjust the camera position to maintain the same center
+      camera.position.set(0, 0, 5); // Keep the camera at the same distance from the globe
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    // Cleanup event listener on unmount
     return () => {
+      window.removeEventListener('resize', handleResize);
       renderer.dispose();
     };
   }, []);
@@ -143,9 +164,8 @@ const GlobeWithTags = () => {
 
     // Smoothly rotate the globe to face the target position
     const targetRotationY = (longitude * Math.PI) / 180;
-    const animationDuration = 1000;
+    const animationDuration = 2000; // 2 seconds animation duration
     const startRotationY = globeGroup.rotation.y;
-    const startPosition = camera.position.clone();
     const startTime = performance.now();
 
     const animateRotation = (time) => {
@@ -155,7 +175,7 @@ const GlobeWithTags = () => {
       // Update globe rotation
       globeGroup.rotation.y = startRotationY + progress * (targetRotationY - startRotationY);
 
-      // Adjust the camera to keep the globe in proper size and view
+      // Keep the camera distance fixed and smoothly move the camera
       const targetCameraPosition = targetPosition.clone().multiplyScalar(1.5);
       camera.position.lerp(targetCameraPosition, progress); // Smooth transition for camera position
       camera.lookAt(globeGroup.position); // Make sure camera always looks at the center of the globe
@@ -167,6 +187,11 @@ const GlobeWithTags = () => {
 
     requestAnimationFrame(animateRotation);
   };
+
+  // Rotate the globe to the initial location on mount
+  useEffect(() => {
+    rotateGlobeToLocation(currentIndex);
+  }, [currentIndex]);
 
   const handleNext = () => {
     const nextIndex = (currentIndex + 1) % locations.length;
@@ -182,26 +207,13 @@ const GlobeWithTags = () => {
     rotateGlobeToLocation(prevIndex);
   };
 
-  // Use useEffect to change the location every 3 seconds
-  useEffect(() => {
-    const intervalId = setInterval(() => {
-      const nextIndex = (currentIndex + 1) % locations.length;
-      setCurrentIndex(nextIndex);
-      setTag(locations[nextIndex]);
-      rotateGlobeToLocation(nextIndex);
-    }, 3000); // 3000ms = 3 seconds
-
-    // Cleanup the interval when the component is unmounted
-    return () => clearInterval(intervalId);
-  }, [currentIndex]); // This hook runs whenever currentIndex changes
-
   return (
     <div id="iet23" className="w35234">
       {/* Globe Container */}
       <div ref={mountRef} className="w35325"></div>
 
       {/* Tag Display Above the Globe */}
-      <div className="w35235">
+      <div className="w35235" ref={tagRef}>
         <img className="w3235-img" src={tagimg} alt="tag" />
         <h2 className="w3235-name">{tag.name}</h2>
         <p className="w3235-project">{tag.project}</p>

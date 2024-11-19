@@ -1,6 +1,6 @@
 /* General Container Styles */
 .projects-container {
-    background: linear-gradient(to bottom, #0A1D31, #0A1D31);
+    background: linear-gradient(to bottom, #0A1D31,#000000);
     box-sizing: border-box;
 
     width: 100%;

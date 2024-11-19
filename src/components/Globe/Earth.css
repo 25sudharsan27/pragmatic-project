@@ -1,0 +1,131 @@
+/* Global Reset */
+
+
+/* Full Height Container */
+.w35234 {
+  padding-top:50px;
+    background: linear-gradient(to bottom, #000000,#000000);
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+}
+
+
+.glo{
+  background: linear-gradient();
+}
+/* Globe Container */
+.w35325 {
+  width: 100%;
+  height: 100%;
+}
+
+/* Tag Styling */
+.w35235 {
+  background-color: rgba(20, 20, 20, 0.749);
+  border:1px solid aqua;
+
+  border-radius:12px;
+  position: absolute;
+  top: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  font-size: 24px;
+  text-align: center;
+  z-index: 2;
+  width:190px;
+}
+
+.w35235 h2 {
+  margin-bottom: 10px;
+}
+
+
+.w35325{
+}
+
+.w35235 p {
+  margin: 5px 0;
+}
+
+.w3235-img {
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  width: 190px;
+  height: 120px; /* Adjust the height according to your layout needs */
+  background: 
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(53, 152, 198, 0.5)) ;
+  background-size:cover;
+  background-position: center;
+  opacity:0.8;
+}
+
+/* Dashed Line using :after */
+.w35235::after {
+  
+  content: "";
+  position: absolute;
+  bottom: -60px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 60px;
+  border-left: 2px dashed aqua;
+}
+
+
+
+/* Navigation Buttons */
+.w35236 {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  transform: translateY(-50%);
+  z-index: 2;
+}
+
+.w35236 button {
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.w35236 button:hover {
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+
+.w3235-name{
+  font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  margin:0px;
+  padding:0px;
+  border:0px;
+  font-size:18px;
+}
+
+.w3235-project{
+  font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  margin:0px;
+  padding:0px;
+  border:0px;
+  font-size: 14px;
+}
+
+.w3235-value{
+  font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  margin:0px;
+  padding:0px;
+  border:0px;
+  font-size: 14px;
+}
+
+

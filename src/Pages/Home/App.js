@@ -16,7 +16,7 @@ import Connect from '../../components/Connect/Connect';
 import Footer from '../../components/Footer/Footer';
 import AOS from 'aos';  // Import AOS
 import 'aos/dist/aos.css';  // Import AOS styles
-
+import Globe from '../../components/Globe/Earth';
 
 
 function App() {
@@ -86,8 +86,12 @@ function App() {
       <About />
       <Value/>
       <Service/>
+      
       <Projects/>
       {/* <Place/> */}
+      <div className="glo">
+      <Globe/>
+      </div>
       <Company/>
       <Blogs/>
       <Connect/>

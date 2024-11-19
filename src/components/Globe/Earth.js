@@ -92,10 +92,10 @@ const GlobeWithTags = () => {
     light2.position.set(-5, -3, -5); // Second light from the opposite direction
     scene.add(light2);
 
-    const ambientLight = new THREE.AmbientLight(0x777777, 0.8); // Lower intensity for softer lighting
+    const ambientLight = new THREE.AmbientLight(0x777777, 1.5); // Lower intensity for softer lighting
     scene.add(ambientLight);
 
-    const hemisphereLight = new THREE.HemisphereLight(0xffffff, 0x444444, 0.8);
+    const hemisphereLight = new THREE.HemisphereLight(0xffffff, 0x444444, 1.4);
     scene.add(hemisphereLight);
 
     // Apply scale to reduce globe size
@@ -121,27 +121,22 @@ const GlobeWithTags = () => {
     // Adjust camera and tag positioning on window resize
     const handleResize = () => {
       const newWidth = window.innerWidth;
-      const newHeight = window.innerHeight;
-    
-      // 1. Update the camera aspect ratio and projection matrix
+
+
+      // 1. Update the camera aspect ratio based on the width, but DO NOT rescale the globe
       if (camera) {
-        camera.aspect = newWidth / newHeight;
-        camera.updateProjectionMatrix();
+        camera.aspect = newWidth / 700; // Maintain aspect ratio with width
+        camera.updateProjectionMatrix(); // Ensure the projection matrix is updated
       }
-    
-      // 2. Update the renderer size
+
+      // 2. Update the renderer size based on the width
       if (renderer) {
-        renderer.setSize(newWidth, newHeight);
+        renderer.setSize(newWidth, 700);
       }
-    
+
       // 3. Re-render the scene to reflect the resize
       if (scene && camera && renderer) {
         renderer.render(scene, camera);
-      }
-    
-      // Optional: Re-center the globe and camera
-      if (globeRef.current) {
-        globeRef.current.position.set(0, 0, 0); // Reset the globe's position to the center
       }
     };
 

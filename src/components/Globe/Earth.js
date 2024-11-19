@@ -9,7 +9,7 @@ const GlobeWithTags = () => {
   const globeRef = useRef(null); // Ref for the globe
   const cameraRef = useRef(null); // Ref for the camera
   const cloudRef = useRef(null); // Ref for the cloud mesh
-  const tagRef = useRef(null); // Ref for the tag element
+  const tagRef = useRef(null); // Ref for the tag
   const [currentIndex, setCurrentIndex] = useState(0);
 
   // Locations with longitude and latitude
@@ -28,13 +28,13 @@ const GlobeWithTags = () => {
     const width = window.innerWidth;
     const height = window.innerHeight;
 
-    // Scene and Camera
+    // Scene and Camera Setup
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000);
-    camera.position.z = 5; // Adjusted the camera position to keep the globe at the center of the view
+    camera.position.z = 5; // Initial camera position
     cameraRef.current = camera;
 
-    // Renderer
+    // Renderer Setup
     const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
     renderer.setSize(width, height);
     renderer.toneMapping = THREE.ACESFilmicToneMapping;
@@ -69,7 +69,7 @@ const GlobeWithTags = () => {
     const cloudMaterial = new THREE.MeshStandardMaterial({
       map: textureLoader.load("/textures/8k_earth_clouds.jpg"),
       transparent: true,
-      opacity: 0.6,
+      opacity: 0.8,
       depthWrite: false,
       blending: THREE.AdditiveBlending,
     });
@@ -122,16 +122,27 @@ const GlobeWithTags = () => {
     const handleResize = () => {
       const newWidth = window.innerWidth;
       const newHeight = window.innerHeight;
-      
-      // Update camera aspect ratio
-      camera.aspect = newWidth / newHeight;
-      camera.updateProjectionMatrix();
-
-      // Adjust the renderer size
-      renderer.setSize(newWidth, newHeight);
-
-      // Adjust the camera position to maintain the same center
-      camera.position.set(0, 0, 5); // Keep the camera at the same distance from the globe
+    
+      // 1. Update the camera aspect ratio and projection matrix
+      if (camera) {
+        camera.aspect = newWidth / newHeight;
+        camera.updateProjectionMatrix();
+      }
+    
+      // 2. Update the renderer size
+      if (renderer) {
+        renderer.setSize(newWidth, newHeight);
+      }
+    
+      // 3. Re-render the scene to reflect the resize
+      if (scene && camera && renderer) {
+        renderer.render(scene, camera);
+      }
+    
+      // Optional: Re-center the globe and camera
+      if (globeRef.current) {
+        globeRef.current.position.set(0, 0, 0); // Reset the globe's position to the center
+      }
     };
 
     window.addEventListener('resize', handleResize);
@@ -141,7 +152,7 @@ const GlobeWithTags = () => {
       window.removeEventListener('resize', handleResize);
       renderer.dispose();
     };
-  }, []);
+  }, []); // Empty dependency array ensures this runs only once
 
   const rotateGlobeToLocation = (index) => {
     const globeGroup = globeRef.current.parent;
@@ -188,11 +199,6 @@ const GlobeWithTags = () => {
     requestAnimationFrame(animateRotation);
   };
 
-  // Rotate the globe to the initial location on mount
-  useEffect(() => {
-    rotateGlobeToLocation(currentIndex);
-  }, [currentIndex]);
-
   const handleNext = () => {
     const nextIndex = (currentIndex + 1) % locations.length;
     setCurrentIndex(nextIndex);
@@ -206,6 +212,10 @@ const GlobeWithTags = () => {
     setTag(locations[prevIndex]);
     rotateGlobeToLocation(prevIndex);
   };
+
+  useEffect(() => {
+    rotateGlobeToLocation(currentIndex); // Rotate to the first location immediately on initial load
+  }, [currentIndex]);
 
   return (
     <div id="iet23" className="w35234">

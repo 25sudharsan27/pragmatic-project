@@ -158,8 +158,18 @@
 #conn-mobile{
     display: none;
 }
+#mobcon{
+    display:none;
+}
 
 @media screen and (max-width : 850px){
+
+    .connect-form-1{
+        display:none;
+    }
+    #mobcon{
+        display:block;
+    }
     .connect{
         padding:30px;
         padding-top:100px;

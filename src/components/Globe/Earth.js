@@ -109,7 +109,7 @@ const GlobeWithTags = () => {
     earthMesh.scale.set(0.9, 0.9, 0.9);  // Scale down the globe to 90%
 
     // Cloud animation (rotate the cloud mesh to simulate slow movement)
-    let cloudRotationSpeed = 0.00005; // Control the speed of cloud movement
+    let cloudRotationSpeed = 0.0001; // Control the speed of cloud movement
 
     // Animation Loop
     const animate = () => {
@@ -194,7 +194,7 @@ const GlobeWithTags = () => {
   
     // Smoothly rotate the globe to face the target position
     const targetRotationY = lonRad; // Target rotation based on longitude
-    const animationDuration = 2000; // 2 seconds for the animation duration
+    const animationDuration = 1500; // 2 seconds for the animation duration
     const startRotationY = globeGroup.rotation.y;
     const startTime = performance.now();
   
@@ -256,11 +256,11 @@ const GlobeWithTags = () => {
         <img className="w3235-img" src={tagimg} alt="tag" />
         <div className="w3235-name-cont" >
           <h2 className="w3235-name">{tag.name}</h2>
-          <h2 className="w3235-usd-value">{tag.value}</h2>
+          <h2 className="w3235-usd-value">{tag.value1}</h2>
         </div>
         <div className="w3235-project-cont" >
         <p className="w3235-project">Projects {tag.project}</p>
-        <p className="w3235-value">Project Value: {tag.value}</p>
+        <p className="w3235-value">Projects Value: {tag.value}</p>
         </div>
       </div>
 

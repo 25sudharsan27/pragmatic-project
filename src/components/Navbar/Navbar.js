@@ -2,6 +2,7 @@ import './Navbar.css';
 // import { a } from 'react-router-dom';
 import logo from '../images/logo.png';
 
+import { Link } from 'react-router-dom';
 
 function App({pos}) {
   
@@ -10,7 +11,8 @@ function App({pos}) {
     
     <div className="navbar">
       <div>
-      <img src={logo} alt="logo" className="navbar-logo" />
+        <Link > <img src={logo} alt="logo" className="navbar-logo" /></Link>
+      
       </div>
       <div className="navbar-right">
         <a href="/" className="navbar-item" >Home</a>

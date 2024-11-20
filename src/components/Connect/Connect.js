@@ -27,7 +27,7 @@ function App() {
             <h1 data-aos="fade-left" data-aos-delay="300" className="connect-content">Have a project in mind? Reach us directly for a personalized experience.</h1>
             <form className="connect-form">
                 <div className="connect-form-1">
-                    <div className="connect-names">
+                    <div className="connect-names" >
                         <p1 data-aos="fade-up" data-aos-delay="500"  id="connect-lables">First Name</p1>
                         <input data-aos="fade-up" data-aos-delay="100" placeholder='First Name' type="text" name="first-name" className="connect-input" />
                     </div>
@@ -35,6 +35,14 @@ function App() {
                         <p1 data-aos="fade-up" data-aos-delay="500" id="connect-lables">Last Name</p1>
                         <input data-aos="fade-up" data-aos-delay="100" placeholder="Last Name" type="text" name="last-name" className="connect-input" />
                     </div>
+                </div>
+                <div id="mobcon" className="connect-form-2">
+                        <p1 data-aos="fade-up" data-aos-delay="500" id="connect-lables">First Name</p1>
+                        <input data-aos="fade-up" data-aos-delay="100" placeholder="First Name" type="text" name="first-name" className="connect-input" />
+                </div>
+                <div id="mobcon" className="connect-form-2">
+                        <p1 data-aos="fade-up" data-aos-delay="500" id="connect-lables">Last Name</p1>
+                        <input data-aos="fade-up" data-aos-delay="100" placeholder="Last Name" type="text" name="last-name" className="connect-input" />
                 </div>
                 <div className="connect-form-2">
                         <p1 data-aos="fade-up" data-aos-delay="500" id="connect-lables">Email</p1>

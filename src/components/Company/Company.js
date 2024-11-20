@@ -19,7 +19,10 @@ function App() {
 
   return (
     <div className="company-container">
-        <h1 data-aos="fade-up" data-aos-delay="200" className="company-container-name">Brands We Collaborate</h1>
+        <div className="globe-heading-cont" id="project-h-h">
+        <h1  className="globe-heading" data-aos="fade-up">Brands We Collaborate</h1>
+        <div className="global-line" data-aos="fade-up"  id="project-h"></div>        
+      </div>
     <div className="company">
         <img data-aos="fade-left" data-aos-delay="300" src={company1} alt="company" id="company-image" />
         <img data-aos="fade-left" data-aos-delay="400" src={company2} alt="company" id="company-image" />

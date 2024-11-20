@@ -278,7 +278,7 @@
 
 
 /* Responsive Design for Smaller Screens */
-@media (max-width: 800px) {
+@media (max-width: 1100px) {
     .nav-item{
         margin:0px;
         padding:0px;
@@ -310,13 +310,13 @@
         
     }
     
-    .pagination-controls{
-        display:none;
-    }
+    
 }
 
 @media (max-width: 480px) {
-    
+    .pagination-controls{
+        display:none;
+    }
     #second{
         margin-top:-25px;
     }

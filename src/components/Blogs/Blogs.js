@@ -36,8 +36,11 @@ function App() {
     ]
   return (
     <div className="blogs-container">
-        <h1 data-aos="fade-up" data-aos-delay="200" className="blogs-heading">Explore Our Blogs</h1>
-        <div  id="normalblog" className="blogs">
+        <div className="globe-heading-cont" id="project-h-h">
+        <h1  className="globe-heading" data-aos="fade-up">Explore Our Blogs</h1>
+        <div className="global-line" data-aos="fade-up"  id="project-h"></div>        
+      </div>
+        <div  id="normalblog" className="blogs1">
             {(blogs.length > 3 ? (blogs.slice(0,3).map((blog) =>{ 
                 counter+=100;
                 return (
@@ -62,7 +65,7 @@ function App() {
                 ))
             )}
         </div>
-        <div data-aos="fade-left" data-aos-delay="100" id="mobileblog" className="blogs">
+        <div data-aos="fade-left" data-aos-delay="100" id="mobileblog" className="blogs1">
             {[blogs[0]].map((blog) => (
                 <div className="blog">
                     <img src={blogimg} alt="blog" className="blog-image" />

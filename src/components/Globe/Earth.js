@@ -14,12 +14,19 @@ const GlobeWithTags = () => {
 
   // Locations with longitude and latitude
   const locations = [
-    { name: "India", longitude: 50.96, latitude: 82.59, project: "Project A", value: "$50M" },
-    { name: "Mexico", longitude: 138.55, latitude: 88.63, project: "Project B", value: "$30M" },
-    { name: "Saudi Arabia", longitude: 65.1, latitude: 85.88, project: "Project C", value: "$70M" },
-    { name: "China", longitude: 35.19, latitude: 76.86, project: "Project D", value: "$90M" },
-    { name: "South Africa", longitude: 77.00, latitude: 136.00, project: "Project E", value: "$40M" },
-  ];
+    { name: "U.A.E", longitude: 152.3, latitude: 78.82, project: 10, value: "AED 2.318 Billion", value1: "$ 631.65 M" },
+    { name: "India", longitude: 141.59, latitude:76.0, project: 12, value: "INR 1640.43 Crores", value1: "$ 210.15 M" },
+    { name: "Kuwait", longitude: 156.2, latitude: 73.0, project: 3, value: "KD 18 Million", value1: "$ 59.4 M" },
+    { name: "Yemen", longitude: 156.2, latitude: 87.0, project: 1, value: "USD 41 Million", value1: "$ 41 M" },
+    { name: "KSA",  longitude: 157.85, latitude: 78.82, project: 2, value: "SAR 90 Million", value1: "$ 24 Million" },
+    { name: "Kazakhastan", longitude: 144.59, latitude:52.0, project: 1, value: "USD 14 Million", value1: " $14 M" },
+    { name: "Oman",  longitude: 151.6, latitude: 78.82, project: 1, value: "OMR 3 Million", value1: "$ 7.8 M" },
+    { name: "Qatar",  longitude: 154.3, latitude: 77.4,  project: 1, value: "QNR 8 Million", value1: "$ 2.2 M" },
+    { name: "Nepal", longitude: 136.9, latitude:75.5, project: 1, value: "USD 2.18 Million", value1: "$ 2.18 M" }
+];
+
+
+
 
   // Tag content state
   const [tag, setTag] = useState(locations[currentIndex]);
@@ -117,6 +124,20 @@ const GlobeWithTags = () => {
     };
 
     animate();
+    if (camera) {
+      camera.aspect = window.innerWidth / 700; // Maintain aspect ratio with width
+      camera.updateProjectionMatrix(); // Ensure the projection matrix is updated
+    }
+
+    // 2. Update the renderer size based on the width
+    if (renderer) {
+      renderer.setSize(window.innerWidth, 700);
+    }
+
+    // 3. Re-render the scene to reflect the resize
+    if (scene && camera && renderer) {
+      renderer.render(scene, camera);
+    }
 
     // Adjust camera and tag positioning on window resize
     const handleResize = () => {
@@ -152,47 +173,53 @@ const GlobeWithTags = () => {
   const rotateGlobeToLocation = (index) => {
     const globeGroup = globeRef.current.parent;
     const camera = cameraRef.current;
-
+  
     if (!globeGroup || !camera) return;
-
+  
     const { longitude, latitude } = locations[index];
-
+  
     // Convert latitude and longitude to radians
-    const phi = (latitude * Math.PI) / 180;
-    const theta = ((longitude + 180) * Math.PI) / 180;
-
-    // Calculate the target position of the globe
+    const latRad = (latitude * Math.PI) / 180; // Latitude in radians
+    const lonRad = (longitude * Math.PI) / 180; // Longitude in radians
+  
+    // Calculate the 3D position on the globe using spherical coordinates
     const targetPosition = new THREE.Vector3(
-      Math.sin(phi) * Math.cos(theta),
-      Math.cos(phi),
-      Math.sin(phi) * Math.sin(theta)
+      Math.sin(latRad) * Math.cos(lonRad),  // X
+      Math.cos(latRad),                    // Y
+      Math.sin(latRad) * Math.sin(lonRad)   // Z
     );
-
+  
+    // Maintain a constant distance from the globe (e.g., 1.5 times the globe's radius)
+    const targetCameraPosition = targetPosition.clone().multiplyScalar(1.5); 
+  
     // Smoothly rotate the globe to face the target position
-    const targetRotationY = (longitude * Math.PI) / 180;
-    const animationDuration = 2000; // 2 seconds animation duration
+    const targetRotationY = lonRad; // Target rotation based on longitude
+    const animationDuration = 2000; // 2 seconds for the animation duration
     const startRotationY = globeGroup.rotation.y;
     const startTime = performance.now();
-
+  
+    // Smooth camera movement speed
+    const startCameraPosition = camera.position.clone();
+  
     const animateRotation = (time) => {
       const elapsedTime = time - startTime;
       const progress = Math.min(elapsedTime / animationDuration, 1);
-
-      // Update globe rotation
-      globeGroup.rotation.y = startRotationY + progress * (targetRotationY - startRotationY);
-
-      // Keep the camera distance fixed and smoothly move the camera
-      const targetCameraPosition = targetPosition.clone().multiplyScalar(1.5);
-      camera.position.lerp(targetCameraPosition, progress); // Smooth transition for camera position
-      camera.lookAt(globeGroup.position); // Make sure camera always looks at the center of the globe
-
+  
+      // Smoothly update the globe's rotation around the Y axis
+      globeGroup.rotation.y = THREE.MathUtils.lerp(startRotationY, targetRotationY, progress);
+  
+      // Smoothly move the camera position along the globe's surface to maintain constant distance
+      camera.position.lerpVectors(startCameraPosition, targetCameraPosition, progress);
+      camera.lookAt(globeGroup.position); // Ensure the camera is always focused on the center of the globe
+  
       if (progress < 1) {
-        requestAnimationFrame(animateRotation);
+        requestAnimationFrame(animateRotation); // Continue animation
       }
     };
-
+  
     requestAnimationFrame(animateRotation);
   };
+  
 
   const handleNext = () => {
     const nextIndex = (currentIndex + 1) % locations.length;
@@ -213,6 +240,13 @@ const GlobeWithTags = () => {
   }, [currentIndex]);
 
   return (
+    <div className="glb-com">
+      <div className="globe-heading-cont2">
+      <div className="globe-heading-cont">
+        <h1  className="globe-heading" data-aos="fade-up">Places we serve</h1>
+        <div className="global-line" data-aos="fade-up"  id="globe-h"></div>        
+      </div>
+      </div>
     <div id="iet23" className="w35234">
       {/* Globe Container */}
       <div ref={mountRef} className="w35325"></div>
@@ -220,9 +254,14 @@ const GlobeWithTags = () => {
       {/* Tag Display Above the Globe */}
       <div className="w35235" ref={tagRef}>
         <img className="w3235-img" src={tagimg} alt="tag" />
-        <h2 className="w3235-name">{tag.name}</h2>
-        <p className="w3235-project">{tag.project}</p>
+        <div className="w3235-name-cont" >
+          <h2 className="w3235-name">{tag.name}</h2>
+          <h2 className="w3235-usd-value">{tag.value}</h2>
+        </div>
+        <div className="w3235-project-cont" >
+        <p className="w3235-project">Projects {tag.project}</p>
         <p className="w3235-value">Project Value: {tag.value}</p>
+        </div>
       </div>
 
       {/* Prev and Next Buttons */}
@@ -230,6 +269,7 @@ const GlobeWithTags = () => {
         <button onClick={handlePrev}>Prev</button>
         <button onClick={handleNext}>Next</button>
       </div>
+    </div>
     </div>
   );
 };

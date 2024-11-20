@@ -320,7 +320,10 @@ function App() {
 
   return (
     <div className="projects-container">
-      <h1 data-aos="fade-up" className="projects-heading">Projects</h1>
+      <div className="globe-heading-cont" id="project-h-h">
+        <h1  className="globe-heading" data-aos="fade-up">Projects</h1>
+        <div className="global-line" data-aos="fade-up"  id="project-h"></div>        
+      </div>
       <p data-aos="fade-up" data-aos-delay="200" className="projects-para">
         Enter Pragmatic Project Consilium, a team of experts in Projects, Contracts, and Claims management across various construction fields. 
         Our mission is to tackle global challenges, improve project efficiency, and resolve contractual disputes. We also aim to revive non-performing contractor assets, 

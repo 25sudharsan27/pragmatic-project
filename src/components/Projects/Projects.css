@@ -26,6 +26,15 @@
 }
 
 /* Paragraph Styles */
+#project-h{
+    padding:0px;
+}
+
+#project-h-h{
+    padding-top:20px;
+    padding-bottom:20px;
+}
+
 .projects-para {
     font-family: 'Plus Jakarta Display', sans-serif;
     width: 70%;
@@ -34,6 +43,7 @@
     font-weight: 300;
     font-size: 17px;
     margin-bottom: 40px;
+
 }
 
 /* Navigation Section */

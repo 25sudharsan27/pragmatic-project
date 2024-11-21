@@ -12,7 +12,7 @@ function App() {
       duration: 1000,  // Set the animation duration to 1 second
       once: false,      // Trigger the animation only once when scrolled into view
       startEvent: 'DOMContentLoaded',
-      offset:50,
+      offset:10,
     });
   }, []);
 

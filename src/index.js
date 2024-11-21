@@ -5,6 +5,7 @@ import Home from './Pages/Home/App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Router, Routes,Route } from 'react-router-dom';
 import Blogs from './Pages/Blogs/Blogs';
+import Services from './Pages/Services/Services';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -14,6 +15,7 @@ root.render(
         
         <Route path="/" element={<Home />}/>
         <Route path="/blogs" element={<Blogs/>} />
+        <Route path="/services" element={<Services/>} />
         <Route path="/*" element={<Home />}/>
       </Routes>
       

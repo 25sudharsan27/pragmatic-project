@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import './Blogs.css';
 import Navbar from '../../components/Navbar/Navbar';
-import blogimg from '../../components/images/Post1.png';
+import blogimg from '../../components/images/India.png';
 
 const Blogs = () => {
     const [categoriesData, setCategoriesData] = useState("category1");

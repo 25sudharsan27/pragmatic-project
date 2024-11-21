@@ -25,7 +25,7 @@ const SplashScreen = () => {
   return (
     <div className="splash-screen">
        <div className="splash-heading" data-aos="fade-up">Pragmatic Project Collision </div> 
-       <div className="splash-heading2" data-aos="fade-up" data-aos-delay="400">Welocomes You</div>
+       <div className="splash-heading2" data-aos="fade-up" data-aos-delay="400">Welcomes You</div>
     </div>
   );
 };

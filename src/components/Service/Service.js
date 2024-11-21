@@ -12,6 +12,7 @@ import icon8 from '../images/icon8.svg';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { useEffect } from 'react';
+import { margin } from '@mui/system';
 
 const services = [
     { label: "Expert Witness / Independent Opinion", icon: icon2 },
@@ -21,20 +22,28 @@ const services = [
     { label: "Quantum Analysis from EOT", icon: icon7},
     { label: "Prolongation Claims", icon: icon8 },
     { label: "Planning & Project Control", icon: icon1 },
-    { label: "Arbitrary & mediation", icon: icon5 }
+    { label: "Earned Value Management", icon: icon5 },
+    { label : "Forensic Delay Analysis" , icon : icon5},
+    {label : "Contract & Schedule Risk Management" , icon: icon2},
+    {label : "Training on Project Control", icon : icon4},
+    {label : "Delay Claims | Disruption Claims", icon : icon3}
 ];
 
 
 const dottedLineStyles = [
     { transform: "translate(-0%, -0%) rotate(0deg)" },
-    { marginLeft: "-150px", marginTop: "-10px", transform: "translate(-100%, 0%) rotate(70deg)" },
+    { marginLeft: "-150px", marginTop: "-60px", transform: "translate(-20%, 30%) rotate(255deg)" },
     { marginLeft: "-170px", marginTop: "-50px", transform: "translate(0%, -0%) rotate(90deg)" },
-    { transform: "translate(0%, -90%) rotate(-50deg)", marginLeft: "-130px" },
+    { transform: "translate(0%, -65%) rotate(110deg)", marginLeft: "-130px" },
     { transform: "translate(-0%, -90%) rotate(0deg)" },
-    { transform: "translate(-0%, -85%) rotate(-115deg)", marginLeft: "130px" },
+    { transform: "translate(-0%, -75%) rotate(-110deg)", marginLeft: "130px" },
     { transform: "translate(0%, -50%) rotate(90deg)", marginLeft: "155px" },
-    { transform: "translate(0%, -20%) rotate(-250deg)", marginLeft: "130px" }
-  ];
+    { transform: "translate(-20%, -30%) rotate(-255deg)", marginLeft: "160px" },
+    { transform : "translate(0%,-15%) rotate(-70deg)",marginLeft:"140px" },
+    { transform : "translate(-0%,-20%) rotate(70deg)",marginLeft:"-200px" },
+    { transform: "translate(-0%, -75%) rotate(-120deg)", marginLeft: "130px" },
+    { transform: "translate(-0%, -75%) rotate(120deg)" , marginLeft:"-160px" }
+];
 
 const App = () => {
     useEffect(() => {

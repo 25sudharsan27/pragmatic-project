@@ -17,7 +17,18 @@ import Footer from '../../components/Footer/Footer';
 import AOS from 'aos';  // Import AOS
 import 'aos/dist/aos.css';  // Import AOS styles
 import Globe from '../../components/Globe/Earth';
+import './SplashScreen.css';
 
+import logo from '../../components/images/logo.png';
+
+const SplashScreen = () => {
+  return (
+    <div className="splash-screen">
+       <div className="splash-heading" data-aos="fade-up">Pragmatic Project Collision </div> 
+       <div className="splash-heading2" data-aos="fade-up" data-aos-delay="400">Welocoms You</div>
+    </div>
+  );
+};
 
 function App() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -25,6 +36,8 @@ function App() {
   const nextSlide = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % slides.length);
   };
+
+  
 
   useEffect(() => {
     const interval = setInterval(nextSlide, 3000); // Change slide every 3 seconds
@@ -47,7 +60,24 @@ function App() {
     });
   }, []);
 
+  const [loading, setLoading] = useState(true);
+
+  // Use useEffect to hide the splash screen after 2 seconds
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);  // After 2 seconds, stop loading
+    }, 2500);  // 2000 milliseconds = 2 seconds
+
+    // Cleanup function in case the component unmounts before the timer ends
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
+    <>
+    {loading ? (
+      <SplashScreen />  // Show splash screen if loading is true
+    ) :(
+
     <div className="App">
       <Navbar pos="fixed" />
       <div className="Slider">
@@ -98,7 +128,10 @@ function App() {
       <Footer/>
 
     </div>
+    )}
+    </>
   );
+
 }
 
 export default App;

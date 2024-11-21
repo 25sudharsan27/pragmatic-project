@@ -2,9 +2,12 @@
 
 
 /* Full Height Container */
+.glb-com{
+  background: linear-gradient(to bottom, #071422,#000000);
+
+}
 .w35234 {
   padding-top:50px;
-    background: linear-gradient(to bottom, #000000,#000000);
   position: relative;
   height: 500px;
   width: 100%;
@@ -14,7 +17,7 @@
 
 
 .glo{
-  background-color:black;
+  background-color:#071422;
   padding-top:100px;
 }
 /* Globe Container */

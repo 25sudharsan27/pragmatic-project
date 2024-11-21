@@ -1,15 +1,15 @@
 import React, { useRef, useEffect, useState } from "react";
 import * as THREE from "three";
-import './Earth.css'; // Link the CSS file here
+import './Earth.css'; 
 
-import tagimg from '../images/India.png'; // Import the tag image
+import tagimg from '../images/India.png'; 
 
 const GlobeWithTags = () => {
   const mountRef = useRef(null);
-  const globeRef = useRef(null); // Ref for the globe
-  const cameraRef = useRef(null); // Ref for the camera
-  const cloudRef = useRef(null); // Ref for the cloud mesh
-  const tagRef = useRef(null); // Ref for the tag
+  const globeRef = useRef(null); 
+  const cameraRef = useRef(null);
+  const cloudRef = useRef(null); 
+  const tagRef = useRef(null); 
   const [currentIndex, setCurrentIndex] = useState(0);
 
   // Locations with longitude and latitude
@@ -31,32 +31,29 @@ const GlobeWithTags = () => {
   // Tag content state
   const [tag, setTag] = useState(locations[currentIndex]);
 
+  const [isInView, setIsInView] = useState(false); // Track if the globe is in view
+
   useEffect(() => {
     const width = window.innerWidth;
     const height = window.innerHeight;
 
-    // Scene and Camera Setup
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000);
-    camera.position.z = 5; // Initial camera position
+    camera.position.z = 5; 
     cameraRef.current = camera;
 
-    // Renderer Setup
     const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
     renderer.setSize(width, height);
     renderer.toneMapping = THREE.ACESFilmicToneMapping;
     renderer.outputColorSpace = THREE.LinearSRGBColorSpace;
     mountRef.current.appendChild(renderer.domElement);
 
-    // Texture Loader
     const textureLoader = new THREE.TextureLoader();
 
-    // Earth Globe Textures
     const earthMap = textureLoader.load("/textures/8k_earth_daymap.jpg"); // Base color map
     const earthBumpMap = textureLoader.load("/textures/01_earthbump1k.jpg"); // Bump map
     const earthSpecularMap = textureLoader.load("/textures/02_earthspec1k.jpg"); // Specular map (for shine)
 
-    // Earth Material (without emissive map)
     const earthMaterial = new THREE.MeshStandardMaterial({
       map: earthMap,
       bumpMap: earthBumpMap,
@@ -239,6 +236,49 @@ const GlobeWithTags = () => {
     rotateGlobeToLocation(currentIndex); // Rotate to the first location immediately on initial load
   }, [currentIndex]);
 
+
+  useEffect(() => {
+    // Intersection Observer to detect if the globe is in view
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsInView(true);
+        } else {
+          setIsInView(false);
+        }
+      },
+      { threshold: 0.5 } // Trigger when 50% of the element is visible
+    );
+
+    const globeElement = mountRef.current;
+    if (globeElement) observer.observe(globeElement);
+
+    // Cleanup observer on unmount
+    return () => {
+      if (globeElement) observer.unobserve(globeElement);
+    };
+  }, []);
+
+  useEffect(() => {
+    let interval;
+    if (isInView) {
+      // Only start interval when the globe is in view
+      interval = setInterval(() => {
+        const nextIndex = (currentIndex + 1) % locations.length;
+        setCurrentIndex(nextIndex);
+        setTag(locations[nextIndex]);
+        rotateGlobeToLocation(nextIndex);
+      }, 3000); // Change location every 3 seconds
+    } else {
+      clearInterval(interval); // Stop interval if globe is not in view
+    }
+
+    return () => {
+      clearInterval(interval); // Clear interval when the component unmounts or globe goes out of view
+    };
+  }, [currentIndex, isInView]); // Re-run the effect whenever the currentIndex or isInView changes
+
+
   return (
     <div className="glb-com">
       <div className="globe-heading-cont2">
@@ -247,7 +287,7 @@ const GlobeWithTags = () => {
         <div className="global-line" data-aos="fade-up"  id="globe-h"></div>        
       </div>
       </div>
-    <div id="iet23" className="w35234">
+    <div data-aos="fade-up" id="iet23" className="w35234">
       {/* Globe Container */}
       <div ref={mountRef} className="w35325"></div>
 

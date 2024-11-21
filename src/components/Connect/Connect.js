@@ -15,7 +15,7 @@ function App() {
         });
     }, []);
   return (
-    
+    <div className="connect1">
     <div className="connect">
         <div data-aos="fade-up" className="connect-image" ></div>
 
@@ -57,6 +57,7 @@ function App() {
 
             </form>
         </div>
+    </div>
     </div>
   );
 }

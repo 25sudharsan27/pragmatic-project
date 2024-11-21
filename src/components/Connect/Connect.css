@@ -1,13 +1,21 @@
 .connect{
-    background: linear-gradient(to bottom, #0A1D31, #040b13);
-    padding:30px;
+    /* padding:30px; */
     margin-top:100px;
     display:flex;
     justify-content: space-evenly;
     gap:25px;
-    padding:50px;
+    margin:50px;
     /* align-items: center; */
 }
+
+.connect1{
+    padding-top:40px;
+    height:100%;
+    width:100%;
+    background: linear-gradient(to bottom, #0A1D31, #040b13);
+    padding-bottom:70px;
+}
+
 
 .connect-image{
     background-image: url("../images/Connect.png");
@@ -167,6 +175,9 @@
 }
 
 @media screen and (max-width : 850px){
+    .connect{
+        margin:30px;
+    }
 
     .connect-form-1{
         display:none;
@@ -175,10 +186,6 @@
         display:block;
     }
     .connect{
-        padding:30px;
-        padding-top:100px;
-
-        margin:0px;
         flex-direction:column;
     }
     .connect-heading{
@@ -193,6 +200,8 @@
      .connect-input{
         font-size:14px;
         height:35px;
+        padding-left:5px;
+        width:98%;
      }
      .connect-input::placeholder{
         font-size:14px;

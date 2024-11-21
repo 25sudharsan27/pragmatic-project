@@ -4,6 +4,7 @@ import logo from '../images/logo.png';
 
 import { Link } from 'react-router-dom';
 
+import { Link as ScrollLink} from 'react-scroll';
 function App({pos}) {
   
   if(pos==='fixed'){
@@ -15,9 +16,9 @@ function App({pos}) {
       
       </div>
       <div className="navbar-right">
-        <a href="/" className="navbar-item" >Home</a>
+        <ScrollLink to="App" smooth={true} duration={1000} ><a className="navbar-item" >Home</a></ScrollLink>
         <a href="#" className="navbar-item" >Who We are?</a>
-        <a href="#" className="navbar-item" >Connect With Us</a>
+        <ScrollLink to="connect1" smooth={true} duration={1000} ><a className="navbar-item" >Connect With Us</a></ScrollLink>
         <a href="/blogs" className="navbar-item" >Blogs</a>
       </div>
     </div>

@@ -5,7 +5,7 @@ import {useEffect, useState, useRef } from 'react';
 
 import Aos from 'aos';
 import 'aos/dist/aos.css';
-import img from '../../components/images/about2.png';
+import img from '../../components/images/India.png';
 
 const Connect = () => {
     return (
@@ -209,7 +209,13 @@ const Services = () => {
                 <div  className="blogs" id="service-p">
                     <h1 className="service-page-heading">{service.label}</h1>
                     <div style={{backgroundImage:`url(${service.image})`}} className="service-page-image" />
-                    <p1 className="service-page-content">{service.explanation}</p1>
+                    <u1 className="service-page-content1">
+                       {service.explanation.split('.').map((point,index) => (
+                            point!=""? 
+                            <li key={index} className="service-page-content">{point}</li>
+                            : null
+                          ))}
+                    </u1>
                     <Connect/>
                                
                 </div>

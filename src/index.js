@@ -16,7 +16,7 @@ root.render(
         <Route path="/" element={<Home />}/>
         <Route path="/blogs" element={<Blogs/>} />
         <Route path="/services" element={<Services/>} />
-        <Route path="/*" element={<Home />}/>
+        <Route path="/blogs/:id" element={<Blogs/>} />
       </Routes>
       
     </BrowserRouter>

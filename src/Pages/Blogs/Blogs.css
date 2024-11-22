@@ -114,6 +114,53 @@
     width: 100%;
 }
 
+
+.blog{
+    cursor: pointer;
+}
+.blog-image1{
+    width:100%;
+    height:600px;
+}
+.blog-heading1{
+    font-family: 'Jost', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: #FFFFFF;
+    margin: 0px;
+}
+.blog-singl1-page{
+    width:100%;
+    padding:30px;
+    
+}
+
+.blog-single-page1{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding:20px;
+}
+
+.blog-reading-time1{
+    font-family: 'Jost', sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    color: #FFFFFF;
+    margin: 0px;
+}
+
+.blog-content1{
+    padding:20px;
+    margin-top: 10px;
+    font-family: 'Jost', sans-serif;
+    font-size: 15px;
+    font-weight: 300;
+    color: #FFFFFF;
+    margin: 0px;
+    margin-top: 10px;
+    line-height: 26px;
+}
 /* Mobile view: Sidebar will be hidden off-screen by default */
 @media (max-width: 768px) {
 

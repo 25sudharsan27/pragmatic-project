@@ -18,6 +18,7 @@ function App({pos}) {
       <div className="navbar-right">
         <ScrollLink to="App" smooth={true} duration={1000} ><a className="navbar-item" >Home</a></ScrollLink>
         <a href="#" className="navbar-item" >Who We are?</a>
+        <a href="/services" className="navbar-item" >Services</a>
         <ScrollLink to="connect1" smooth={true} duration={1000} ><a className="navbar-item" >Connect With Us</a></ScrollLink>
         <a href="/blogs" className="navbar-item" >Blogs</a>
       </div>
@@ -33,8 +34,9 @@ function App({pos}) {
         </div>
         <div className="navbar-right">
           <a href="/" className="navbar-item" >Home</a>
-          <a href="#" className="navbar-item" >Who We are?</a>
-          <a href="#" className="navbar-item" >Connect With Us</a>
+          <a href="/" className="navbar-item" >Who We are?</a>
+          <a href="/services" className="navbar-item" >Services</a>
+          <a href="/#connect3" className="navbar-item" >Connect With Us</a>
           <a href="/blogs" className="navbar-item" >Blogs</a>
         </div>
       </div>

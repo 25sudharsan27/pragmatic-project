@@ -56,17 +56,6 @@
 
 
 
-.services-cat-heading{
-    position: fixed;
-    
-    font-size:30px;
-    font-family:'Plus Jakarta Display', sans-serif;
-    font-weight:700;
-    color:white;
-    padding:20px;
-    text-align: center;
-}
-
 .service-cat{
     position: relative;
     cursor: pointer;

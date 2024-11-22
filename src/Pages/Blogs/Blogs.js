@@ -2,6 +2,8 @@ import React, { useState, useRef, useEffect } from 'react';
 import './Blogs.css';
 import Navbar from '../../components/Navbar/Navbar';
 import blogimg from '../../components/images/India.png';
+import {  useParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const Blogs = () => {
     const [categoriesData, setCategoriesData] = useState("category1");
@@ -9,6 +11,9 @@ const Blogs = () => {
     const sidebarRef = useRef(null);  // Ref for sidebar
     const toggleBtnRef = useRef(null); // Ref for the toggle button
 
+    const navigator = new useNavigate();
+    const {id}=useParams();
+    console.log(id);
     const categories = [
         "category1",   
         "category2",
@@ -28,7 +33,7 @@ const Blogs = () => {
             readingTime: "5 min read"
         },{
             date: "20th August 2021",
-            content:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sed risus non lacus auctor aliquam. Interdum et malesuada fames ac ante ipsum primis in faucibus. Vestibulum maximus, leo vel tincidunt vestibulum, sapien magna rutrum est, ac cursus ligula sapien non nulla. Maecenas sit amet libero suscipit risus porttitor interdum sed vel nibh. See more...",
+            content:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sed risus non lacus auctor aliquam. Interdum et malesuada fames ac ante ipsum primis in faucibus. Vestibulum maximus, leo vel tincidunt vestibulum, sapien magna rutrum est, ac cursus ligula sapien non nulla. Maecenas sit amet libero suscipit risus porttitor interdum sed vel nibh.",
             readingTime: "5 min read"
         },{
             date: "20th August 2021",
@@ -99,7 +104,7 @@ const Blogs = () => {
                     {categories.map((category) => (
                         <div 
                             key={category}
-                            onClick={() => setCategoriesData(category)} 
+                            onClick={() =>{ setCategoriesData(category); navigator(`/blogs`)}} 
                             className={`blog-category ${category === categoriesData ? 'blog-active' : ''}`}
                         >
                             <a 
@@ -113,8 +118,10 @@ const Blogs = () => {
 
                 {/* Blog Content */}
                 <div className="blogs">
-                    {blogs.map((blog, index) => (
-                        <div key={index} className="blog">
+
+                    { id===undefined ? 
+                    blogs.map((blog, index) => (
+                        <div onClick={()=> {navigator(`/blogs/${index}`) }} key={index} className="blog">
                             <img src={blogimg} alt="blog" className="blog-image" />
                             <div className="blog-line">
                                 <h1 className="blog-heading">{blog.date}</h1>
@@ -122,10 +129,25 @@ const Blogs = () => {
                             </div>
                             <p className="blog-content">
                                 {blog.content.length > 350 ? `${blog.content.substring(0, 350)}...` : blog.content}
-                                <a className="seemoreblogs" href="#">See more</a>
+                                <a className="seemoreblogs" href="">See more</a>
                             </p>
                         </div>
-                    ))}
+                    ))
+                    :
+                    <div className="blog-singl1-page">
+                        <div style={{background:`url(${blogimg})`}} className="service-page-image"></div>
+                        <div className="blog-single-page1">
+                        <h1 className="blog-heading1"> {blogs[id].date}</h1>
+                        <p className="blog-reading-time1">{blogs[id].readingTime}</p>
+                        </div>
+                        <p className="blog-content1">
+                            {blogs[id].content}
+                        </p>
+                        
+                    </div>
+                    }
+                
+                   
                 </div>
             </div>
         </div>

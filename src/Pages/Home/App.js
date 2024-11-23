@@ -57,7 +57,7 @@ function App() {
   useEffect(() => {
     AOS.init({
       duration: 1000,  // Set the animation duration to 1 second
-      once: false,      // Trigger the animation only once when scrolled into view
+      once: true,      // Trigger the animation only once when scrolled into view
       startEvent: 'DOMContentLoaded'
     });
   }, []);

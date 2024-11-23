@@ -36,7 +36,7 @@ function App() {
   useEffect(() => {
     AOS.init({
       duration: 1000,  // Animation duration
-      once: false,      // Trigger only once when scrolled into view
+      once: true,      // Trigger only once when scrolled into view
         startEvent: 'DOMContentLoaded'
     });
 
@@ -69,25 +69,31 @@ function App() {
       <div className="value" data-aos="fade-up">
         <div className="value-item" data-aos="fade-left" data-aos-delay="400">
           <img src={money1} alt="money" className="value-icon" />
+          <div className="value3">
           <h1 className="value-heading">${counter1.toLocaleString()}M</h1>
           <p className="value-para">Claims Received</p>
+          </div>
         </div>
+        <div data-aos="fade-left" data-aos-delay="300" className="value-line"></div>
         <div className="value-item" data-aos="fade-up" data-aos-delay="200">
           <img src={money2} alt="money" className="value-icon" />
+          <div className="value3">
           <h1 className="value-heading">${counter2.toLocaleString()}B</h1>
           <p className="value-para">Worth Projects</p>
+          </div>
         </div>
+        <div data-aos="fade-right" data-aos-delay="300" className="value-line"></div>
+
         <div className="value-item" data-aos="fade-right" data-aos-delay="400">
           <img src={money3} alt="money" className="value-icon" />
+          <div className="value3">
           <h1 className="value-heading">{counter3}%</h1>
           <p className="value-para">Success Rate</p>
+          </div>
         </div>
       </div>
 
-      {/* Line animation */}
-      <div className="value2">
-        <div className="value2-content" data-aos="zoom-in" data-aos-delay="500"></div>
-      </div>
+      
     </div>
   );
 }

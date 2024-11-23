@@ -11,7 +11,7 @@ const Connect = () => {
     useEffect(() => {
         Aos.init({
             duration: 1000,
-            once: false,
+            once: true,
             startEvent: 'DOMContentLoaded'
         });
     }, []);
@@ -134,7 +134,7 @@ const Services = () => {
     useEffect(() => {
         Aos.init({
             duration: 1000,
-            once: false,
+            once: true,
             startEvent: 'DOMContentLoaded'
         });
     }, []);

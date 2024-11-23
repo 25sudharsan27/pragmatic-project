@@ -10,7 +10,6 @@ const RoadMap = () =>{
     useEffect(() => {
         AOS.init({
           duration: 1000,  // Set the animation duration to 1 second
-          once: false,      // Trigger the animation only once when scrolled into view
           startEvent: 'DOMContentLoaded'
         });
       }, []);
@@ -33,17 +32,17 @@ const RoadMap = () =>{
                     <div className="roadmap">
                         <div classname="roadmap-height-norm">
                             <div  className="roadmap-top-line1">
-                                <h1 data-aos="fade-right" data-aos-delay="400" className="roadmap-content-line2" style={{visibility:`${(index%2==0)? 'hidden' : 'visible'}`}}  >{index+1}</h1>
-                                <h1 data-aos="fade-down" data-aos-delay="500" className="roadmap-content" style={{visibility:`${(index%2==0)? 'hidden' : 'visible'}`}} >{data}</h1>
+                                <h1 data-aos="zoom-in" data-aos-delay="400" className="roadmap-content-line2" style={{visibility:`${(index%2==0)? 'hidden' : 'visible'}`}}  >{index+1}</h1>
+                                <h1 data-aos="zoom-in" data-aos-delay="500" className="roadmap-content" style={{visibility:`${(index%2==0)? 'hidden' : 'visible'}`}} >{data}</h1>
                             </div>
                         </div>
-                        <div data-aos="fade-left" data-aos-delay={`${300}`} className="roadmap-line2" style={{visibility:`${(index%2==0)? 'hidden' : 'visible'}`}}  ></div>
-                        <div data-aos="fade-down" data-aos-delay={`${200}`} className="roadmap-dot"></div>
-                        <div data-aos="fade-right" data-aos-delay={`${300}`} className="roadmap-line3" style={{visibility:`${(index%2!=0)? 'hidden' : 'visible'}`}} ></div>
+                        <div data-aos="fade-left" data-aos-delay="300" className="roadmap-line2" style={{visibility:`${(index%2==0)? 'hidden' : 'visible'}`}}  ></div>
+                        <div data-aos="fade-down" data-aos-delay="200" className="roadmap-dot"></div>
+                        <div data-aos="fade-right" data-aos-delay="300" className="roadmap-line3" style={{visibility:`${(index%2!=0)? 'hidden' : 'visible'}`}} ></div>
                         <div classname="roadmap-height-norm">
                             <div className="roadmap-top-line1">
-                                <h1 data-aos="fade-left" data-aos-delay="400" className="roadmap-content-line2" style={{visibility:`${(index%2!=0)? 'hidden' : 'visible'}`}}  >{index+1}</h1>
-                                <h1 data-aos="fade-down" data-aos-delay="500" className="roadmap-content" style={{visibility:`${(index%2!=0)? 'hidden' : 'visible'}`}} >{data}</h1>
+                                <h1 data-aos="zoom-in" data-aos-delay="400" className="roadmap-content-line2" style={{visibility:`${(index%2!=0)? 'hidden' : 'visible'}`}}  >{index+1}</h1>
+                                <h1 data-aos="zoom-in" data-aos-delay="500" className="roadmap-content" style={{visibility:`${(index%2!=0)? 'hidden' : 'visible'}`}} >{data}</h1>
                             </div>
                         </div>
 

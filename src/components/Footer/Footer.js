@@ -25,7 +25,7 @@ function Footer() {
                 <h1 className="footer-heading">Quick Links</h1>
                 <a href="/" className="footer-link">Home</a>
                 <a href="/blogs" className="footer-link">Blogs</a>
-                <a href="#" className="footer-link">FAQ</a>
+                <a href="/services" className="footer-link">Services</a>
                 <a href="#" className="footer-link">Contact Us</a>
 
             </div>

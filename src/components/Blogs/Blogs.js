@@ -84,6 +84,7 @@ function App() {
         <div data-aos="fade-up" data-aos-delay="100" className="blg-btn">
             <a href="/blogs" className="blogs-button">View All Blogs</a>
         </div>
+        
     </div>
   );
 }

@@ -66,7 +66,7 @@ const App = () => {
                 {services.map((service, index) => (
                     <div>
                     <div key={index} className={`service-item item-${index + 1}`}>
-                        <span data-aos="zoom-in"  data-aos-delay="900" className="label">{service.label}</span>
+                        <span data-aos="zoom-in"  data-aos-delay="900" id="label_service" className="label">{service.label}</span>
                         <div style={dottedLineStyles[index]} data-aos="zoom-in" data-aos-delay="800"  className="dotted-line"></div>
 
                     </div>

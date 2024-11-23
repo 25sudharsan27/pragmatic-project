@@ -43,6 +43,7 @@
     overflow-y: scroll;
     scrollbar-color: transparent transparent;
     display:flex;
+
     flex-wrap: wrap;
     
     /* justify-content: space-around; */
@@ -125,6 +126,8 @@
 
 
 .blog{
+    display:flex;
+    flex-direction: column;
     margin:0px;
     
     cursor: pointer;
@@ -181,6 +184,7 @@
 
 
 #blog12{
+    
     margin:20px 0px;
     width:30%;
 }
@@ -197,6 +201,10 @@
         font-size:15px;
     }
 
+    .blog-content1{
+        font-size:12px;
+    }
+
 }
 
 @media screen and (max-width : 900px){
@@ -204,6 +212,10 @@
         width:48%;
     }
 }
+
+
+
+
 /* Mobile view: Sidebar will be hidden off-screen by default */
 
 @media (max-width: 768px) {

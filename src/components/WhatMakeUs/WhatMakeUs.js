@@ -19,9 +19,11 @@ const RoadMap = () =>{
                 </h1>
                 <div className="global-line" data-aos="fade-up"  id="project-h"></div>        
             </div>
-            <p data-aos="fade-up" data-aos-delay="200" className="projects-para">
-            We are committed to creating and sustaining an environment of positive energy where projects embrace hard work, pursue excellence, keep their promises, commit to courage, and develop the world .Our objective is to create a project consulting firm, putting culture first, with great people doing the best claims work for our clients.
+            <div id="whatmakeus">
+                <p data-aos="fade-up" data-aos-delay="200"  className="projects-para">
+                We are committed to creating and sustaining an environment of positive energy where projects embrace hard work, pursue excellence, keep their promises, commit to courage, and develop the world .Our objective is to create a project consulting firm, putting culture first, with great people doing the best claims work for our clients.
             </p>
+            </div>
 
             <div data-aos="fade-up" data-aos-delay="100" id="difference-btn" className="blg-btn">
                 <ScrollLink to="connect1" smooth={true} durationo={1000}><a  className="blogs-button">Let's Connect</a></ScrollLink>

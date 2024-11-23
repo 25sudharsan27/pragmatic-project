@@ -99,6 +99,10 @@
 #about3 {
   margin-top: 10px;
 }
+.about44{
+  display:flex;
+  justify-content: center;
+}
 
 /* Media Query for screens smaller than 1300px */
 @media screen and (max-width: 1000px) {
@@ -113,8 +117,8 @@
   }
 
   .about-para2 {
-    font-size: 10px;
-    line-height: 15px;
+    font-size: 15px;
+    line-height: 23px;
   }
 
   #about1, #about2, #about3 {

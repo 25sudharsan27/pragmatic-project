@@ -148,7 +148,7 @@ const Blogs = () => {
                     ))
                     :
                     <div className="blog-singl1-page">
-                        <div style={{background:`url(${blogimg})`}} className="service-page-image"></div>
+                        <img src={blogimg} className="service-page-image"/>
                         <div className="blog-single-page1">
                         <h1 className="blog-heading1"> {blogs[id].date}</h1>
                         <p className="blog-reading-time1">{blogs[id].readingTime}</p>

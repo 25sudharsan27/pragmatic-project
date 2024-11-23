@@ -37,7 +37,6 @@
 /* Ensure the content has padding when the sidebar is visible on mobile */
 .blogs {
     width:100%;
-    border:1px solid white;
     margin-left: 0;
     
     height: 86vh;
@@ -144,8 +143,9 @@
 }
 .blog-singl1-page{
     width:100%;
-    padding:30px;
+    padding:20px;
     padding-top:0px;
+
     
 }
 
@@ -154,6 +154,7 @@
     justify-content: space-between;
     align-items: center;
     padding-top:20px;
+
 }
 
 .blog-reading-time1{
@@ -206,7 +207,9 @@
 /* Mobile view: Sidebar will be hidden off-screen by default */
 
 @media (max-width: 768px) {
-   
+    .blog-singl1-page{
+        padding:6px;
+    }
 
     .blogs-side{
         position:fixed;

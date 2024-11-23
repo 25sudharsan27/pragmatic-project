@@ -1,0 +1,16 @@
+.difference-section{
+    display:flex;
+    flex-direction:column;
+    width:100%;
+    padding-top:100px;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+
+#roadmap-btn{
+    padding-bottom:30px;
+}
+

@@ -20,6 +20,8 @@ import Globe from '../../components/Globe/Earth';
 import './SplashScreen.css';
 
 import logo from '../../components/images/logo.png';
+import WhatMakeUs from '../../components/WhatMakeUs/WhatMakeUs';
+import RoadMap from '../../components/RoadMap/RoadMap';
 
 const SplashScreen = () => {
   return (
@@ -117,13 +119,17 @@ function App() {
       <Value/>
       <Service/>
       
+      <WhatMakeUs/>
+      <RoadMap/>
+      
       <Projects/>
       {/* <Place/> */}
       <div className="glo">
-      <Globe/>
+        <Globe/>
       </div>
       <Company/>
       <Blogs/>
+
       <Connect/>
       <Footer/>
 

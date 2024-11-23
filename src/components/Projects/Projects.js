@@ -320,6 +320,7 @@ function App() {
 
   return (
     <div className="projects-container">
+      
       <div className="globe-heading-cont" id="project-h-h">
         <h1  className="globe-heading" data-aos="fade-up">Projects</h1>
         <div className="global-line" data-aos="fade-up"  id="project-h"></div>        

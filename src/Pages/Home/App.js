@@ -87,7 +87,7 @@ function App() {
         <div data-aos="fade-right"  className="slider-content">
           <p className="slider-content-p">Pragmatic</p>
           <p className="slider-content-p">Project</p>
-          <p className="slider-content-p">Consilium</p>
+          <p className="slider-content-p">Collision</p>
         </div>
         <div data-aos="fade-up" id="sl" className="slider-button-box">
           <button className="slider-button">Get Started </button>

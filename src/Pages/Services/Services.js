@@ -8,12 +8,20 @@ import 'aos/dist/aos.css';
 import img from '../../components/images/India.png';
 
 const Connect = () => {
-    return (
-        <div id="services-connection" className="connect">
-        <div  className="connect-image" ></div>
+    useEffect(() => {
+        Aos.init({
+            duration: 1000,
+            once: false,
+            startEvent: 'DOMContentLoaded'
+        });
+    }, []);
 
-        <div className="connect-box">
-            <div className="conn-fix">
+    return (
+        <div  id="services-connection" className="connect">
+        <div id="con1" className="connect-image" ></div>
+
+        <div id="connect-box1" className="connect-box">
+            <div id="connect-box2" className="conn-fix">
             <h1   className="connect-heading">Get In</h1> 
             <h1   className="connect-heading" id="con-heading2">Touch</h1>
             </div>
@@ -181,9 +189,10 @@ const Services = () => {
                     <div 
                     ref={sidebarRef}  // Set reference for the sidebar
                     id="services-side"
+                    data-aos={(window.innerWidth > 770) ? 'fade-right'  : null}
                     className={`blogs-side ${isSidebarVisible ? 'visible' : ''}`}
                     >
-                    <div className="blogs-side1">
+                    <div id="servi" className="blogs-side1">
                         <h1 className="blog-category-headi">Services</h1>
                     </div>
                     
@@ -191,7 +200,7 @@ const Services = () => {
                     {servicesWithExplanations.map((ser,index) => (
                         <div 
                             key={index}
-                            onClick={() => setService(ser)} 
+                            onClick={() =>{ setService(ser);   document.getElementsByClassName('blogs')[0].scrollTo(0, 0);  }} 
                             id="services-cat"
                             className={`blog-category ${ser.label === service.label ? 'blog-active' : ''}`}
                         >
@@ -208,7 +217,7 @@ const Services = () => {
 
                 <div  className="blogs" id="service-p">
                     <h1 className="service-page-heading">{service.label}</h1>
-                    <div style={{backgroundImage:`url(${service.image})`}} className="service-page-image" />
+                    <img src={img} className="service-page-image" />
                     <u1 className="service-page-content1">
                        {service.explanation.split('.').map((point,index) => (
                             point!=""? 

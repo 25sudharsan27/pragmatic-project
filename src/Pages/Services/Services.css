@@ -3,33 +3,22 @@
     font-family:'Plus Jakarta Display', sans-serif;
     font-weight:600;
     color:white;
-    /* padding:20px; */
     margin:20px;
     width:100%;
     text-align: center;
 }
 
 .service-page-image{
-    align-self: center;
-    
-    /* margin:70px; */
-    
-    height:100%;
-    /* width:100vw; */
+    padding:0px;
+    margin: 0px;
+    height:auto;
     width:100%;
-    justify-self: center;
-    /* display:flex; */
-    max-height:100vh;
-    background-size:contain ;
-    background-repeat: no-repeat;
-    margin:50px;
-    margin-bottom:-10px;
-
+    border-radius:6px;
 }
 
 
 .service-page-content1{
-    margin-top:50px;
+    /* margin-top:50px; */
 }
 
 .service-page-content{
@@ -41,7 +30,7 @@
     color:white;
     /* margin-top:20px; */
     margin:0px;
-    padding:0px 50px;
+    padding:0px;
 }
 
 
@@ -59,12 +48,17 @@
 }
 
 .services-page1{
-    /* margin-top:100px; */
     display:flex;
     margin: 0px;
     padding: 0px;
 }
 
+#services-side-bar{
+    overflow-y: scroll;
+    height:72vh;
+    scrollbar-color: none;
+    scrollbar-width: none;
+}
 .services-side-page{
     width:40%;
     height:100vh;
@@ -97,7 +91,7 @@
 
 #services-side{
 
-    overflow-y: scroll;
+    /* overflow-y: scroll; */
     scrollbar-color: none;
     scrollbar-width: none;
 }
@@ -105,23 +99,63 @@
 
 
 #service-p{
-    padding:0px;
-    margin:0px;
+    padding:0px 20px;
+    margin:0px 50px;
+    
 }
 
 #services-cat{
     margin-bottom: 13px;
 }
 
+#connect-box1{
+    margin:0px;
+    width:100%;
+    padding:0px;
+    /* border:1px solid white; */
+}
+#services-connection{
+    padding:0px;
+    /* margin:0px; */
+    margin:30px 0px;
 
-@media screen and (max-width : 770px){
-    .service-page-image{
-        width:100%;
-        height:100%;
-        max-height:300px;
-        display:inline-block;
-        margin:27px;
-        background-size:cover;
+}
+
+#connect-box2{
+    margin:0px;
+    padding:0px;
+}
+
+#servi{
+    /* position:fixed; */
+}
+#services-cat{
+    /* transform: translateY(100px); */
+}
+
+
+@media screen and (max-width: 1000px){
+    #con1{
+        display:none;
+    }
+}
+
+@media screen and (max-width : 768px){
+    
+    #services-side-bar{
+        overflow-y: scroll;
+        height:88vh;
+        scrollbar-color: none;
+        scrollbar-width: none;
+    }
+    #service-p{
+        margin:0px 25px;
+        padding:5px;
+        padding-bottom:50px;
+        
+    }
+    .services-page1{
+        margin-top:-10px;
     }
     
     .service-page-content{
@@ -133,16 +167,28 @@
         color:white;
         margin:0px;
         padding: 0px;
-        margin-top:15px;
+        margin-top:10px;
     }
 
     .service-page-content1{
-        margin:27px;
-        /* padding:10px; */
+        padding-top:10px;
+        margin-top: 0px;
     }
     #services-connection{
-        box-sizing: border-box;
-        width:90%;
+
+        width:100%;
+        margin:30x 0px ;
+        display:flex;
+        justify-content: center;
+        align-items: center;
+
+    }
+    
+    
+    .sidebar-toggle-btn{
+        padding:10px 20px;
+        -webkit-tap-highlight-color: transparent;
+
     }
     
 }

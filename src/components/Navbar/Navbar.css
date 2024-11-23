@@ -14,6 +14,11 @@
     /* background-color:rgba(10, 29, 49, 0.1); */
     position:fixed;
 }
+
+#navbar-item-active{
+    text-decoration: none;
+    color:#71C9C6;
+}
 .navbar1{
     height:100px;
     /* backdrop-filter: blur(20px); */
@@ -22,7 +27,7 @@
     /* margin:30px 30px; */
     top:0;
     display:flex;
-    /* align-items: center; */
+    align-items: center;
     justify-content:space-between;
     /* background-color:rgba(10, 29, 49, 0.1); */
     
@@ -32,7 +37,9 @@
 .navbar-logo{
     /* margin:25px; */
     margin-left:50px;
+    cursor: pointer;
     height:30px;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .navbar-right{
@@ -49,7 +56,7 @@
 
 .navbar-item{
     margin:0px 20px;
-    text-decoration:unset;
+    text-decoration:none;
     color:#FFFFFF;
     font-size:16px;
     font-family:'Plus Jakarta Display', sans-serif;

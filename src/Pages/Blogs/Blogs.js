@@ -4,6 +4,10 @@ import Navbar from '../../components/Navbar/Navbar';
 import blogimg from '../../components/images/India.png';
 import {  useParams } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+import Aos from 'aos';
+
+import 'aos/dist/aos.css';
+
 
 const Blogs = () => {
     const [categoriesData, setCategoriesData] = useState("category1");
@@ -76,6 +80,14 @@ const Blogs = () => {
         };
     }, []);
 
+    useEffect(() => {
+        Aos.init({
+            duration: 1000,
+            once: false,
+            startEvent: 'DOMContentLoaded'
+        });
+    }, []);
+
     return (
         <div className="blogs-page1">
             <div style={{display:'flex',width:"100%"}}>
@@ -90,17 +102,17 @@ const Blogs = () => {
             <Navbar pos="relative" />
             </div>
             <div className="blogs-page">
-                {/* Sidebar Toggle Button (Only for mobile) */}
-                
-
-                {/* Sidebar */}
                 <div 
-                    ref={sidebarRef}  // Set reference for the sidebar
+                    id="services-side"
+                    data-aos={(window.innerWidth > 770) ? 'fade-right'  : null}
+                    ref={sidebarRef}  
                     className={`blogs-side ${isSidebarVisible ? 'visible' : ''}`}
                 >
-                    <div className="blogs-side1">
+                    <div id="servi" className="blogs-side1">
                         <h1 className="blog-category-headi">Blog Categories</h1>
                     </div>
+                    <div id="services-side-bar">
+
                     {categories.map((category) => (
                         <div 
                             key={category}
@@ -114,21 +126,22 @@ const Blogs = () => {
                             </a>
                         </div>
                     ))}
+                    </div>
                 </div>
 
                 {/* Blog Content */}
-                <div className="blogs">
+                <div id="blogs1" className="blogs">
 
                     { id===undefined ? 
                     blogs.map((blog, index) => (
-                        <div onClick={()=> {navigator(`/blogs/${index}`) }} key={index} className="blog">
-                            <img src={blogimg} alt="blog" className="blog-image" />
+                        <div onClick={()=> {navigator(`/blogs/${index}`) }} key={index} id="blog12" className="blog">
+                            <img src={blogimg} id="blog13"  className="blog-image"/>
                             <div className="blog-line">
                                 <h1 className="blog-heading">{blog.date}</h1>
                                 <p className="blog-reading-time">{blog.readingTime}</p>
                             </div>
                             <p className="blog-content">
-                                {blog.content.length > 350 ? `${blog.content.substring(0, 350)}...` : blog.content}
+                                {blog.content.length > 200 ? `${blog.content.substring(0, 200)}...` : blog.content}
                                 <a className="seemoreblogs" href="">See more</a>
                             </p>
                         </div>

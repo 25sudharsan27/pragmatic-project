@@ -4,15 +4,17 @@ import logo from '../images/logo.png';
 
 import { Link } from 'react-router-dom';
 
+import { useNavigate } from 'react-router-dom';
+
 import { Link as ScrollLink} from 'react-scroll';
 function App({pos}) {
-  
+  const navigator = new useNavigate();
   if(pos==='fixed'){
   return (
     
     <div className="navbar">
       <div>
-        <Link > <img src={logo} alt="logo" className="navbar-logo" /></Link>
+        <img src={logo} onClick={()=>{navigator("/")}} alt="logo" className="navbar-logo" />
       
       </div>
       <div className="navbar-right">
@@ -29,8 +31,8 @@ function App({pos}) {
     return (
     
       <div className="navbar1">
-        <div>
-        <img src={logo} alt="logo" className="navbar-logo" />
+        <div className="nav">
+        <img src={logo} onClick={()=>{navigator("/")}} alt="logo" className="navbar-logo" />
         </div>
         <div className="navbar-right">
           <a href="/" className="navbar-item" >Home</a>

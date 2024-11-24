@@ -8,16 +8,10 @@ import 'aos/dist/aos.css';
 import img from '../../components/images/India.png';
 
 const Connect = () => {
-    useEffect(() => {
-        Aos.init({
-            duration: 1000,
-            once: true,
-            startEvent: 'DOMContentLoaded'
-        });
-    }, []);
+    
 
     return (
-        <div  id="services-connection" className="connect">
+        <div id="services-connection" className="connect">
         <div id="con1" className="connect-image" ></div>
 
         <div id="connect-box1" className="connect-box">

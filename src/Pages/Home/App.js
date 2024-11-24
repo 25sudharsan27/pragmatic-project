@@ -26,7 +26,7 @@ import RoadMap from '../../components/RoadMap/RoadMap';
 const SplashScreen = () => {
   return (
     <div className="splash-screen">
-       <div className="splash-heading" data-aos="fade-up">Pragmatic Project Collision </div> 
+       <div className="splash-heading" data-aos="fade-up">Pragmatic Project Consilium </div> 
        <div className="splash-heading2" data-aos="fade-up" data-aos-delay="400">Welcomes You</div>
     </div>
   );
@@ -74,6 +74,11 @@ function App() {
     return () => clearTimeout(timer);
   }, []);
 
+  const [isDropdownVisible, setDropdownVisible] = useState(false); // Initially hidden
+
+  const toggleDropdownVisibility = () => {
+    setDropdownVisible((prev) => !prev); // Toggle visibility
+  };
   return (
     <>
     {loading ? (
@@ -81,13 +86,15 @@ function App() {
     ) :(
 
     <div className="App">
-      <Navbar pos="fixed" />
+      <Navbar pos="fixed"
+        isDropdownVisible={isDropdownVisible}
+        toggleDropdownVisibility={toggleDropdownVisibility} />
       <div className="Slider">
         
         <div data-aos="fade-right"  className="slider-content">
           <p className="slider-content-p">Pragmatic</p>
           <p className="slider-content-p">Project</p>
-          <p className="slider-content-p">Collision</p>
+          <p className="slider-content-p">Consilium</p>
         </div>
         <div data-aos="fade-up" id="sl" className="slider-button-box">
           <button className="slider-button">Get Started </button>

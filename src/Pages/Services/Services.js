@@ -8,6 +8,8 @@ import 'aos/dist/aos.css';
 import img from '../../components/images/India.png';
 
 const Connect = () => {
+
+    
     
 
     return (
@@ -165,17 +167,26 @@ const Services = () => {
     }, []);
 
 
+    const [isDropdownVisible, setDropdownVisible] = useState(false); // Initially hidden
+
+  const toggleDropdownVisibility = () => {
+    setDropdownVisible((prev) => !prev); // Toggle visibility
+  };
+
+
     return (
         <div className="services-page">
-            <div style={{display:'flex',width:"100%"}}>
+            <div className="other-navbar" >
                 <button
-                        style={{marginLeft:"30px",marginRight:"-20px"}}
+                        
                         ref={toggleBtnRef} // Set reference for the toggle button
                         className="sidebar-toggle-btn"
                         onClick={() => setIsSidebarVisible(!isSidebarVisible)}>
                         ☰
                 </button>
-                <Navbar pos="relative" />
+                <Navbar pos="relative" 
+                isDropdownVisible={isDropdownVisible}
+                toggleDropdownVisibility={toggleDropdownVisibility}/>
                 
             </div>
 

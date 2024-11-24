@@ -88,18 +88,27 @@ const Blogs = () => {
         });
     }, []);
 
+    
+    const [isDropdownVisible, setDropdownVisible] = useState(false); // Initially hidden
+
+  const toggleDropdownVisibility = () => {
+    setDropdownVisible((prev) => !prev); // Toggle visibility
+  };
+
     return (
         <div className="blogs-page1">
-            <div style={{display:'flex',width:"100%"}}>
-            <button
-                    style={{marginLeft:"30px",marginRight:"-20px"}}
-                    ref={toggleBtnRef} // Set reference for the toggle button
-                    className="sidebar-toggle-btn"
-                    onClick={() => setIsSidebarVisible(!isSidebarVisible)}
-                >
-                    ☰
+            <div className="other-navbar" >
+                <button
+                        
+                        ref={toggleBtnRef} // Set reference for the toggle button
+                        className="sidebar-toggle-btn"
+                        onClick={() => setIsSidebarVisible(!isSidebarVisible)}>
+                        ☰
                 </button>
-            <Navbar pos="relative" />
+                <Navbar pos="relative" 
+                isDropdownVisible={isDropdownVisible}
+                toggleDropdownVisibility={toggleDropdownVisibility}/>
+                
             </div>
             <div className="blogs-page">
                 <div 

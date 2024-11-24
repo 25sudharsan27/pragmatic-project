@@ -113,7 +113,18 @@ function Navbar({ pos, isDropdownVisible, toggleDropdownVisibility }) {
             alt="logo"
             className="navbar-logo"
           />
+          
         </div>
+        <div className="navbar-dropdown-mobile">
+            <a
+              ref={buttonRef}
+              onClick={handleShow}
+              className="navbar-ite"
+              id={isDropdownVisible ? null: 'navbar-item-show'}
+            >
+              {`>`}
+            </a>
+          </div>
         <div className="navbar-right">
           <Link to="/" className="navbar-item">
             Home
@@ -128,6 +139,24 @@ function Navbar({ pos, isDropdownVisible, toggleDropdownVisibility }) {
             Connect With Us
           </Link>
           <Link to="/blogs" className="navbar-item">
+            Blogs
+          </Link>
+        </div>
+        
+        <div
+          ref={dropdownRef}
+          id={isDropdownVisible ? null: 'navbar-show'} // Controlled visibility
+          className="navbar-dropdown1"
+        >
+            <a href="/" className="navbar-item2">Home</a>
+          <a href="#" className="navbar-item2">
+            Who We are?
+          </a>
+          <Link to="/services" className="navbar-item2">
+            Services
+          </Link>
+            <a className="navbar-item2">Connect With Us</a>
+          <Link to="/blogs" className="navbar-item2">
             Blogs
           </Link>
         </div>

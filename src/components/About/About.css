@@ -22,7 +22,9 @@
 
 .about-section-right {
   display: flex;
-  justify-content: space-evenly;
+  display:flex;
+    justify-content: space-around;
+    align-items: center;
   width: 50%;
 }
 
@@ -129,6 +131,20 @@
   }
 }
 
+@media screen and (max-width: 1000px){
+  #about1,#about2,#about3{
+    height:250px;
+    width: 100px;
+    min-width: 100px;
+    min-height: 250px;
+  }
+  .about-section-right{
+    display:flex;
+    /* justify-content: center; */
+    align-items: center;
+  }
+  
+}
 /* Media Query for smaller screens (mobile) */
 @media screen and (max-width: 750px) {
   .about-section-left{

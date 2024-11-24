@@ -275,6 +275,7 @@
             border-left:10px solid #71C9C6;
             height:50px;
             gap:10px;
+            box-shadow: 1px 1px 11px rgba(6, 79, 99, 0.5);
         }
         .services-line{
             width:1px;

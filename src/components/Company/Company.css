@@ -44,6 +44,44 @@
   #company-image5{
     height:100px;
   }
+
+
+  .global-line {
+    padding: 0px;
+    margin: 0px;
+    background-color: #71C9C6;
+    height: 3px;
+    width: 70%;
+    animation: lineWidthAnimation 2s infinite alternate;
+  }
+  
+  @keyframes lineWidthAnimation {
+    0% {
+      width: 70%; /* Starting width */
+    }
+    50% {
+      width: 77%; /* 10% more than 70% */
+    }
+    100% {
+      width: 70%; /* Returning to the original width */
+    }
+  }
+  
+  .globe-heading-cont {
+    padding-top: 50px;
+    padding-bottom: 140px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .company-container-name {
+    font-family: 'Plus Jakarta Display', sans-serif;
+    font-size: 34px;
+    font-weight: 600;
+    color: white;
+  }
+  
   /* Scroll animation */
   @keyframes scroll {
     0% {

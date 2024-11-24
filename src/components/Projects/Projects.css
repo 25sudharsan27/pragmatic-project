@@ -126,21 +126,24 @@
     
     margin:20px;
     padding: 10px;
-    background-color: #fff;
     width:250px;
     border-radius: 8px; /* Rounded corners for the project item */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
-    transition: 0.4s;
 }
 
 
 .project-item{
+    position:relative;
     background-color:#71C9C633;
     display:flex;
     flex-direction: column;
-    transition: 0.3s ease;
+    transition: 0.3s;
    
 }
+
+
+
+
 
 .project-img{
     border-radius:8px;
@@ -251,7 +254,7 @@
 
   .project-item:hover{
     transform: scaleX(1.05) scaleY(1.05); /* Scale the project item on hover */
-    transition: 0.3s ease;
+    transition: 0.3s ;
   }
   
 

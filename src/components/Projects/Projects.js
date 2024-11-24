@@ -346,10 +346,10 @@ function App() {
         </div>
       </div>
 
-      <div className="projects">
+      <div data-aos="fade-up" className="projects">
         {currentProjectsPage.map((project, index) => {
           return (
-            <div data-aos="fade-left" data-aos-delay={`${index * 100}`} key={index} className="project-item">
+            <div  key={index} className="project-item">
               <img src={imgproject} alt="project" className="project-img" />
               <div className="project-item1">
                 <div id="project-image1">

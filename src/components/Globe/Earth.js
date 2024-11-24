@@ -306,8 +306,8 @@ const GlobeWithTags = () => {
 
       {/* Prev and Next Buttons */}
       <div className="w35236">
-        <button onClick={handlePrev}>Prev</button>
-        <button onClick={handleNext}>Next</button>
+        <button className="w35236-c" onClick={handlePrev}>{`<`}</button>
+        <button className="w35236-c" onClick={handleNext}>{`>`}</button>
       </div>
     </div>
     </div>

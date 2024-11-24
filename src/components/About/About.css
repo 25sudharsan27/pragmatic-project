@@ -61,10 +61,8 @@
 }
 
 .about-heading2 {
-  overflow: hidden;
-  display: inline;
+  width:fit-content;
   position: relative;
-  font-size: 38px;
   font-weight: 600;
   font-family: 'Plus Jakarta Display', sans-serif;
   color: #FFFFFF;

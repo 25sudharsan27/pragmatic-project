@@ -20,8 +20,9 @@ function App() {
     <div className="about-section">
       <div className="about-section-left">
         <div className="about-heading2">
+        
         <h1 id="about11" className="about-heading" data-aos="fade-up">About Us</h1>
-        <div className="about-line" data-aos="about-line-animation" ></div>        </div>
+        <div className="global-line" ></div>        </div>
         <h1 id="about22" className="about-para1" data-aos="fade-up" data-aos-delay="100">Your strategic partner for healthy and successful projects</h1>
         <div className="about44" >
           <p id="about33" className="about-para2" data-aos="fade-up" data-aos-delay="200">

@@ -12,8 +12,7 @@ import icon8 from '../images/icon8.svg';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { useEffect } from 'react';
-import { margin } from '@mui/system';
-
+import { useNavigate } from 'react-router-dom';
 const services = [
     { label: "Expert Witness / Independent Opinion", icon: icon2 },
     { label: "Project cost & budget control", icon: icon3 },
@@ -46,6 +45,8 @@ const dottedLineStyles = [
 ];
 
 const App = () => {
+
+    const navigate = new useNavigate();
     useEffect(() => {
         AOS.init({
           duration: 1000,  // Set the animation duration to 1 second
@@ -66,7 +67,7 @@ const App = () => {
                 {services.map((service, index) => (
                     <div>
                     <div key={index} className={`service-item item-${index + 1}`}>
-                        <span data-aos="zoom-in"  data-aos-delay="900" id="label_service" className="label">{service.label}</span>
+                        <span onClick={()=>{navigate("/services/"+index)}} data-aos="zoom-in"  data-aos-delay="900" id="label_service" className="label">{service.label}</span>
                         <div style={dottedLineStyles[index]} data-aos="zoom-in" data-aos-delay="800"  className="dotted-line"></div>
 
                     </div>
@@ -82,7 +83,7 @@ const App = () => {
             <div data-aos="fade-up" className="service-section-mobile-heading">Services we offer</div>
             <div className="service-section-mobile-content">
                 {services.map((service, index) => (
-                    <div data-aos="zoom-in" className="service-section-mobile-item">
+                    <div data-aos="zoom-in" onClick={()=>{navigate("/services/"+index)}} className="service-section-mobile-item">
                         <img src={service.icon} className="service-section-mobile-icon" />
                         <div className="services-line"></div>
                         <div className="service-section-mobile-label">{service.label}</div>

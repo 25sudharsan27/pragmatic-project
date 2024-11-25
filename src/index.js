@@ -13,10 +13,11 @@ root.render(
     <BrowserRouter>
     <Routes>
         
-        <Route path="/" element={<Home />}/>
+        <Route exact path="/" element={<Home />}/>
         <Route path="/blogs" element={<Blogs/>} />
-        <Route path="/services" element={<Services/>} />
+        <Route path="/services/:id" element={<Services/>} />
         <Route path="/blogs/:id" element={<Blogs/>} />
+
       </Routes>
       
     </BrowserRouter>

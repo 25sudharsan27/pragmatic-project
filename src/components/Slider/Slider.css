@@ -3,7 +3,7 @@
 .Slider{
     /* width:100%; */
     height:700px;
-    background-image: url("./images/slider.png");
+    background-image: url("../images/slider.png");
     background-size:cover;
 
    
@@ -75,7 +75,7 @@
 .slider-index-b{
     display:flex;
     justify-content:center;
-    margin-top:-30px;
+    margin-top:70px;
 }
 
 .dot {
@@ -106,6 +106,45 @@
 }
 
 
+/* For the "Get Started" button animation */
+@keyframes moveLeftToRight {
+    0% {
+      transform: translateX(20px);
+    }
+    50% {
+      transform: translateX(40px); /* Move the button to the right */
+    }
+    100% {
+      transform: translateX(20px); /* Move the button back to the original position */
+    }
+  }
+  
+  @keyframes moveRightToLeft {
+    0% {
+      transform: translateX(20px);
+    }
+    50% {
+      transform: translateX(-0px); /* Move the button to the left */
+    }
+    100% {
+      transform: translateX(20px); /* Move the button back to the original position */
+    }
+  }
+  
+  /* Button that animates back and forth */
+  .slider-button-box {
+    cursor: pointer;
+    animation: moveLeftToRight 0.5s ease-in-out infinite alternate, moveRightToLeft 2.5s ease-in-out infinite alternate; /* Both animations apply */
+    transition: all 0.5s ease;
+  }
+  
+  /* When the button is hovered, make it grow */
+  .slider-button-box:hover {
+    transform: scale(2); /* Slight grow effect */
+  }
+  
+
+
 
 
 @media screen and (max-width : 950px){
@@ -118,7 +157,7 @@
 
     }
     .slider-content{
-        margin-left:10%;
+        margin-left:40px;
     }
     .slider-content-p{
         font-size:60px;
@@ -128,5 +167,8 @@
     }
     .slider-index-c, .slider-index-b{
         transform: ScaleX(0.8) ScaleY(0.8);
+    }
+    .slider-index-b{
+        margin-top:124px;
     }
 }

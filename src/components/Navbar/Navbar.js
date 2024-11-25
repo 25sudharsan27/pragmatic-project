@@ -4,9 +4,10 @@ import { useNavigate } from 'react-router-dom';
 import { Link as ScrollLink } from 'react-scroll';
 import { useEffect, useRef } from 'react';
 import logo from '../images/logo.png';
+import { scroller } from 'react-scroll';
+
 
 function Navbar({ pos, isDropdownVisible, toggleDropdownVisibility }) {
-  const navigator = useNavigate();
   const dropdownRef = useRef(null); // Ref for the dropdown
   const buttonRef = useRef(null); // Ref for the button that triggers the dropdown
 
@@ -32,11 +33,22 @@ function Navbar({ pos, isDropdownVisible, toggleDropdownVisibility }) {
     // Add event listener for clicks
     document.addEventListener('mousedown', handleClickOutside);
 
+
+
     // Cleanup on component unmount
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
   }, [isDropdownVisible, toggleDropdownVisibility]); // Re-run effect when dropdown visibility changes
+
+  const navigate = useNavigate();
+
+  
+  const handleClick = () => {
+    // Navigate to the home page and pass a state to indicate the scroll should happen
+    navigate('/', { state: { scrollToConnect: true } });
+  };
+  
 
   // JSX for fixed position navbar
   if (pos === 'fixed') {
@@ -58,12 +70,10 @@ function Navbar({ pos, isDropdownVisible, toggleDropdownVisibility }) {
             <a href="#" className="navbar-item">
               Who We are?
             </a>
-            <Link to="/services" className="navbar-item">
+            <Link to="/services/0" className="navbar-item">
               Services
             </Link>
-            <ScrollLink to="connect1" smooth={true} duration={1000}>
-              <a className="navbar-item">Connect With Us</a>
-            </ScrollLink>
+              <a onClick={handleClick} className="navbar-item">Connect With Us</a>
             <Link to="/blogs" className="navbar-item">
               Blogs
             </Link>
@@ -91,12 +101,10 @@ function Navbar({ pos, isDropdownVisible, toggleDropdownVisibility }) {
           <a href="#" className="navbar-item2">
             Who We are?
           </a>
-          <Link to="/services" className="navbar-item2">
+          <Link to="/services/0" className="navbar-item2">
             Services
           </Link>
-          <ScrollLink to="connect1" smooth={true} duration={1000}>
-            <a className="navbar-item2">Connect With Us</a>
-          </ScrollLink>
+            <a onClick={handleClick} className="navbar-item2">Connect With Us</a>
           <Link to="/blogs" className="navbar-item2">
             Blogs
           </Link>
@@ -132,12 +140,12 @@ function Navbar({ pos, isDropdownVisible, toggleDropdownVisibility }) {
           <a href="#" className="navbar-item">
             Who We are?
           </a>
-          <Link to="/services" className="navbar-item">
+          <Link to="/services/0" className="navbar-item">
             Services
           </Link>
-          <Link to="/#connect3" className="navbar-item">
+            <a onClick={handleClick} className="navbar-item">
             Connect With Us
-          </Link>
+            </a>
           <Link to="/blogs" className="navbar-item">
             Blogs
           </Link>
@@ -152,10 +160,10 @@ function Navbar({ pos, isDropdownVisible, toggleDropdownVisibility }) {
           <a href="#" className="navbar-item2">
             Who We are?
           </a>
-          <Link to="/services" className="navbar-item2">
+          <Link to="/services/0" className="navbar-item2">
             Services
           </Link>
-            <a className="navbar-item2">Connect With Us</a>
+            <a onClick={handleClick} className="navbar-item2">Connect With Us</a>
           <Link to="/blogs" className="navbar-item2">
             Blogs
           </Link>

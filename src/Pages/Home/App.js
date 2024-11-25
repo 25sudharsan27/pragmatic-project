@@ -1,4 +1,3 @@
-// pages/Home.js
 import React, { useState, useEffect } from 'react';
 import Navbar from '../../components/Navbar/Navbar';
 import About from '../../components/About/About';
@@ -16,34 +15,38 @@ import SplashScreen from '../../components/SplashScreen/SplashScreen';
 import Slider from '../../components/Slider/Slider';
 import { useLocation } from 'react-router-dom';
 import { scroller } from 'react-scroll';
-
-
-import AOS from 'aos';  // Import AOS
+import AOS from 'aos'; // Import AOS
 import 'aos/dist/aos.css';
 import './App.css';
 
 const Home = () => {
   const [loading, setLoading] = useState(true);
   const [isDropdownVisible, setDropdownVisible] = useState(false); 
-
-  const toggleDropdownVisibility = () => setDropdownVisible((prev) => !prev); 
-
   const [isSplashScreenVisible, setSplashScreenVisible] = useState(true);
   const location = useLocation();
+  
+  const skipSplashScreen = location.state?.skipSplashScreen; // Check if we need to skip splash screen
+
+  // Function to toggle dropdown visibility
+  const toggleDropdownVisibility = () => {
+    setDropdownVisible(prevState => !prevState);
+  };
 
   // Simulate splash screen disappearance (e.g., 2 seconds)
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setSplashScreenVisible(false);
-    }, 2000); // Splash screen duration (2 seconds)
+    if (!skipSplashScreen) {
+      const timer = setTimeout(() => {
+        setSplashScreenVisible(false);
+      }, 2000); // Splash screen duration (2 seconds)
+      return () => clearTimeout(timer);
+    } else {
+      setSplashScreenVisible(false); // Skip splash screen immediately
+    }
+  }, [skipSplashScreen]); 
 
-    return () => clearTimeout(timer); // Clean up timeout on unmount
-  }, []);
-
-  // Check if we need to scroll to the connect section
+  // Handle scrolling to connect3 section
   useEffect(() => {
     if (!isSplashScreenVisible && location.state?.scrollToConnect) {
-      // Scroll to 'connect3' only if the state indicates it should
       scroller.scrollTo('connect3', {
         smooth: true,
         duration: 2000,
@@ -72,7 +75,6 @@ const Home = () => {
         <SplashScreen /> 
       ) : (
         <div className="App">
-
           <Navbar 
             pos="fixed"
             isDropdownVisible={isDropdownVisible}
@@ -80,31 +82,19 @@ const Home = () => {
           />
 
           <Slider />
-
           <About />
-
           <Value />
-
           <Service />
-
           <WhatMakeUs />
-
           <RoadMap />
-
           <Projects />
-
           <div className="glo">
             <Globe />
           </div>
-
           <Company />
-
           <Blogs />
-
           <Connect />
-
           <Footer />
-
         </div>
       )}
     </>

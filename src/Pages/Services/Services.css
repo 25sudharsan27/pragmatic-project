@@ -1,11 +1,13 @@
 .service-page-heading{
-    font-size:24px;
+    font-size:25px;
     font-family:'Plus Jakarta Display', sans-serif;
-    font-weight:600;
     color:white;
     margin:20px;
     width:100%;
     text-align: center;
+    padding-bottom:30px;
+    font-weight:500;
+
 }
 
 .service-page-image{
@@ -21,12 +23,14 @@
     display:flex;
     flex-direction:column;
     justify-content: center;
-    /* margin-top:50px; */
+
+    margin-top:50px;
 }
 
 .service-page-content{
+    
     display:flex;
-    font-size:15px;
+    font-size:14px;
     /* font-family:'Plus Jakarta Display', sans-serif; */
     line-height: 30px;
     letter-spacing: 2px;
@@ -39,7 +43,9 @@
 
 
 .services-page{
-    background-color: #0A1D31;
+    background: linear-gradient(to bottom, #0A1D31, #000000);
+
+    /* background-color: #0A1D31; */
     display: flex;
     margin:0px;
     
@@ -66,9 +72,15 @@
 .services-side-page{
     width:40%;
     height:100vh;
-    background-color: #08182a;
+    border:1px solid white;
     border-top-right-radius: 15px;
     border-bottom-right-radius: 15px;
+}
+
+#services-side{
+    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+
+    background:linear-gradient(to bottom left, #092037, #060e22);
 }
 
 
@@ -104,8 +116,9 @@
 
 
 #service-p{
-    padding:0px 20px;
-    margin:0px 50px;
+
+    padding:0px 50px;
+    /* margin:0px 50px; */
     
 }
 
@@ -166,8 +179,7 @@
         scrollbar-width: none;
     }
     #service-p{
-        margin:0px 25px;
-        padding:5px;
+        padding:0px 30px;
         padding-bottom:50px;
         
     }
@@ -176,7 +188,7 @@
     }
     
     .service-page-content{
-        font-size:16px;
+        font-size:12px;
         /* font-family:'Plus Jakarta Display', sans-serif; */
         line-height: 20px;
         letter-spacing: 1px;
@@ -189,7 +201,7 @@
 
     .service-page-content1{
         padding-top:10px;
-        margin-top: 0px;
+        margin-top: 30px;
     }
     #services-connection{
 

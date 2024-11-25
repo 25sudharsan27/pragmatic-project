@@ -1,7 +1,7 @@
 .blogs-side {
     width: 30%;
     height: 88vh;
-    background-color: #08182a;
+    /* background-color: #08182a; */
     border-top-right-radius: 20px;
     /* position: fixed; Make sure the sidebar is fixed on the left side */
     top: 0;
@@ -51,9 +51,9 @@
 
 
 #blogs1{
+
     padding-left:1%;
-    margin:0px 10px;
-    padding:auto;
+    padding:0px 20px;
     width: 100%;
     justify-content: space-between;
 }
@@ -80,7 +80,9 @@
 }
 
 .blogs-page1 {
-    background-color: #0A1D31;
+    background: linear-gradient(to bottom, #0A1D31, #000000);
+
+    /* background-color: #0A1D31; */
     display: flex;
     margin:0px;
     
@@ -219,6 +221,9 @@
 /* Mobile view: Sidebar will be hidden off-screen by default */
 
 @media (max-width: 768px) {
+    #blog12{
+        padding-top:50px;
+    }
     .blog-singl1-page{
         padding:15px;
     }

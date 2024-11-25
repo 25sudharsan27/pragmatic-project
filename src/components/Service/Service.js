@@ -79,7 +79,7 @@ const App = () => {
                 ))}
             </div>
         </div>
-        <div  className="service-section-mobile">
+        <div id="service-mob" className="service-section-mobile">
             <div data-aos="fade-up" className="service-section-mobile-heading">Services we offer</div>
             <div className="service-section-mobile-content">
                 {services.map((service, index) => (

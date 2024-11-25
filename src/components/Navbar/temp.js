@@ -6,6 +6,7 @@ import { useEffect, useRef } from 'react';
 import logo from '../images/logo.png';
 import { scroller } from 'react-scroll';
 
+
 function Navbar({ pos, isDropdownVisible, toggleDropdownVisibility }) {
   const dropdownRef = useRef(null); // Ref for the dropdown
   const buttonRef = useRef(null); // Ref for the button that triggers the dropdown
@@ -32,6 +33,8 @@ function Navbar({ pos, isDropdownVisible, toggleDropdownVisibility }) {
     // Add event listener for clicks
     document.addEventListener('mousedown', handleClickOutside);
 
+
+
     // Cleanup on component unmount
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
@@ -39,11 +42,13 @@ function Navbar({ pos, isDropdownVisible, toggleDropdownVisibility }) {
   }, [isDropdownVisible, toggleDropdownVisibility]); // Re-run effect when dropdown visibility changes
 
   const navigate = useNavigate();
+
   
   const handleClick = () => {
-    // Navigate to the home page and pass a state to indicate the scroll should happen and skip splash screen
-    navigate('/', { state: { scrollToConnect: true, skipSplashScreen: true } });
+    // Navigate to the home page and pass a state to indicate the scroll should happen
+    navigate('/', { state: { scrollToConnect: true } });
   };
+  
 
   // JSX for fixed position navbar
   if (pos === 'fixed') {
@@ -53,7 +58,7 @@ function Navbar({ pos, isDropdownVisible, toggleDropdownVisibility }) {
           <div>
             <img
               src={logo}
-              onClick={() => navigate('/')}
+              onClick={() => navigator('/')}
               alt="logo"
               className="navbar-logo"
             />
@@ -65,12 +70,10 @@ function Navbar({ pos, isDropdownVisible, toggleDropdownVisibility }) {
             <a href="#" className="navbar-item">
               Who We are?
             </a>
-            <Link to="/services" className="navbar-item">
+            <Link to="/services/0" className="navbar-item">
               Services
             </Link>
-            <ScrollLink to="connect3" smooth={true} duration={1000}>
-              <a className="navbar-item">Connect With Us</a>
-            </ScrollLink>            
+              <a onClick={handleClick} className="navbar-item">Connect With Us</a>
             <Link to="/blogs" className="navbar-item">
               Blogs
             </Link>
@@ -86,6 +89,7 @@ function Navbar({ pos, isDropdownVisible, toggleDropdownVisibility }) {
             </a>
           </div>
         </div>
+
         <div
           ref={dropdownRef}
           id={isDropdownVisible ? null: 'navbar-show'} // Controlled visibility
@@ -97,7 +101,7 @@ function Navbar({ pos, isDropdownVisible, toggleDropdownVisibility }) {
           <a href="#" className="navbar-item2">
             Who We are?
           </a>
-          <Link to="/services" className="navbar-item2">
+          <Link to="/services/0" className="navbar-item2">
             Services
           </Link>
             <a onClick={handleClick} className="navbar-item2">Connect With Us</a>
@@ -107,97 +111,17 @@ function Navbar({ pos, isDropdownVisible, toggleDropdownVisibility }) {
         </div>
       </div>
     );
-  }
-  else if(pos=="services"){
-    return (
-      <div>
-      <div className="navbar">
-        <div>
-          <img
-            src={logo}
-            onClick={() => navigate('/')}
-            alt="logo"
-            className="navbar-logo"
-          />
-        </div>
-        <div className="navbar-right">
-        <Link to="/" className="navbar-item">
-            Home
-          </Link>
-          <a href="#" className="navbar-item">
-            Who We are?
-          </a>
-          <Link to="/services" className="navbar-item">
-            Services
-          </Link>
-          <a onClick={handleClick} className="navbar-item">
-            Connect With Us
-          </a>
-          <Link to="/blogs" className="navbar-item">
-            Blogs
-          </Link>
-        </div>
-        <div className="navbar-dropdown-mobile">
-          <a
-            ref={buttonRef}
-            onClick={handleShow}
-            className="navbar-ite"
-            id={isDropdownVisible ? null: 'navbar-item-show'}
-          >
-            {`>`}
-          </a>
-        </div>
-      </div>
-      <div
-        ref={dropdownRef}
-        id={isDropdownVisible ? null: 'navbar-show'} // Controlled visibility
-        className="navbar-dropdown1"
-      >
-        <ScrollLink to="App" smooth={true} duration={1000}>
-          <a className="navbar-item2">Home</a>
-        </ScrollLink>
-        <a href="#" className="navbar-item2">
-          Who We are?
-        </a>
-        <Link to="/services" className="navbar-item2">
-          Services
-        </Link>
-          <a onClick={handleClick} className="navbar-item2">Connect With Us</a>
-        <Link to="/blogs" className="navbar-item2">
-          Blogs
-        </Link>
-      </div>
-      <div
-          ref={dropdownRef}
-          id={isDropdownVisible ? null: 'navbar-show'} // Controlled visibility
-          className="navbar-dropdown1"
-        >
-            <a href="/" className="navbar-item2">Home</a>
-          <a href="#" className="navbar-item2">
-            Who We are?
-          </a>
-          <Link to="/services" className="navbar-item2">
-            Services
-          </Link>
-            <a onClick={handleClick} className="navbar-item2">Connect With Us</a>
-          <Link to="/blogs" className="navbar-item2">
-            Blogs
-          </Link>
-        </div>
-    </div>
-
-    )
-  }
-  else {
+  } else {
     return (
       <div className="navbar1">
         <div className="nav">
           <img
             src={logo}
-            onClick={() => navigate('/')}
+            onClick={() => navigator('/')}
             alt="logo"
             className="navbar-logo"
           />
+          
         </div>
         <div className="navbar-dropdown-mobile">
             <a
@@ -216,16 +140,17 @@ function Navbar({ pos, isDropdownVisible, toggleDropdownVisibility }) {
           <a href="#" className="navbar-item">
             Who We are?
           </a>
-          <Link to="/services" className="navbar-item">
+          <Link to="/services/0" className="navbar-item">
             Services
           </Link>
-          <a onClick={handleClick} className="navbar-item">
+            <a onClick={handleClick} className="navbar-item">
             Connect With Us
-          </a>
+            </a>
           <Link to="/blogs" className="navbar-item">
             Blogs
           </Link>
         </div>
+        
         <div
           ref={dropdownRef}
           id={isDropdownVisible ? null: 'navbar-show'} // Controlled visibility
@@ -235,7 +160,7 @@ function Navbar({ pos, isDropdownVisible, toggleDropdownVisibility }) {
           <a href="#" className="navbar-item2">
             Who We are?
           </a>
-          <Link to="/services" className="navbar-item2">
+          <Link to="/services/0" className="navbar-item2">
             Services
           </Link>
             <a onClick={handleClick} className="navbar-item2">Connect With Us</a>

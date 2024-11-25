@@ -1,0 +1,236 @@
+.service-page-heading{
+    font-size:25px;
+    font-family:'Plus Jakarta Display', sans-serif;
+    color:white;
+    /* margin:20px; */
+    width:100%;
+    text-align: center;
+    padding-bottom:30px;
+    font-weight:500;
+    
+
+}
+
+.service-page-image{
+    padding:0px;
+    margin: 0px;
+    height:auto;
+    width:100%;
+    border-radius:6px;
+}
+
+
+.service-page-content1{
+    display:flex;
+    flex-direction:column;
+    justify-content: center;
+
+    margin-top:50px;
+}
+
+.service-page-content{
+    
+    display:flex;
+    font-size:14px;
+    /* font-family:'Plus Jakarta Display', sans-serif; */
+    line-height: 30px;
+    letter-spacing: 2px;
+    font-weight:300;
+    color:white;
+    /* margin-top:20px; */
+    margin:0px;
+    padding:0px;
+}
+
+
+.services-page{
+    /* background: linear-gradient(to bottom, #0A1D31, #000000); */
+
+    /* background-color: #0A1D31; */
+    display: flex;
+    margin:0px;
+    
+    height:100vh;
+    overflow: hidden;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 0;
+    padding: 0;
+}
+
+.services-page1{
+    margin-top:100px;
+    /* border:1px solid white; */
+    display:flex;
+    /* margin: 0px;
+    padding: 0px; */
+}
+
+#services-side-bar{
+    overflow-y: scroll;
+    height:72vh;
+    scrollbar-color: none;
+    scrollbar-width: none;
+}
+.services-side-page{
+    width:40%;
+    height:100vh;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+#services-side{
+    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+
+    background:linear-gradient(to bottom left, #092037, #060e22);
+}
+
+
+
+.service-cat{
+    position: relative;
+    cursor: pointer;
+    width: 80%;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    transition: 0.5s;
+    margin-top:-10px;
+}
+
+.services-side-page1{
+
+}
+
+#services-cat-heading{
+    font-size:14px;
+    margin:0px;
+    padding:0px;
+}
+
+
+#services-side{
+
+    /* overflow-y: scroll; */
+    scrollbar-color: none;
+    scrollbar-width: none;
+}
+
+
+
+#service-p{
+
+    height:100%;
+    padding:0px 50px;
+    
+    /* margin:0px 50px; */
+    
+}
+
+#services-cat{
+    margin-bottom: 13px;
+}
+
+#connect-box1{
+    margin:0px;
+    width:100%;
+    padding:0px;
+    /* border:1px solid white; */
+}
+#services-connection{
+    padding:0px;
+    /* margin:0px; */
+    width:100%;
+    margin:30px 0px;
+
+}
+
+#connect-box2{
+    margin:0px;
+    padding:0px;
+}
+
+#servi{
+    /* position:fixed; */
+}
+#services-cat{
+    /* transform: translateY(100px); */
+}
+
+.other-navbar{
+    display:flex;
+    width:100%;
+    height:100px;
+    
+}
+
+#service-sec{
+    
+    background: linear-gradient(to bottom, #0A1D31, #000000);
+}
+
+
+
+
+
+@media screen and (max-width: 1200px){
+    #con1{
+        display:none;
+    }
+    .service-page-content{
+        font-size:13px;
+    }
+    
+}
+
+@media screen and (max-width : 768px){
+    
+    #services-side-bar{
+        overflow-y: scroll;
+        height:88vh;
+        scrollbar-color: none;
+        scrollbar-width: none;
+    }
+    #service-p{
+        padding:0px 30px;
+        padding-bottom:50px;
+        
+    }
+    .services-page1{
+        /* margin-top:-10px; */
+    }
+    
+    .service-page-content{
+        font-size:12px;
+        /* font-family:'Plus Jakarta Display', sans-serif; */
+        line-height: 20px;
+        letter-spacing: 1px;
+        font-weight:300;
+        color:white;
+        margin:0px;
+        padding: 0px;
+        margin-top:10px;
+    }
+
+    .service-page-content1{
+        padding-top:10px;
+        margin-top: 30px;
+    }
+    #services-connection{
+
+        width:100%;
+        margin:30x 0px ;
+        display:flex;
+        justify-content: center;
+        align-items: center;
+
+    }
+    
+    
+    .sidebar-toggle-btn{
+        padding:10px 20px;
+        -webkit-tap-highlight-color: transparent;
+
+    }
+    
+}
+

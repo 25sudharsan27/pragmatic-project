@@ -5,9 +5,9 @@ import Home from './Pages/Home/App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import Blogs from './Pages/Blogs/Blogs';
-import Services from './Pages/Services/Services';
+import Services from './Pages/Service/Service';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
-
+import Services1 from './Pages/Services/Services';
 // Main App component for transitions
 const App = () => {
   const location = useLocation();  // To access the location of the route for transition
@@ -24,6 +24,7 @@ const App = () => {
           <Route path="/blogs" element={<Blogs />} />
           <Route path="/services/:id" element={<Services />} />
           <Route path="/blogs/:id" element={<Blogs />} />
+          <Route path="/services" element={<Services1/>} />
         </Routes>
       </CSSTransition>
     </TransitionGroup>

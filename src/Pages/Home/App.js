@@ -20,86 +20,89 @@ import 'aos/dist/aos.css';
 import './App.css';
 
 const Home = () => {
-  const [loading, setLoading] = useState(true);
-  const [isDropdownVisible, setDropdownVisible] = useState(false); 
-  const [isSplashScreenVisible, setSplashScreenVisible] = useState(true);
+  const [isSplashScreenVisible, setSplashScreenVisible] = useState(false); // Show splash screen initially
+  const [isDropdownVisible, setDropdownVisible] = useState(false); // For dropdown menu
   const location = useLocation();
-  
-  const skipSplashScreen = location.state?.skipSplashScreen; // Check if we need to skip splash screen
 
-  
+  // Check if we need to skip splash screen based on route state
+  const skipSplashScreen = location.state?.skipSplashScreen;
+
+
   // Function to toggle dropdown visibility
   const toggleDropdownVisibility = () => {
     setDropdownVisible(prevState => !prevState);
   };
 
-  // Simulate splash screen disappearance (e.g., 2 seconds)
+  // Handle splash screen timeout or skip logic
   useEffect(() => {
     if (!skipSplashScreen) {
-      const timer = setTimeout(() => {
-        setSplashScreenVisible(false);
-      }, 2000); // Splash screen duration (2 seconds)
-      return () => clearTimeout(timer);
+      const splashTimeout = setTimeout(() => {
+        setSplashScreenVisible(false); // Hide splash screen after 2 seconds
+      }, 2000); // 2-second splash screen duration
+
+      return () => clearTimeout(splashTimeout); // Clean up timeout if component is unmounted
     } else {
       setSplashScreenVisible(false); // Skip splash screen immediately
     }
-  }, [skipSplashScreen]); 
+  }, [skipSplashScreen]);
 
-  // Handle scrolling to connect3 section
+  // Handle scrolling to "connect" section after splash screen disappears
   useEffect(() => {
-    
     if (!isSplashScreenVisible && location.state?.scrollToConnect) {
       scroller.scrollTo('connect3', {
         smooth: true,
         duration: 2000,
       });
     }
-  }, [isSplashScreenVisible, location.state]); // Only run when splash screen is hidden or location.state changes
+  }, [isSplashScreenVisible, location.state]);
 
+  // Initialize AOS animations
   useEffect(() => {
     AOS.init({
-      duration: 1000,  // Set the animation duration to 1 second
-      once: true,      // Trigger the animation only once when scrolled into view
-      startEvent: 'DOMContentLoaded'
+      duration: 1000,  // Set animation duration
+      once: true,      // Trigger animations only once
+      startEvent: 'DOMContentLoaded',
     });
   }, []);
 
+  // Loading state for content visibility
+  const [loading, setLoading] = useState(true);
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setLoading(false); 
-    }, 2500); 
-    return () => clearTimeout(timer);
+    const loadingTimeout = setTimeout(() => {
+      setLoading(false); // Hide loading state after 2.5 seconds
+    }, 2500); // 2.5-second loading state duration
+
+    return () => clearTimeout(loadingTimeout); // Clean up timeout if component is unmounted
   }, []);
 
-  return (
-    <>
-      {isSplashScreenVisible ? (
-        <SplashScreen /> 
-      ) : (
-        <div className="App">
-          <Navbar 
-            pos="fixed"
-            isDropdownVisible={isDropdownVisible}
-            toggleDropdownVisibility={toggleDropdownVisibility} 
-          />
+  // Render the splash screen or main content based on the splash screen visibility and loading state
+  if (!skipSplashScreen && ( isSplashScreenVisible || loading) ){
+    return <SplashScreen />;
+  }
 
-          <Slider />
-          <About />
-          <Value />
-          <Service />
-          <WhatMakeUs />
-          <RoadMap />
-          <Projects />
-          <div className="glo">
-            <Globe />
-          </div>
-          <Company />
-          <Blogs />
-          <Connect />
-          <Footer />
-        </div>
-      )}
-    </>
+  return (
+    <div className="App">
+      {/* Navbar with dropdown visibility */}
+      <Navbar
+        pos="fixed"
+        isDropdownVisible={isDropdownVisible}
+        toggleDropdownVisibility={toggleDropdownVisibility}
+      />
+      <Slider />
+      <About />
+      <Value />
+      <Service />
+      <WhatMakeUs />
+      <RoadMap />
+      <Projects />
+      <div className="glo">
+        <Globe />
+      </div>
+      <Company />
+      <Blogs />
+      <Connect />
+      <Footer />
+    </div>
   );
 };
 

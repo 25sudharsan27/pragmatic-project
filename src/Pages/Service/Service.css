@@ -15,17 +15,18 @@
     padding:0px;
     margin: 0px;
     height:auto;
-    width:100%;
+    width:50%;
+
     border-radius:6px;
 }
 
 
 .service-page-content1{
-    display:flex;
-    flex-direction:column;
-    justify-content: center;
+    /* display:flex; */
+    /* flex-direction:column; */
+    /* justify-content: center; */
 
-    margin-top:50px;
+    /* margin-top:50px; */
 }
 
 .service-page-content{
@@ -167,6 +168,20 @@
     
     background: linear-gradient(to bottom, #0A1D31, #000000);
 }
+
+
+
+.service-page-container{
+    border:1px solid white;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    width:100%;
+    height:100%;
+    padding:0px;
+    margin:0px;
+}
+
 
 
 

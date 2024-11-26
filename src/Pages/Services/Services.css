@@ -87,4 +87,8 @@
     #services123-item{
         width:80%;
     }
+    #services123-item{
+        height:60px;
+        margin-top:20px;
+    }
 }

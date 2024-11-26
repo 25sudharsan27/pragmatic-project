@@ -238,7 +238,6 @@ const Services = () => {
 
                 <div  className="blogs" id="service-p">
                     <h1 className="service-page-heading">{service.label}</h1>
-                    <div className="service-page-container">
                     <img src={img} className="service-page-image" />
                     <u1 className="service-page-content1">
                        {service.explanation.split('.').map((point,index) => (
@@ -247,7 +246,6 @@ const Services = () => {
                             : null
                           ))}
                     </u1>
-                    </div>
                     
                     <Connect/>
                                

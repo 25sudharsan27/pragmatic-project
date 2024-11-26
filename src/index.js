@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import Home from './Pages/Home/App';
@@ -14,6 +14,11 @@ const App = () => {
   const location = useLocation(); // To access the location of the route for transition
 
   const hasSeenSplash = localStorage.getItem('hasSeenSplash') === 'true'; // Check if splash screen has been seen
+
+  // Scroll to top whenever the route changes
+  useEffect(() => {
+    window.scrollTo(0, 0); // Scrolls to the top of the page
+  }, [location]);
 
   return (
     <TransitionGroup>

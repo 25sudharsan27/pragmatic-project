@@ -305,7 +305,10 @@
         .container{
             display:none;
         }
-
+        #service-mob{
+            display:flex;
+            flex-direction: column;
+        }
 
 
         .service-section-mobile{

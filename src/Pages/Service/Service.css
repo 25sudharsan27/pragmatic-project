@@ -1,12 +1,12 @@
 .service-page-heading{
-    font-size:25px;
+    font-size:35px;
     font-family:'Plus Jakarta Display', sans-serif;
     color:white;
     /* margin:20px; */
     width:100%;
     text-align: center;
     padding-bottom:30px;
-    font-weight:500;
+    /* font-weight:500; */
     
 
 }
@@ -15,32 +15,33 @@
     padding:0px;
     margin: 0px;
     height:auto;
-    width:50%;
-
+    width:100%;
+    /* height:500px; */
     border-radius:6px;
 }
 
 
 .service-page-content1{
-    /* display:flex; */
-    /* flex-direction:column; */
-    /* justify-content: center; */
+    display:flex;
+    flex-direction:column;
+    justify-content: center;
 
-    /* margin-top:50px; */
+    margin-top:50px;
 }
 
 .service-page-content{
     
     display:flex;
-    font-size:14px;
+    font-size:17px;
     /* font-family:'Plus Jakarta Display', sans-serif; */
-    line-height: 30px;
+    line-height: 25px;
     letter-spacing: 2px;
     font-weight:300;
     color:white;
     /* margin-top:20px; */
     margin:0px;
     padding:0px;
+    padding-top:20px;
 }
 
 
@@ -171,20 +172,6 @@
 
 
 
-.service-page-container{
-    border:1px solid white;
-    display:flex;
-    justify-content: center;
-    align-items: center;
-    width:100%;
-    height:100%;
-    padding:0px;
-    margin:0px;
-}
-
-
-
-
 
 
 @media screen and (max-width: 1200px){
@@ -192,13 +179,16 @@
         display:none;
     }
     .service-page-content{
-        font-size:13px;
+        font-size:15px;
     }
     
 }
 
 @media screen and (max-width : 768px){
     
+    .service-page-heading{
+        font-size:25px;
+    }
     #services-side-bar{
         overflow-y: scroll;
         height:88vh;
@@ -215,7 +205,7 @@
     }
     
     .service-page-content{
-        font-size:12px;
+        font-size:14px;
         /* font-family:'Plus Jakarta Display', sans-serif; */
         line-height: 20px;
         letter-spacing: 1px;
@@ -233,7 +223,8 @@
     #services-connection{
 
         width:100%;
-        margin:30x 0px ;
+        margin:30x 20px ;
+
         display:flex;
         justify-content: center;
         align-items: center;

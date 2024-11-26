@@ -1,7 +1,7 @@
 #services123-total{
     /* background: linear-gradient(to bottom right, #0A1D31, #06172c); */
     /* border:1px/ solid white; */
-
+   
 }
 
 
@@ -9,6 +9,7 @@
     display:flex;
     padding-bottom:70px;
     padding-top:70px;
+    height:100%;
 
     
 }

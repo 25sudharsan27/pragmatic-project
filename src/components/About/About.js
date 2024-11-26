@@ -6,34 +6,75 @@ import image3 from '../images/about3.png';
 import AOS from 'aos';  // Import AOS
 import 'aos/dist/aos.css';  // Import AOS styles
 
-function App() {
+function App({ ani }) {
+  
+  // Initialize AOS when component mounts, if ani is true
   useEffect(() => {
-    AOS.init({
-      duration: 1000,  // Set the animation duration to 1 second
-      once: true,      // Trigger the animation only once when scrolled into view
-      startEvent: 'DOMContentLoaded',
-      offset:10,
-    });
-  }, []);
+    if (ani) {
+      AOS.init({
+        duration: 1000, // Optional: you can customize the animation duration or other settings
+        once: true, // Optional: ensures animations only trigger once
+      });
+    }
+  }, [ani]);
+
+  // Helper function to conditionally apply AOS animations
+  const getAosData = (animation, delay) => {
+    return ani ? { "data-aos": animation, "data-aos-delay": delay } : {};
+  };
 
   return (
     <div className="about-section">
       <div className="about-section-left">
         <div className="about-heading2">
-        
-        <h1 id="about11" className="about-heading" data-aos="fade-up">About Us</h1>
-        <div className="global-line" ></div>        </div>
-        <h1 id="about22" className="about-para1" data-aos="fade-up" data-aos-delay="100">Your strategic partner for healthy and successful projects</h1>
-        <div className="about44" >
-          <p id="about33" className="about-para2" data-aos="fade-up" data-aos-delay="200">
+          <h1 
+            id="about11" 
+            className="about-heading" 
+            {...getAosData("fade-up", 0)} // Fade-up animation with no delay
+          >
+            About Us
+          </h1>
+          <div className="global-line"></div>
+        </div>
+
+        <h1 
+          id="about22" 
+          className="about-para1" 
+          {...getAosData("fade-up", 100)} // Fade-up with 100ms delay
+        >
+          Your strategic partner for healthy and successful projects
+        </h1>
+
+        <div className="about44">
+          <p 
+            id="about33" 
+            className="about-para2" 
+            {...getAosData("fade-up", 200)} // Fade-up with 200ms delay
+          >
             Our team of experienced professionals brings a wealth of knowledge and expertise to every project we undertake. From conception to completion, we ensure that every detail is meticulously planned and executed to perfection.
           </p>
         </div>
       </div>
+
       <div className="about-section-right">
-        <img id="about1" src={image1} alt="about" data-aos="fade-up" data-aos-delay="300" />
-        <img id="about2" src={image2} alt="about" data-aos="fade-down" data-aos-delay="300" />
-        <img id="about3" src={image3} alt="about" data-aos="fade-up" data-aos-delay="500" />
+        <img 
+          id="about1" 
+          src={image1} 
+          alt="about" 
+          {...getAosData("fade-up", 300)} // Fade-up with 300ms delay
+        />
+        <img 
+          id="about2" 
+          src={image2} 
+          alt="about" 
+          {...getAosData("fade-down", 300)} // Fade-down with 300ms delay
+        />
+        <img 
+          id="about3" 
+          src={image3} 
+          alt="about" 
+          {...getAosData("fade-up", 500)} // Fade-up with 500ms delay
+        />
       </div>
     </div>
   );

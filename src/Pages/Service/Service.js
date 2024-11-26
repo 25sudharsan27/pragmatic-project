@@ -142,14 +142,7 @@ const Services = () => {
 
 
 
-    useEffect(() => {
-        Aos.init({
-            duration: 1000,
-            once: true,
-            startEvent: 'DOMContentLoaded'
-        });
-    }, []);
-
+    
     const {id} = useParams();
     // { 
     //   label: "Expert Witness / Independent Opinion",

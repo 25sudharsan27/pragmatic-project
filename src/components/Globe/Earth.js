@@ -4,7 +4,7 @@ import './Earth.css';
 
 import tagimg from '../images/India.png'; 
 
-const GlobeWithTags = () => {
+const GlobeWithTags = ({ani}) => {
   const mountRef = useRef(null);
   const globeRef = useRef(null); 
   const cameraRef = useRef(null);
@@ -278,40 +278,43 @@ const GlobeWithTags = () => {
     };
   }, [currentIndex, isInView]); // Re-run the effect whenever the currentIndex or isInView changes
 
-
+  const getAosData = (animation, delay) => {
+    return ani ? { "data-aos": animation, "data-aos-delay": delay } : {};
+  };
   return (
     <div className="glb-com">
       <div className="globe-heading-cont2">
-      <div className="globe-heading-cont">
-        <h1  className="globe-heading" data-aos="fade-up">Places we serve</h1>
-        <div className="global-line" data-aos="fade-up"  id="globe-h"></div>        
-      </div>
-      </div>
-    <div data-aos="fade-up" id="iet23" className="w35234">
-      {/* Globe Container */}
-      <div ref={mountRef} className="w35325"></div>
-
-      {/* Tag Display Above the Globe */}
-      <div className="w35235" ref={tagRef}>
-        <img className="w3235-img" src={tagimg} alt="tag" />
-        <div className="w3235-name-cont" >
-          <h2 className="w3235-name">{tag.name}</h2>
-          <h2 className="w3235-usd-value">{tag.value1}</h2>
-        </div>
-        <div className="w3235-project-cont" >
-        <p className="w3235-project">Projects {tag.project}</p>
-        <p className="w3235-value">Projects Value: {tag.value}</p>
+        <div className="globe-heading-cont">
+          <h1 className="globe-heading" {...getAosData("fade-up", 0)}>Places we serve</h1>
+          <div className="global-line" {...getAosData("fade-up", 100)} id="globe-h"></div>        
         </div>
       </div>
+      <div {...getAosData("fade-up", 200)} id="iet23" className="w35234">
+        {/* Globe Container */}
+        <div ref={mountRef} className="w35325"></div>
 
-      {/* Prev and Next Buttons */}
-      <div className="w35236">
-        <button className="w35236-c" onClick={handlePrev}>{`<`}</button>
-        <button className="w35236-c" onClick={handleNext}>{`>`}</button>
+        {/* Tag Display Above the Globe */}
+        <div className="w35235" ref={tagRef}>
+          <img className="w3235-img" src={tagimg} alt="tag" />
+          <div className="w3235-name-cont">
+            <h2 className="w3235-name">{tag.name}</h2>
+            <h2 className="w3235-usd-value">{tag.value1}</h2>
+          </div>
+          <div className="w3235-project-cont">
+            <p className="w3235-project">Projects {tag.project}</p>
+            <p className="w3235-value">Projects Value: {tag.value}</p>
+          </div>
+        </div>
+
+        {/* Prev and Next Buttons */}
+        <div className="w35236">
+          <button className="w35236-c" onClick={handlePrev}>{`<`}</button>
+          <button className="w35236-c" onClick={handleNext}>{`>`}</button>
+        </div>
       </div>
-    </div>
     </div>
   );
 };
+
 
 export default GlobeWithTags;

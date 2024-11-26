@@ -80,13 +80,13 @@ const Blogs = () => {
         };
     }, []);
 
-    useEffect(() => {
-        Aos.init({
-            duration: 1000,
-            once: true,
-            startEvent: 'DOMContentLoaded'
-        });
-    }, []);
+    // useEffect(() => {
+    //     Aos.init({
+    //         duration: 1000,
+    //         once: true,
+    //         startEvent: 'DOMContentLoaded'
+    //     });
+    // }, []);
 
     
     const [isDropdownVisible, setDropdownVisible] = useState(false); // Initially hidden

@@ -7,7 +7,7 @@ import money1 from '../images/money1.svg';
 import money2 from '../images/money2.svg';
 import money3 from '../images/money3.svg';
 
-function App() {
+function App({ ani }) {
   const [counter1, setCounter1] = useState(0);
   const [counter2, setCounter2] = useState(0);
   const [counter3, setCounter3] = useState(0);
@@ -34,11 +34,14 @@ function App() {
   };
 
   useEffect(() => {
-    AOS.init({
-      duration: 1000,  // Animation duration
-      once: true,      // Trigger only once when scrolled into view
-        startEvent: 'DOMContentLoaded'
-    });
+    if (ani) {
+      // Initialize AOS if animations are enabled
+      AOS.init({
+        duration: 1000,  // Animation duration
+        once: true,      // Trigger only once when scrolled into view
+        startEvent: 'DOMContentLoaded',
+      });
+    }
 
     const observer = new IntersectionObserver(
       (entries) => {
@@ -62,38 +65,44 @@ function App() {
     return () => {
       observer.disconnect();
     };
-  }, []);
+  }, [ani]);
+
+  // Helper function to conditionally apply AOS animations
+  const getAosData = (animation, delay) => {
+    return ani ? { "data-aos": animation, "data-aos-delay": delay } : {};
+  };
 
   return (
     <div className="value1">
-      <div className="value" data-aos="fade-up">
-        <div className="value-item" data-aos="fade-left" data-aos-delay="400">
+      <div className="value" {...getAosData("fade-up", 0)}>
+        <div className="value-item" {...getAosData("fade-left", 400)}>
           <img src={money1} alt="money" className="value-icon" />
           <div className="value3">
-          <h1 className="value-heading">${counter1.toLocaleString()}M</h1>
-          <p className="value-para">Claims Received</p>
+            <h1 className="value-heading">${counter1.toLocaleString()}M</h1>
+            <p className="value-para">Claims Received</p>
           </div>
         </div>
-        <div data-aos="fade-left" data-aos-delay="300" className="value-line"></div>
-        <div className="value-item" data-aos="fade-up" data-aos-delay="200">
+
+        <div className="value-line" {...getAosData("fade-left", 300)}></div>
+
+        <div className="value-item" {...getAosData("fade-up", 200)}>
           <img src={money2} alt="money" className="value-icon" />
           <div className="value3">
-          <h1 className="value-heading">${counter2.toLocaleString()}B</h1>
-          <p className="value-para">Worth Projects</p>
+            <h1 className="value-heading">${counter2.toLocaleString()}B</h1>
+            <p className="value-para">Worth Projects</p>
           </div>
         </div>
-        <div data-aos="fade-right" data-aos-delay="300" className="value-line"></div>
 
-        <div className="value-item" data-aos="fade-right" data-aos-delay="400">
+        <div className="value-line" {...getAosData("fade-right", 300)}></div>
+
+        <div className="value-item" {...getAosData("fade-right", 400)}>
           <img src={money3} alt="money" className="value-icon" />
           <div className="value3">
-          <h1 className="value-heading">{counter3}%</h1>
-          <p className="value-para">Success Rate</p>
+            <h1 className="value-heading">{counter3}%</h1>
+            <p className="value-para">Success Rate</p>
           </div>
         </div>
       </div>
-
-      
     </div>
   );
 }

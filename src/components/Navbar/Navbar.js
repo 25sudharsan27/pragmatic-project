@@ -43,11 +43,18 @@ function Navbar({ pos, isDropdownVisible, toggleDropdownVisibility }) {
   const handleClick = () => {
     // Navigate to the home page and pass a state to indicate the scroll should happen and skip splash screen
     navigate('/', { state: { scrollToConnect: true, skipSplashScreen: true } });
+    
   };
 
   const handleHomeClick = () =>{
     console.log("home clicked");
-    navigate("/",{state : {skipSplashScreen : true}});
+    navigate('/',{state : {skipSplashScreen : true}});
+  }
+
+  const handleServiceClick = () =>{
+    console.log("service clicked");
+    const isAosInitialized = sessionStorage.getItem('isServicesAosInitialized');
+    navigate('/services',{state : {service : true, skipanimation : isAosInitialized}});
   }
 
   // JSX for fixed position navbar
@@ -70,9 +77,9 @@ function Navbar({ pos, isDropdownVisible, toggleDropdownVisibility }) {
             <a href="#" className="navbar-item">
               Who We are?
             </a>
-            <Link to="/services" className="navbar-item">
+            <a className="navbar-item" onClick={handleServiceClick}>
               Services
-            </Link>
+            </a>
             <ScrollLink to="connect3" smooth={true} duration={1000}>
               <a className="navbar-item">Connect With Us</a>
             </ScrollLink>            
@@ -102,9 +109,9 @@ function Navbar({ pos, isDropdownVisible, toggleDropdownVisibility }) {
           <a href="#" className="navbar-item2">
             Who We are?
           </a>
-          <Link to="/services" className="navbar-item2">
-            Services
-          </Link>
+          <a className="navbar-item2" onClick={handleServiceClick}>
+              Services
+            </a>
             <a onClick={handleClick} className="navbar-item2">Connect With Us</a>
           <Link to="/blogs" className="navbar-item2">
             Blogs
@@ -133,9 +140,9 @@ function Navbar({ pos, isDropdownVisible, toggleDropdownVisibility }) {
           <a href="#" className="navbar-item">
             Who We are?
           </a>
-          <Link to="/services" className="navbar-item">
-            Services
-          </Link>
+          <a className="navbar-item" onClick={handleServiceClick}>
+              Services
+            </a>
           <a onClick={handleClick} className="navbar-item">
             Connect With Us
           </a>
@@ -163,9 +170,9 @@ function Navbar({ pos, isDropdownVisible, toggleDropdownVisibility }) {
         <a href="#" className="navbar-item2">
           Who We are?
         </a>
-        <Link to="/services" className="navbar-item2">
-          Services
-        </Link>
+        <a className="navbar-item2" onClick={handleServiceClick}>
+              Services
+            </a>
           <a onClick={handleClick} className="navbar-item2">Connect With Us</a>
         <Link to="/blogs" className="navbar-item2">
           Blogs
@@ -180,9 +187,9 @@ function Navbar({ pos, isDropdownVisible, toggleDropdownVisibility }) {
           <a href="#" className="navbar-item2">
             Who We are?
           </a>
-          <Link to="/services" className="navbar-item2">
-            Services
-          </Link>
+          <a className="navbar-item2" onClick={handleServiceClick}>
+              Services
+            </a>
             <a onClick={handleClick} className="navbar-item2">Connect With Us</a>
           <Link to="/blogs" className="navbar-item2">
             Blogs
@@ -220,9 +227,9 @@ function Navbar({ pos, isDropdownVisible, toggleDropdownVisibility }) {
           <a href="#" className="navbar-item">
             Who We are?
           </a>
-          <Link to="/services" className="navbar-item">
-            Services
-          </Link>
+          <a className="navbar-item" onClick={handleServiceClick}>
+              Services
+            </a>
           <a onClick={handleClick} className="navbar-item">
             Connect With Us
           </a>
@@ -239,9 +246,9 @@ function Navbar({ pos, isDropdownVisible, toggleDropdownVisibility }) {
           <a href="#" className="navbar-item2">
             Who We are?
           </a>
-          <Link to="/services" className="navbar-item2">
-            Services
-          </Link>
+          <a className="navbar-item2" onClick={handleServiceClick}>
+              Services
+            </a>
             <a onClick={handleClick} className="navbar-item2">Connect With Us</a>
           <Link to="/blogs" className="navbar-item2">
             Blogs

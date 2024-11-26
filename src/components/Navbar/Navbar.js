@@ -176,7 +176,7 @@ function Navbar({ pos, isDropdownVisible, toggleDropdownVisibility }) {
           id={isDropdownVisible ? null: 'navbar-show'} // Controlled visibility
           className="navbar-dropdown1"
         >
-            <a href="/" className="navbar-item2">Home</a>
+            <a onClick={handleHomeClick} className="navbar-item2">Home</a>
           <a href="#" className="navbar-item2">
             Who We are?
           </a>

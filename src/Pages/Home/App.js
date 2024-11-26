@@ -38,7 +38,7 @@ const Home = () => {
     if (!skipSplashScreen) {
       const splashTimeout = setTimeout(() => {
         setSplashScreenVisible(false); // Hide splash screen after 2 seconds
-      }, 2000); // 2-second splash screen duration
+      }, 1500); // 2-second splash screen duration
 
       return () => clearTimeout(splashTimeout); // Clean up timeout if component is unmounted
     } else {

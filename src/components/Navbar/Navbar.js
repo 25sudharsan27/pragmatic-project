@@ -233,14 +233,25 @@ function Navbar({ pos, isDropdownVisible, toggleDropdownVisibility }) {
           />
         </div>
         <div className="navbar-dropdown-mobile">
+        { !isDropdownVisible ? 
             <a
               ref={buttonRef}
               onClick={handleShow}
               className="navbar-ite"
-              id={isDropdownVisible ? null: 'navbar-item-show'}
             >
-              {`>`}
+              ☰
             </a>
+            :
+            <a
+              ref={buttonRef}
+              onClick={handleShow}
+              className="navbar-ite"
+              id='navbar-item-show'
+            >
+              X
+            </a>
+
+          }
           </div>
         <div className="navbar-right">
           <a onClick={handleHomeClick} className="navbar-item">

@@ -25,7 +25,7 @@
 }
 
 .roadmap-heading{
-    font-family: 'Plus Jakarta Display', sans-serif;
+    font-family: 'Jost';
     font-size: 34px;
     font-weight:600;
     color: white;
@@ -79,8 +79,8 @@
 .roadmap-content-line2{
     z-index:-100;
 
-    font-family: 'Plus Jakarta Display', sans-serif;
-    font-size: 20px;
+    font-family: 'Jost', sans-serif;
+    font-size: 16px;
     color: white;
     padding:20px;
     border-radius:50%;
@@ -97,8 +97,8 @@
     position:absolute;
     top:90px;
     width:260px;
-    font-family: 'Plus Jakarta Display', sans-serif;
-    font-size: 18px;
+    font-family: 'Jost', sans-serif;
+    font-size: 16px;
     text-align: center;
     font-weight:500;
     align-self: center;

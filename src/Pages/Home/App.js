@@ -27,6 +27,7 @@ const Home = () => {
   
   const skipSplashScreen = location.state?.skipSplashScreen; // Check if we need to skip splash screen
 
+  
   // Function to toggle dropdown visibility
   const toggleDropdownVisibility = () => {
     setDropdownVisible(prevState => !prevState);
@@ -46,6 +47,7 @@ const Home = () => {
 
   // Handle scrolling to connect3 section
   useEffect(() => {
+    
     if (!isSplashScreenVisible && location.state?.scrollToConnect) {
       scroller.scrollTo('connect3', {
         smooth: true,

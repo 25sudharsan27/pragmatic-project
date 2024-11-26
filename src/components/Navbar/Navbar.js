@@ -45,6 +45,11 @@ function Navbar({ pos, isDropdownVisible, toggleDropdownVisibility }) {
     navigate('/', { state: { scrollToConnect: true, skipSplashScreen: true } });
   };
 
+  const handleHomeClick = () =>{
+    console.log("home clicked");
+    navigate("/",{state : {skipSplashScreen : true}});
+  }
+
   // JSX for fixed position navbar
   if (pos === 'fixed') {
     return (
@@ -121,9 +126,10 @@ function Navbar({ pos, isDropdownVisible, toggleDropdownVisibility }) {
           />
         </div>
         <div className="navbar-right">
-        <Link to="/" className="navbar-item">
+          <a onClick={handleHomeClick} className="navbar-item">
             Home
-          </Link>
+          </a>
+
           <a href="#" className="navbar-item">
             Who We are?
           </a>
@@ -153,9 +159,7 @@ function Navbar({ pos, isDropdownVisible, toggleDropdownVisibility }) {
         id={isDropdownVisible ? null: 'navbar-show'} // Controlled visibility
         className="navbar-dropdown1"
       >
-        <ScrollLink to="App" smooth={true} duration={1000}>
-          <a className="navbar-item2">Home</a>
-        </ScrollLink>
+          <a onClick={handleHomeClick} className="navbar-item2">Home</a>
         <a href="#" className="navbar-item2">
           Who We are?
         </a>
@@ -210,9 +214,9 @@ function Navbar({ pos, isDropdownVisible, toggleDropdownVisibility }) {
             </a>
           </div>
         <div className="navbar-right">
-          <Link to="/" className="navbar-item">
+          <a onClick={handleHomeClick} className="navbar-item">
             Home
-          </Link>
+          </a>
           <a href="#" className="navbar-item">
             Who We are?
           </a>
@@ -231,7 +235,7 @@ function Navbar({ pos, isDropdownVisible, toggleDropdownVisibility }) {
           id={isDropdownVisible ? null: 'navbar-show'} // Controlled visibility
           className="navbar-dropdown1"
         >
-            <a href="/" className="navbar-item2">Home</a>
+            <a onClick={handleHomeClick} className="navbar-item2">Home</a>
           <a href="#" className="navbar-item2">
             Who We are?
           </a>

@@ -36,16 +36,16 @@
 }
 
 .connect-heading{
-    font-family:'Plus Jakarta Display', sans-serif;
+    font-family:'Jost', sans-serif;
     font-size:40px;
     font-weight:600;
     color:white;
 }
 
 .connect-content{
-    font-family:'Manrope', sans-serif;
-    font-size:22px;
-    font-weight:300;
+    font-family:'Jost', sans-serif;
+    font-size:20px;
+    font-weight:400;
     color:white;
     margin-top:-10px;
 
@@ -56,7 +56,7 @@
     color:#71C9C6;
 }
 .connect-lables{
-    font-family:'Plus Jakarta Display', sans-serif;
+    font-family:'Jost', sans-serif;
     font-size:15px;
     font-weight:400;
     color:#FFFFFF;
@@ -95,7 +95,7 @@
     /* margin:10px; */
 }
 #connect-lables{
-    font-family:'Manrope', sans-serif;
+    font-family:'Jost', sans-serif;
     font-size:18px;
     font-weight:300;
     color:#FFFFFF;
@@ -103,7 +103,7 @@
 }
 
 .connect-input{
-    font-size:17px;
+    font-size:16px;
     width:100%;
     border-radius:5px;
     /* border:1px solid #ffffff; */
@@ -125,9 +125,9 @@
 
 .connect-input::placeholder{
     
-    color:rgb(246, 246, 246);
+    color: rgb(177, 177, 177); /* Optional: placeholder color */
     font-size:16px;
-    font-family:'Manrope', sans-serif;
+    font-family:'Jost', sans-serif;
 }
 
 .connect-form-2{
@@ -140,7 +140,7 @@
 }
 
 #connect-message::placeholder{
-  color: rgb(246, 246, 246); /* Optional: placeholder color */
+    color: rgb(177, 177, 177); /* Optional: placeholder color */
   
 }
 
@@ -158,7 +158,7 @@
     border:none;
     border-radius:5px;
     color:white;
-    font-family:'Manrope', sans-serif;
+    font-family:'Jost', sans-serif;
     font-weight:600;
     transition: 0.5s;
 }

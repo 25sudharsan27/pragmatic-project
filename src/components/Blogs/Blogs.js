@@ -78,7 +78,7 @@ function Blogs({ ani }) {
         )}
       </div>
 
-      <div data-aos="fade-left" data-aos-delay="100" id="mobileblog" className="blogs1">
+      <div {...getAosData("fade-left", 100)}  id="mobileblog" className="blogs1">
         {[blogs[0]].map((blog) => (
           <div className="blog" key={blog.date}>
             <img src={blogimg} alt="blog" className="blog-image" />
@@ -93,7 +93,7 @@ function Blogs({ ani }) {
         ))}
       </div>
 
-      <div data-aos="fade-up" data-aos-delay="100" className="blg-btn">
+      <div {...getAosData("fade-up", 100)}  className="blg-btn">
         <a href="/blogs" className="blogs-button">View All Blogs</a>
       </div>
     </div>

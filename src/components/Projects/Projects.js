@@ -24,13 +24,13 @@ function App({ani}) {
     { name: "Power / Plants", img: project7 },
   ];
 
-  // useEffect(() => {
-  //   AOS.init({
-  //     duration: 1000,
-  //     once: true,
-  //     startEvent: 'DOMContentLoaded',
-  //   });
-  // }, []);
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      once: true,
+      startEvent: 'DOMContentLoaded',
+    });
+  }, []);
 
   const projectDetails = [
     {
@@ -240,12 +240,21 @@ function App({ani}) {
     }
   ]
 
+
   const [currentPage, setCurrentPage] = useState(1);
+  const [currentPageMobile, setCurrentPageMobile] = useState(0);
+  const [currentIndexMobile, setCurrentIndexMobile] = useState(1);
+
   const projectsPerPage = 8;
+  const mobileProjectsPerPage = 1;
 
   const currentProjects = currentIndex === 0
     ? projectDetails
     : projectDetails.filter(project => project.index === currentIndex - 1);
+
+  const currentMobileProjects = currentIndexMobile === 0
+    ? projectDetails
+    : projectDetails.filter(project => project.index === currentIndexMobile - 1);
 
   const indexOfLastProject = currentPage * projectsPerPage;
   const indexOfFirstProject = indexOfLastProject - projectsPerPage;
@@ -263,40 +272,70 @@ function App({ani}) {
     }
   };
 
+  const scrollLeft = () => {
+     setCurrentIndexMobile(projectDetails[currentPageMobile-1].index+1);
+
+   
+      setCurrentPageMobile(currentPageMobile - 1);
+    
+  };
+
+  const scrollRight = () => {
+    
+    setCurrentIndexMobile(projectDetails[currentPageMobile+1].index+1);
+
+    setCurrentPageMobile(currentPageMobile + 1);
+    
+    
+  };
+
+  const handleNavClickMobile = (index) => {
+
+    setCurrentIndexMobile(index);
+    
+    if(index==1){
+      setCurrentPageMobile(0);
+    }
+    else if(index==2){
+      setCurrentPageMobile(11);
+    }
+    else if(index==3){
+      setCurrentPageMobile(12);
+    }
+    else if(index==4){
+      setCurrentPageMobile(16);
+    }
+    else if(index==5){
+      setCurrentPageMobile(17);
+    }
+    else if(index==6){
+      setCurrentPageMobile(23);
+    }
+  };
+
   const handleNavClick = (index) => {
     setCurrentIndex(index);
     setCurrentPage(1);
   };
-
-  // Initialize AOS if 'ani' is true
-  useEffect(() => {
-    if (ani) {
-      AOS.init({
-        duration: 1000,
-        once: true,
-        startEvent: 'DOMContentLoaded',
-      });
-    }
-  }, [ani]);
-
-  // Helper function to conditionally apply AOS attributes
   const getAosData = (animation, delay) => {
     return ani ? { "data-aos": animation, "data-aos-delay": delay } : {};
   };
 
+
   return (
     <div className="projects-container">
+      
       <div className="globe-heading-cont" id="project-h-h">
-        <h1 className="globe-heading" {...getAosData("fade-up", 0)}>Projects</h1>
-        <div className="global-line" {...getAosData("fade-up", 100)} id="project-h"></div>        
+        <h1  className="globe-heading" {...getAosData("fade-up",0)} >Projects</h1>
+        <div className="global-line" {...getAosData("fadeu-up",0)}  id="project-h"></div>        
       </div>
-      <p {...getAosData("fade-up", 200)} className="projects-para">
+      <p {...getAosData("fade-up",200)}  className="projects-para">
         Enter Pragmatic Project Consilium, a team of experts in Projects, Contracts, and Claims management across various construction fields. 
         Our mission is to tackle global challenges, improve project efficiency, and resolve contractual disputes. We also aim to revive non-performing contractor assets, 
         breathing life back into the economy.
       </p>
 
-      <div {...getAosData("zoom-in", 200)} id="first1" className="projects-nav">
+      <div {...getAosData("zoom-in",200)}  id="first1" className="projects-nav">
         <div className="projects-nav-item">
           {navItems.map((item, index) => (
             <div
@@ -311,10 +350,10 @@ function App({ani}) {
         </div>
       </div>
 
-      <div {...getAosData("fade-up", 200)} className="projects">
+      <div {...getAosData("fade-up",0)}  className="projects">
         {currentProjectsPage.map((project, index) => {
           return (
-            <div key={index} className="project-item">
+            <div  key={index} className="project-item">
               <img src={imgproject} alt="project" className="project-img" />
               <div className="project-item1">
                 <div id="project-image1">
@@ -349,6 +388,54 @@ function App({ani}) {
         <button onClick={nextPage} disabled={currentPage >= Math.ceil(currentProjects.length / projectsPerPage)}>Next</button>
       </div>
 
+      <div {...getAosData("zoom-in",300)}  id="second" className="projects-nav">
+        <div className="projects-nav-item">
+          {navItems.slice(1,navItems.length).map((item, index) => (
+            <div
+              key={index+1}
+              onClick={() => handleNavClickMobile(index+1)}
+              className={`nav-item ${index+1 === currentIndexMobile ? 'nav-active' : ''}`}
+            >
+              <img src={item.img} alt={item.name} className="nav-img" />
+              <a className="nav-text">{item.name}</a>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div {...getAosData("fade-left",400)}  id="for-mobile" className="projects2">
+        {[projectDetails[currentPageMobile]].map((project, index) => (
+          <div key={index} className="project-item">
+            <img src={imgproject} alt="project" className="project-img" />
+            <div className="project-item1">
+              <div id="project-image1">
+                <img
+                  src={navItems[project.index + 1]?.img || ''}
+                  alt={navItems[project.index + 1]?.name || ''}
+                  className="project-image"
+                />
+                <a className="project-text">{navItems[project.index + 1]?.name || ''}</a>
+              </div>
+              <h1 className="project-date">{project.date}, {project.place}</h1>
+            </div>
+            <h1 className="project-name">{project.name}</h1>
+            <div className="project-details">
+              <h1 className="project-value1">Project Value:</h1>
+              <h1 className="project-value">{project.project_value}</h1>
+            </div>
+            <div className="project-details">
+              <h1 className="project-value1">Claims Value:</h1>
+              <h1 className="project-value">{project.Claims_value}</h1>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div id="for-mobile" className="pagination-controls">
+        <button onClick={scrollLeft} disabled={currentPageMobile === 0}>Previous</button>
+        <span className="page-number">Page {currentPageMobile}</span>
+        <button onClick={scrollRight} disabled={currentPageMobile >= projectDetails.length-1}>Next</button>
+      </div>
     </div>
   );
 }

@@ -38,10 +38,10 @@
   text-align: center;
   align-self: center;
   width:100%;
-  font-family: 'Plus Jakarta Display', sans-serif;
+  font-family: 'Jost', sans-serif;
   color: white;
-  font-size: 50px;
-  font-weight: 600;
+  font-size: 60px;
+  font-weight: 700;
   margin: 0px;
   margin-top: 15px;
 }
@@ -50,10 +50,10 @@
   text-align: center;
   align-self: center;
 
-  font-family: 'Manrope', sans-serif;
+  font-family: 'Jost', sans-serif;
   color: white;
-  font-size: 18px;
-  font-weight: 200;
+  font-size: 22px;
+  font-weight: 400;
   width:100%;
   text-wrap: nowrap;
   margin: 0px;

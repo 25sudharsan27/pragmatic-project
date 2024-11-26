@@ -31,8 +31,8 @@
 .about-heading {
   display: inline;
   position: relative;
-  font-size: 38px; /* Default font size for desktop */
-  font-weight: 600;
+  font-size: 40px; /* Default font size for desktop */
+  font-weight: 800;
   font-family: 'Plus Jakarta Display', sans-serif;
   color: #FFFFFF;
 }
@@ -69,18 +69,18 @@
 }
 
 .about-para1 {
-  font-family: 'Plus Jakarta Display', sans-serif;
+  font-family:'Jost', sans-serif;
   margin-top: 50px;
   font-size: 36px; /* Default font size for desktop */
-  font-weight: 200;
+  font-weight: 600;
   color: #FFFFFF;
 }
 
 .about-para2 {
-  font-family: 'Manrope', sans-serif;
-  line-height: 38px;
+  font-family: 'Jost', sans-serif;
+  line-height: 36px;
   font-size: 20px;
-  font-weight: 100;
+  font-weight: 400;
   color: #FFFFFF;
   word-wrap: break-word;
 }

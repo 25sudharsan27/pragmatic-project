@@ -20,7 +20,7 @@
     text-align: center;
     font-family: 'Plus Jakarta Display', sans-serif;
     color: white;
-    font-weight: 700;
+    font-weight: 600;
     font-size: 45px;
     margin-bottom: 20px;
 }
@@ -36,12 +36,13 @@
 }
 
 .projects-para {
-    font-family: 'Plus Jakarta Display', sans-serif;
-    width: 70%;
+    font-family: 'Jost','sans-serif';
+    width: 80%;
     text-align: center;
     color: white;
     font-weight: 300;
-    font-size: 17px;
+    font-size: 18px;
+    line-height: 30px;
     margin-bottom: 40px;
 
 }
@@ -354,6 +355,7 @@
     }
     .projects-para {
         /* width: 100%; */
+        line-height:20px;
         font-size: 13px;
     }
 

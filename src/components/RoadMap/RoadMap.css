@@ -107,6 +107,12 @@
 
 }
 
+#road-map-claims{
+    font-family:'Jost', sans-serif;
+    font-size: 40px;
+    font-weight:500;
+}
+
 .roadmap-top-line1{
     display:flex;
     position:relative;
@@ -137,6 +143,9 @@
         top:50px;
         width:120px;
         font-size: 14px;
+    }
+    #road-map-claims{
+        font-size:25px;
     }
 
 }

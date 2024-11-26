@@ -23,7 +23,7 @@ const RoadMap = ({ ani }) => {
 
     return (
         <div className="roadmap-container">
-            <h1 className="globe-heading" {...getAosData("fade-up", 0)}>
+            <h1 id="road-map-claims" className="globe-heading" {...getAosData("fade-up", 0)}>
                 RoadMap to Claims
             </h1>            
             <div {...getAosData("fade-up", 100)} className="roadmap-icon">

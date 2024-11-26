@@ -88,14 +88,24 @@ function Navbar({ pos, isDropdownVisible, toggleDropdownVisibility }) {
             </Link>
           </div>
           <div className="navbar-dropdown-mobile">
-            <a
-              ref={buttonRef}
-              onClick={handleShow}
-              className="navbar-ite"
-              id={isDropdownVisible ? null: 'navbar-item-show'}
-            >
-              {`>`}
-            </a>
+              { !isDropdownVisible ? 
+                <a
+                  ref={buttonRef}
+                  onClick={handleShow}
+                  className="navbar-ite"
+                >
+                  ☰
+                </a>
+                :
+                <a
+                  ref={buttonRef}
+                  onClick={handleShow}
+                  className="navbar-ite"
+                >
+                  X
+                </a>
+
+              }
           </div>
         </div>
         <div
@@ -151,14 +161,26 @@ function Navbar({ pos, isDropdownVisible, toggleDropdownVisibility }) {
           </Link>
         </div>
         <div className="navbar-dropdown-mobile">
-          <a
-            ref={buttonRef}
-            onClick={handleShow}
-            className="navbar-ite"
-            id={isDropdownVisible ? null: 'navbar-item-show'}
-          >
-            {`>`}
-          </a>
+          { !isDropdownVisible ? 
+            <a
+              ref={buttonRef}
+              onClick={handleShow}
+              className="navbar-ite"
+            >
+              ☰
+            </a>
+            :
+            <a
+              ref={buttonRef}
+              onClick={handleShow}
+              className="navbar-ite"
+              id='navbar-item-show'
+            >
+              X
+            </a>
+
+          }
+          
         </div>
       </div>
       <div

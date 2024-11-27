@@ -17,7 +17,6 @@ const Blogs = () => {
 
     const navigator = new useNavigate();
     const {id}=useParams();
-    console.log(id);
     const categories = [
         "category1",   
         "category2",

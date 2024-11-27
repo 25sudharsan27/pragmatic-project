@@ -43,8 +43,6 @@ const Home = () => {
 
       return () => clearTimeout(splashTimeout); // Clean up timeout if component is unmounted
     } else {
-      
-
       setAnimation(false);
       setSplashScreenVisible(false); // Skip splash screen immediately
     }
@@ -68,7 +66,6 @@ const Home = () => {
     // Reset animation state when navigating back to Home (force animation if necessary)
     if (isAosInitialized && location.pathname === '/') {
       setAnimation(false); // Prevent animation after initial load if already initialized
-      console.log('Home page AOS already initialized at ' + new Date().toLocaleString());
     } else {
       // Initialize AOS if it's not yet initialized or the first time navigating to Home
       AOS.init({
@@ -81,7 +78,6 @@ const Home = () => {
       sessionStorage.setItem('isHomeAosInitialized', 'true');
     
 
-      console.log('Home page AOS initialized');
     }
 
     return () => {

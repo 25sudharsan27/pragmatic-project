@@ -24,7 +24,6 @@ function Navbar({ pos, isDropdownVisible, toggleDropdownVisibility }) {
         !buttonRef.current.contains(event.target) &&
         isDropdownVisible // Only hide if it's visible
       ) {
-        console.log('Click outside detected, hiding dropdown'); // Debugging
         toggleDropdownVisibility(); // Hide the dropdown in parent
       }
     };
@@ -47,17 +46,14 @@ function Navbar({ pos, isDropdownVisible, toggleDropdownVisibility }) {
   };
 
   const handleHomeClick = () =>{
-    console.log("home clicked");
     navigate('/',{state : {skipSplashScreen : true}});
   }
 
   const handleServiceClick = () =>{
-    console.log("service clicked");
     const isAosInitialized = sessionStorage.getItem('isServicesAosInitialized');
     navigate('/services',{state : {service : false, skipanimation : isAosInitialized}});
   }
   const handleService1Click = ()=>{
-    console.log("service clicked from home");
     navigate('/services',{state : {service:true}});
   }
 

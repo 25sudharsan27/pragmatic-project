@@ -17,17 +17,17 @@ const App = () => {
 
   const hasanim = sessionStorage.getItem('isServicesAosInitialized') === 'true'
 
-  console.log("has anima : "+hasanim);
   // Scroll to top whenever the route changes
   useEffect(() => {
     window.scroll(0, 0); // Scrolls to the top of the page
   }, [location]);
 
+
   return (
     <TransitionGroup>
       <CSSTransition
         key={location.key} // Ensure transition happens for each location change
-        timeout={500} // Set the duration of the transition (in ms)
+        timeout={800} // Set the duration of the transition (in ms)
         classNames="page" // Class name to apply animation
       >
        

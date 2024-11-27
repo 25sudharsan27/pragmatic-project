@@ -25,7 +25,6 @@ function Navbar({ pos, isDropdownVisible, toggleDropdownVisibility }) {
         !buttonRef.current.contains(event.target) &&
         isDropdownVisible // Only hide if it's visible
       ) {
-        console.log('Click outside detected, hiding dropdown'); // Debugging
         toggleDropdownVisibility(); // Hide the dropdown in parent
       }
     };

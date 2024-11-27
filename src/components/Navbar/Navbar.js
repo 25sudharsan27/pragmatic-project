@@ -108,6 +108,7 @@ function Navbar({ pos, isDropdownVisible, toggleDropdownVisibility }) {
                   ref={buttonRef}
                   onClick={handleShow}
                   className="navbar-ite"
+                  id="navbar-ite1"
                 >
                   X
                 </a>

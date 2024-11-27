@@ -54,7 +54,11 @@ function Navbar({ pos, isDropdownVisible, toggleDropdownVisibility }) {
   const handleServiceClick = () =>{
     console.log("service clicked");
     const isAosInitialized = sessionStorage.getItem('isServicesAosInitialized');
-    navigate('/services',{state : {service : true, skipanimation : isAosInitialized}});
+    navigate('/services',{state : {service : false, skipanimation : isAosInitialized}});
+  }
+  const handleService1Click = ()=>{
+    console.log("service clicked from home");
+    navigate('/services',{state : {service:true}});
   }
 
   // JSX for fixed position navbar
@@ -77,7 +81,7 @@ function Navbar({ pos, isDropdownVisible, toggleDropdownVisibility }) {
             <a href="#" className="navbar-item">
               Who We are?
             </a>
-            <a className="navbar-item" onClick={handleServiceClick}>
+            <a className="navbar-item" onClick={handleService1Click}>
               Services
             </a>
             <ScrollLink to="connect3" smooth={true} duration={1000}>

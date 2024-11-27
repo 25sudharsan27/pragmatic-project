@@ -15,9 +15,10 @@ const App = () => {
 
   const hasSeenSplash = localStorage.getItem('hasSeenSplash') === 'true'; // Check if splash screen has been seen
 
+  const hasanim = localStorage.getItem('hasanimation')==='true';
   // Scroll to top whenever the route changes
   useEffect(() => {
-    window.scrollTo(0, 0); // Scrolls to the top of the page
+    window.scroll(0,0); // Scrolls to the top of the page
   }, [location]);
 
   return (
@@ -33,9 +34,9 @@ const App = () => {
             element={<Home hasSeenSplash={hasSeenSplash} />} // Pass down hasSeenSplash as prop
           />
           <Route path="/blogs" element={<Blogs />} />
-          <Route path="/services/:id" element={<Services />} />
+          <Route path="/services/:id" element={<Services  />} />
           <Route path="/blogs/:id" element={<Blogs />} />
-          <Route path="/services" element={<Services1 />} />
+          <Route path="/services" element={<Services1 ani={hasanim} />} />
         </Routes>
       </CSSTransition>
     </TransitionGroup>

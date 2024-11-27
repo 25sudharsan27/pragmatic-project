@@ -29,41 +29,44 @@ const services = [
     { label: "Delay Claims | Disruption Claims", icon: icon3 }
 ];
 
-const Services = () => {
-
+const Services = ({ ani }) => {
     const location = useLocation();
-    const [isAnimation, setAnimation] = useState(false);
+    const [isAnimation, setAnimation] = useState(false); // Start with false to avoid initial delay
     const [isDropdownVisible, setDropdownVisible] = useState(false);
 
     const toggleDropdownVisibility = () => {
         setDropdownVisible(prevState => !prevState);
     };
 
-    
-    const skipani = location.state?.service;
-    const skipanimation = location.state?.skipanimation;
+    const isInitialized = location.state?.service;
 
-    useEffect(()=>{
+    // Directly handle the animation state change
+    useEffect(() => {
+        if (ani) {
+            setAnimation(true); // Set to true if initialized or animation is needed
         
-        if(!skipanimation){
-        setAnimation(true);
         }
-           
-    
-    },[skipanimation])
+        else{
+            setAnimation(false);
+        }
 
+
+    }, []);
+
+    // Initialize AOS only once on first load, not on re-renders
     useEffect(() => {
         const isAosInitialized = sessionStorage.getItem('isServicesAosInitialized');
         
         if (!isAosInitialized) {
             AOS.init({
                 duration: 1000,
-                once: true,
+                once: true, // Ensure AOS is only triggered once
                 startEvent: 'DOMContentLoaded',
             });
-            setAnimation(true);
             sessionStorage.setItem('isServicesAosInitialized', 'true');
-        } else {
+            setAnimation(true);
+        }
+        else{
             setAnimation(false);
         }
 
@@ -87,12 +90,13 @@ const Services = () => {
 const ServicesList = ({ isAnimation }) => {
     const navigate = useNavigate();
 
+    // Get AOS data only if animation is enabled
     const getAosData = (animation, delay) => {
         return isAnimation ? { "data-aos": animation, "data-aos-delay": delay } : {};
     };
 
     return (
-        <div id="services123-section" className="service-section-mobile">
+        <div id="services123-section" className="App">
             <div id="services123-heading" className="service-section-mobile-heading">
                 Services we offer
             </div>
@@ -100,7 +104,7 @@ const ServicesList = ({ isAnimation }) => {
                 {services.map((service, index) => (
                     <div 
                         key={index}
-                        {...getAosData("zoom-in", 0)}
+                        {...getAosData("zoom-in", 0)} // Apply AOS animation if isAnimation is true
                         onClick={() => navigate(`/services/${index}`)} 
                         id="services123-item" 
                         className="service-section-mobile-item"

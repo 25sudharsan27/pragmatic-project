@@ -67,12 +67,15 @@ function Navbar({ pos, isDropdownVisible, toggleDropdownVisibility }) {
       <div>
         <div className="navbar">
           <div>
+          <ScrollLink to="App" smooth={true} duration={1000}>
+
             <img
               src={logo}
-              onClick={() => navigate('/')}
               alt="logo"
               className="navbar-logo"
             />
+          </ScrollLink>
+
           </div>
           <div className="navbar-right">
             <ScrollLink to="App" smooth={true} duration={1000}>
@@ -118,9 +121,9 @@ function Navbar({ pos, isDropdownVisible, toggleDropdownVisibility }) {
           className="navbar-dropdown1"
         >
           <ScrollLink to="App" smooth={true} duration={1000}>
-            <a className="navbar-item2">Home</a>
+            <a  className="navbar-item2">Home</a>
           </ScrollLink>
-          <a href="#" className="navbar-item2">
+          <a id="navbar3" href="#" className="navbar-item2">
             Who We are?
           </a>
           <a className="navbar-item2" onClick={handleServiceClick}>
@@ -139,9 +142,10 @@ function Navbar({ pos, isDropdownVisible, toggleDropdownVisibility }) {
       <div>
       <div className="navbar">
         <div>
+          
           <img
             src={logo}
-            onClick={() => navigate('/')}
+            onClick={handleHomeClick}
             alt="logo"
             className="navbar-logo"
           />
@@ -231,7 +235,7 @@ function Navbar({ pos, isDropdownVisible, toggleDropdownVisibility }) {
         <div className="nav">
           <img
             src={logo}
-            onClick={() => navigate('/')}
+            onClick={handleHomeClick}
             alt="logo"
             className="navbar-logo"
           />

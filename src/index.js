@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import Home from './Pages/Home/App';
@@ -13,12 +13,14 @@ import Services1 from './Pages/Services/Services';
 const App = () => {
   const location = useLocation(); // To access the location of the route for transition
 
-  const hasSeenSplash = localStorage.getItem('hasSeenSplash') === 'true'; // Check if splash screen has been seen
+  const hasSeenSplash = sessionStorage.getItem('hasSeenSplash') === 'true'; // Check if splash screen has been seen
 
-  const hasanim = localStorage.getItem('hasanimation')==='true';
+  const hasanim = sessionStorage.getItem('isServicesAosInitialized') === 'true'
+
+  console.log("has anima : "+hasanim);
   // Scroll to top whenever the route changes
   useEffect(() => {
-    window.scroll(0,0); // Scrolls to the top of the page
+    window.scroll(0, 0); // Scrolls to the top of the page
   }, [location]);
 
   return (
@@ -28,16 +30,18 @@ const App = () => {
         timeout={500} // Set the duration of the transition (in ms)
         classNames="page" // Class name to apply animation
       >
-        <Routes location={location}>
-          <Route 
-            path="/" 
-            element={<Home hasSeenSplash={hasSeenSplash} />} // Pass down hasSeenSplash as prop
-          />
-          <Route path="/blogs" element={<Blogs />} />
-          <Route path="/services/:id" element={<Services  />} />
-          <Route path="/blogs/:id" element={<Blogs />} />
-          <Route path="/services" element={<Services1 ani={hasanim} />} />
-        </Routes>
+       
+          <Routes location={location}>
+            <Route 
+              path="/" 
+              element={<Home hasSeenSplash={hasSeenSplash} />} // Pass down hasSeenSplash as prop
+            />
+            <Route path="/blogs" element={<Blogs />} />
+            <Route path="/services/:id" element={<Services />} />
+            <Route path="/blogs/:id" element={<Blogs />} />
+            <Route path="/services" element={<Services1 ani={!hasanim} />} />
+          </Routes>
+      
       </CSSTransition>
     </TransitionGroup>
   );

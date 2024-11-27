@@ -30,50 +30,27 @@ const services = [
 ];
 
 const Services = ({ ani }) => {
-    const location = useLocation();
-    const [isAnimation, setAnimation] = useState(false); // Start with false to avoid initial delay
+  
     const [isDropdownVisible, setDropdownVisible] = useState(false);
 
     const toggleDropdownVisibility = () => {
         setDropdownVisible(prevState => !prevState);
     };
 
-    const isInitialized = location.state?.service;
-
-    // Directly handle the animation state change
     useEffect(() => {
-        if (ani) {
-            setAnimation(true); // Set to true if initialized or animation is needed
         
-        }
-        else{
-            setAnimation(false);
-        }
-
-
-    }, []);
-
-    // Initialize AOS only once on first load, not on re-renders
-    useEffect(() => {
-        const isAosInitialized = sessionStorage.getItem('isServicesAosInitialized');
-        
-        if (!isAosInitialized) {
+        if(ani){
             AOS.init({
                 duration: 1000,
                 once: true, // Ensure AOS is only triggered once
                 startEvent: 'DOMContentLoaded',
             });
             sessionStorage.setItem('isServicesAosInitialized', 'true');
-            setAnimation(true);
-        }
-        else{
-            setAnimation(false);
-        }
 
-        return () => {
-            // Optional cleanup logic for AOS (if necessary)
-        };
-    }, []);
+            console.log("storing the thing"+sessionStorage.getItem('isServicesAosInitialized'));
+        }
+    
+    }, [ani]);
 
     return (
         <div id="services123-total" className="App">
@@ -82,13 +59,14 @@ const Services = ({ ani }) => {
                 isDropdownVisible={isDropdownVisible}
                 toggleDropdownVisibility={toggleDropdownVisibility} 
             />
-            <ServicesList isAnimation={isAnimation} />
+            <ServicesList isAnimation={ani} />
         </div>
     );
 };
 
 const ServicesList = ({ isAnimation }) => {
     const navigate = useNavigate();
+    console.log(" checking "+isAnimation);
 
     // Get AOS data only if animation is enabled
     const getAosData = (animation, delay) => {
@@ -97,7 +75,7 @@ const ServicesList = ({ isAnimation }) => {
 
     return (
         <div id="services123-section" className="App">
-            <div id="services123-heading" className="service-section-mobile-heading">
+            <div  className="service-section-mobile-heading">
                 Services we offer
             </div>
             <div id="services123-section-content" className="service-section-mobile-content">

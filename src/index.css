@@ -31,3 +31,5 @@ code {
   transform: translateY(-30px); /* Optional: Moves the old page slightly up */
   transition: opacity 0.3s ease, transform 0.3s ease;
 }
+
+

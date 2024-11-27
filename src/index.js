@@ -13,10 +13,9 @@ import Services1 from './Pages/Services/Services';
 const App = () => {
   const location = useLocation(); // To access the location of the route for transition
 
-  const hasSeenSplash = sessionStorage.getItem('hasSeenSplash') === 'true'; // Check if splash screen has been seen
-
   const hasanim = sessionStorage.getItem('isServicesAosInitialized') === 'true'
 
+  
   // Scroll to top whenever the route changes
   useEffect(() => {
     window.scroll(0, 0); // Scrolls to the top of the page
@@ -34,7 +33,7 @@ const App = () => {
           <Routes location={location}>
             <Route 
               path="/" 
-              element={<Home hasSeenSplash={hasSeenSplash} />} // Pass down hasSeenSplash as prop
+              element={<Home  />} // Pass down hasSeenSplash as prop
             />
             <Route path="/blogs" element={<Blogs />} />
             <Route path="/services/:id" element={<Services />} />

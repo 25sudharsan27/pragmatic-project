@@ -124,13 +124,15 @@ function Navbar({ pos, isDropdownVisible, toggleDropdownVisibility }) {
           <ScrollLink to="App" smooth={true} duration={1000}>
             <a  className="navbar-item2">Home</a>
           </ScrollLink>
-          <a id="navbar3" href="#" className="navbar-item2">
+          <a href="#" className="navbar-item2">
             Who We are?
           </a>
-          <a className="navbar-item2" onClick={handleServiceClick}>
+          <a id="navbar4" className="navbar-item2" onClick={handleServiceClick}>
               Services
             </a>
-            <a onClick={handleClick} className="navbar-item2">Connect With Us</a>
+            <ScrollLink to="connect3" smooth={true} duration={1000}>
+              <a  className="navbar-item2">Connect With Us</a>
+            </ScrollLink> 
           <Link to="/blogs" className="navbar-item2">
             Blogs
           </Link>

@@ -62,20 +62,49 @@ const Home = () => {
 
   // Initialize AOS animations only if not already initialized (check sessionStorage)
   useEffect(() => {
-    AOS.init({
-      duration: 1000,  // Set animation duration
-      once: true,      // Trigger animations only once
-      startEvent: 'DOMContentLoaded',
-    });
-  },[]);
 
-  
+    const isAosInitialized = sessionStorage.getItem('isHomeAosInitialized'); // Check if AOS has been initialized for Home page
+
+    // Reset animation state when navigating back to Home (force animation if necessary)
+    if (isAosInitialized && location.pathname === '/') {
+      setAnimation(false); // Prevent animation after initial load if already initialized
+      console.log('Home page AOS already initialized at ' + new Date().toLocaleString());
+    } else {
+      // Initialize AOS if it's not yet initialized or the first time navigating to Home
+      AOS.init({
+        duration: 1000,  // Set animation duration
+        once: true,      // Trigger animations only once
+        startEvent: 'DOMContentLoaded',
+      });
+
+      // Set the flag to indicate AOS has been initialized
+      sessionStorage.setItem('isHomeAosInitialized', 'true');
+    
+
+      console.log('Home page AOS initialized');
+    }
+
+    return () => {
+      // Optional cleanup logic for AOS (if necessary)
+    };
+  }, [location.pathname]); // Track pathname to detect navigation to Home page
+
+  // Loading state for content visibility
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    const loadingTimeout = setTimeout(() => {
+      setLoading(false); // Hide loading state after 2.5 seconds
+    }, 2500); // 2.5-second loading state duration
+
+    return () => clearTimeout(loadingTimeout); // Clean up timeout if component is unmounted
+  }, []);
+
   // Render the splash screen or main content based on the splash screen visibility and loading state
-  if (!skipSplashScreen && (isSplashScreenVisible )) {
+  if (!skipSplashScreen && (isSplashScreenVisible || loading)) {
     return <SplashScreen />;
   }
 
- 
+  if(isanimation){
     return (
 
       <div className="App">
@@ -85,52 +114,52 @@ const Home = () => {
           isDropdownVisible={isDropdownVisible}
           toggleDropdownVisibility={toggleDropdownVisibility}
         />
-        <Slider ani={isanimation} />
-        <About ani={isanimation} />
-        <Value ani={isanimation} />
-        <Service ani={isanimation} />
-        <WhatMakeUs ani={isanimation} />
-        <RoadMap ani={isanimation} />
-        <Projects ani={isanimation} />
+        <Slider ani={true} />
+        <About ani={true} />
+        <Value ani={true} />
+        <Service ani={true} />
+        <WhatMakeUs ani={true} />
+        <RoadMap ani={true} />
+        <Projects ani={true} />
         <div className="glo">
-          <Globe ani={isanimation} />
+          <Globe ani={true} />
         </div>
-        <Company ani={isanimation} />
-        <Blogs ani={isanimation} />
-        <Connect ani={isanimation} />
-        <Footer ani={isanimation} />
+        <Company ani={true} />
+        <Blogs ani={true} />
+        <Connect ani={true} />
+        <Footer ani={true} />
       </div>
     );
 
-  // }
-  // else{
-  //   return (
+  }
+  else{
+    return (
 
-  //     <div className="App">
-  //       {/* Navbar with dropdown visibility */}
-  //       <Navbar
-  //         pos="fixed"
-  //         isDropdownVisible={isDropdownVisible}
-  //         toggleDropdownVisibility={toggleDropdownVisibility}
-  //       />
-  //       <Slider ani={false} />
-  //       <About ani={false} />
-  //       <Value ani={false} />
-  //       <Service ani={false} />
-  //       <WhatMakeUs ani={false} />
-  //       <RoadMap ani={false} />
-  //       <Projects ani={false} />
-  //       <div className="glo">
-  //         <Globe ani={false} />
-  //       </div>
-  //       <Company ani={false} />
-  //       <Blogs ani={false} />
-  //       <Connect ani={false} />
-  //       <Footer ani={false} />
-  //     </div>
-  //   );
+      <div className="App">
+        {/* Navbar with dropdown visibility */}
+        <Navbar
+          pos="fixed"
+          isDropdownVisible={isDropdownVisible}
+          toggleDropdownVisibility={toggleDropdownVisibility}
+        />
+        <Slider ani={false} />
+        <About ani={false} />
+        <Value ani={false} />
+        <Service ani={false} />
+        <WhatMakeUs ani={false} />
+        <RoadMap ani={false} />
+        <Projects ani={false} />
+        <div className="glo">
+          <Globe ani={false} />
+        </div>
+        <Company ani={false} />
+        <Blogs ani={false} />
+        <Connect ani={false} />
+        <Footer ani={false} />
+      </div>
+    );
 
-  // }
+  }
 
   
 };

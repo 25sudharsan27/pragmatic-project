@@ -47,6 +47,7 @@ const Services = ({ ani }) => {
             });
             sessionStorage.setItem('isServicesAosInitialized', 'true');
 
+            console.log("storing the thing"+sessionStorage.getItem('isServicesAosInitialized'));
         }
     
     }, [ani]);
@@ -65,6 +66,7 @@ const Services = ({ ani }) => {
 
 const ServicesList = ({ isAnimation }) => {
     const navigate = useNavigate();
+    console.log(" checking "+isAnimation);
 
     // Get AOS data only if animation is enabled
     const getAosData = (animation, delay) => {

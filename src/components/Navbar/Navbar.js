@@ -60,7 +60,7 @@ function Navbar({ pos, isDropdownVisible, toggleDropdownVisibility }) {
   // JSX for fixed position navbar
   if (pos === 'fixed') {
     return (
-      <div>
+      <div className="navbar-home">
         <div className="navbar">
           <div>
           <ScrollLink to="App" smooth={true} duration={1000}>

@@ -11,6 +11,7 @@ function App({ ani }) {
   const [counter1, setCounter1] = useState(0);
   const [counter2, setCounter2] = useState(0);
   const [counter3, setCounter3] = useState(0);
+  const [hasAnimated, setHasAnimated] = useState(false); // Flag to check if animation has already run
 
   // Function to animate numbers
   const incrementCounter = (target, setCounter) => {
@@ -46,11 +47,14 @@ function App({ ani }) {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            // Start number increment when the element is in view
+          if (entry.isIntersecting && !hasAnimated) {
+            // Start number increment only once when the element is in view
             incrementCounter(522, setCounter1); // $522M
             incrementCounter(6.1, setCounter2); // $6.1B
             incrementCounter(95.3, setCounter3); // 95.3%
+
+            // Set the flag to prevent further increments
+            setHasAnimated(true);
           }
         });
       },
@@ -65,7 +69,7 @@ function App({ ani }) {
     return () => {
       observer.disconnect();
     };
-  }, [ani]);
+  }, [ani, hasAnimated]); // Add `hasAnimated` as a dependency to ensure it tracks the flag
 
   // Helper function to conditionally apply AOS animations
   const getAosData = (animation, delay) => {
@@ -78,7 +82,7 @@ function App({ ani }) {
         <div className="value-item" {...getAosData("fade-left", 400)}>
           <img src={money1} alt="money" className="value-icon" />
           <div className="value3">
-            <h1 className="value-heading">${counter1.toLocaleString()}M</h1>
+            <h1 className="value-heading">{ani ? `${counter1.toLocaleString()}M` : "$522M"}</h1>
             <p className="value-para">Claims Received</p>
           </div>
         </div>
@@ -88,7 +92,7 @@ function App({ ani }) {
         <div className="value-item" {...getAosData("fade-up", 200)}>
           <img src={money2} alt="money" className="value-icon" />
           <div className="value3">
-            <h1 className="value-heading">${counter2.toLocaleString()}B</h1>
+            <h1 className="value-heading">{ani ? `${counter2.toLocaleString()}B` : "6.1B"}</h1>
             <p className="value-para">Worth Projects</p>
           </div>
         </div>
@@ -98,7 +102,7 @@ function App({ ani }) {
         <div className="value-item" {...getAosData("fade-right", 400)}>
           <img src={money3} alt="money" className="value-icon" />
           <div className="value3">
-            <h1 className="value-heading">{counter3}%</h1>
+            <h1 className="value-heading">{ani ? `${counter3}%` : "95.3%"}</h1>
             <p className="value-para">Success Rate</p>
           </div>
         </div>

@@ -22,6 +22,7 @@
     /* border: 2px solid #3a4a5c; */
 }
 .extra-large-circle {
+    
     border: 1px solid #33d6ce;
     width: 500px;
     height: 500px;
@@ -79,6 +80,7 @@
 }
 
 .service-item {
+    
     position: absolute;
     display: flex;
     flex-direction: column;
@@ -88,7 +90,7 @@
     font-weight: bold;
     font-size: 0.9em;
     z-index: 3;
-    width:100%;
+    /* width:100%; */
 }
 
 .icon {
@@ -111,6 +113,8 @@
     font-weight: 500;
     border-radius: 20px;
     display:inline;
+    cursor: pointer;
+    text-wrap: nowrap;
     
 }
 #label_service{
@@ -146,14 +150,14 @@
 /* Positioning each item around the circle */
 .item-1 { top: -140px; left: 50%; transform: translate(-50%, -100%); }
 .item-2 { top: 10%; left: 155%; transform: translate(-48%, -30%); }
-.item-3 { top: 50%; left: 120%; transform: translate(0, -50%); }
+.item-3 { top: 50%; left: 150%; transform: translate(0, -50%); }
 .item-4 { bottom: 10px; left:150%; transform: translate(-50%, -50%);  }
 .item-5 { bottom: -140px; left: 50%; transform: translate(-50%, 100%); }
 .item-6 { bottom: 40px; left: -50%; transform: translate(-50%, 50%); }
-.item-7 { top: 50%; left: -15%; transform: translate(-100%, -50%); }
+.item-7 { top: 50%; left: -40%; transform: translate(-100%, -50%); }
 .item-8 { top: 6%; left: -60%; transform: translate(-48%, 30%); }
 .item-9 { top : -15%; left:-40%; transform: translate(-44%, -60%); }
-.item-10 { top : 12%; left:60%; transform: translate(41%, -330%); }
+.item-10 { top : 10%; left:80%; transform: translate(41%, -330%); }
 .item-11 { bottom: -20%; left: -35%; transform: translate(-50%, 50%); }
 .item-12 { bottom: -26%; left: 136%; transform: translate(-50%, -50%); }
 

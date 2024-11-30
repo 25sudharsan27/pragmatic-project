@@ -26,13 +26,18 @@ const Home = () => {
   const [isanimation, setAnimation] = useState(false);
 
   // Check if we need to skip splash screen based on route state
-  const skipSplashScreen = location.state?.skipSplashScreen;
-
+  var skipSplashScreen = location.state?.skipSplashScreen;
+  
   // Function to toggle dropdown visibility
   const toggleDropdownVisibility = () => {
     setDropdownVisible(prevState => !prevState);
   };
 
+  useEffect(()=>{
+    if(!isanimation){
+      skipSplashScreen =false;
+    }
+  },[isanimation])
   // Handle splash screen timeout or skip logic
   useEffect(() => {
     if (!skipSplashScreen) {

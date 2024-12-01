@@ -11,6 +11,36 @@ import imgproject from '../images/projecta1.png';
 import { GiMechanicalArm } from 'react-icons/gi';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import oil_gas1 from "../images/Projects/oil_and_gas/image1.jpg"
+import oil_gas2 from '../images/Projects/oil_and_gas/image2.jpg';
+import oil_gas3 from '../images/Projects/oil_and_gas/image3.jpg';
+import oil_gas4 from '../images/Projects/oil_and_gas/image4.jpg';
+import oil_gas5 from '../images/Projects/oil_and_gas/image5.jpg';
+import oil_gas6 from '../images/Projects/oil_and_gas/image6.jpg';
+import oil_gas7 from '../images/Projects/oil_and_gas/image7.jpg';
+import oil_gas8 from '../images/Projects/oil_and_gas/image8.jpg';
+import oil_gas9 from '../images/Projects/oil_and_gas/image9.jpg';
+import oil_gas10 from '../images/Projects/oil_and_gas/image10.jpg';
+import oil_gas11 from '../images/Projects/oil_and_gas/image11.jpg';
+import railways1 from '../images/Projects/railways/image1.jpg';
+import railways2 from '../images/Projects/railways/image2.jpg';
+import railways3 from '../images/Projects/railways/image3.jpg';
+import railways4 from '../images/Projects/railways/image4.jpg';
+import port1 from '../images/Projects/ports/image2.jpg';
+import construction1 from '../images/Projects/constructions/image1.jpg';
+import construction2 from '../images/Projects/constructions/image2.jpg';
+import construction3 from '../images/Projects/constructions/image3.jpg';
+import construction4 from '../images/Projects/constructions/image4.jpg';
+import construction5 from '../images/Projects/constructions/image5.jpg';
+import construction6 from '../images/Projects/constructions/image6.jpg';
+import power1 from '../images/Projects/power/image1a.jpg';
+import power2 from '../images/Projects/power/image2.jpg';
+import power3 from '../images/Projects/power/image3.jpg';
+import power4 from '../images/Projects/power/image4a.jpg';
+import power5 from '../images/Projects/power/image5.jpg';
+import power6 from '../images/Projects/power/image6.jpg';
+
+
 
 function App({ani}) {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -36,6 +66,7 @@ function App({ani}) {
     {
         date: "2023",
         place:"KSA",
+        image:oil_gas10,
         index:0,
         name:"Subcontracting works for Piping and Equipment Insulation",
         project_value:"USD 45 Million",
@@ -43,6 +74,7 @@ function App({ani}) {
     },{
       date: "2023",
       place:"Kuwait",
+      image:oil_gas2,
       index:0,
       name:"Subcontracting works for Piping and Equipment Insulation",
       project_value:"KD 1 Million (USD 3.5 Million)",
@@ -50,6 +82,7 @@ function App({ani}) {
   },{
     date: "2023",
     place:"Kuwait",
+    image:oil_gas3,
     index:0,
     name:"Mechanical and Piping works for Petrochemical Plant in ASSAM",
     project_value:"INR 230 Cr (USD 27 Million)",
@@ -57,6 +90,7 @@ function App({ani}) {
     },{
       date: "2019-21",
       place:"U.A.E",
+      image:oil_gas4,
       index:0,
       name:"EPC works for replacement of Gas metering systems",
       project_value:"USD 49 Million",
@@ -64,6 +98,7 @@ function App({ani}) {
     },{
       date: "2018-19",
       place:"Oman",
+      image:oil_gas5,
       index:0,
       name:"EPCC for Oil Pier Jetty Revamp at Port of Salalah",
       project_value:"OMR 3.5 Million (USD 9.09 Million)",
@@ -71,6 +106,7 @@ function App({ani}) {
   },{
     date: "2018-19",
     place:"Kuwait",
+    image:oil_gas6,
     index:0,
     name:"HVAC Works EPC of Expansion and revamping of Ahmadi Oil Refinery, Kuwait",
     project_value:"USD 6 Million",
@@ -78,6 +114,7 @@ function App({ani}) {
 },{
   date: "2009-16",
   place:"U.A.E",
+  image:oil_gas7,
   index:0,
   name:"Multiple projects over the period of 2009 to 2016",
   project_value:"USD 270 Million / Year",
@@ -85,6 +122,7 @@ function App({ani}) {
 },{
   date: "2005-2007",
   place:"Qatar",
+  image:oil_gas8,
   index:0,
   name:"Administrative building, Panel Room, Control room construction, Ras laffan",
   project_value:"QNR 85 Million (USD 23.35 Million)",
@@ -92,6 +130,7 @@ function App({ani}) {
 },{
   date: "2019",
   place:"U.A.E",
+  image:oil_gas9,
   index:0,
   name:"Gas Pipeline Debottlenecking Project",
   project_value:"USD 15 Million",
@@ -99,6 +138,7 @@ function App({ani}) {
 },{
   date: "2009",
   place:"U.A.E",
+  image:oil_gas1,
   index:0,
   name:"Borouge 2 DCS/ESD & borouge 1 Modification",
   project_value:"AED 400 Million",
@@ -106,6 +146,7 @@ function App({ani}) {
 },{
   date: "2023",
   place:"Kazakhastan",
+  image:oil_gas11,
   index:0,
   name:"Kashagan Utility Area Project",
   project_value:"USD 150 Million",
@@ -113,6 +154,7 @@ function App({ani}) {
 },{
         date: "2024",
         place:"India",
+        image : imgproject,
         index:1,
         name:"EPC works for Civil Buildings for Airport",
         project_value:"USD 237 Million",
@@ -121,6 +163,7 @@ function App({ani}) {
         date: "2024",
         
         place:"India",
+        image : railways1,
         index:2,
         name:"EPC works for Civil Buildings, ROB, RUB, Bridges and Track",
         project_value:"USD 292 Million",
@@ -128,6 +171,7 @@ function App({ani}) {
     },{
       date: "2023",
       place:"India",
+      image : railways2,
       index:2,
       name:"EPC works for Civil Buildings, ROB, RUB, Bridges and Track",
       project_value:"USD 264 Million",
@@ -135,6 +179,7 @@ function App({ani}) {
     },{
       date: "2022",
       place:"India",
+      image : railways3,
       index:2,
       name:"EPC works for Metro Rail",
       project_value:"INR 1680 Cr (USD 210 Million)",
@@ -142,6 +187,7 @@ function App({ani}) {
     },{
       date: "2020-21",
       place:"India",
+      image : railways4,
       index:2,
       name:"Construction of elevated viaduct from start to elevated ramp RRTS Regional Rapid Transit System (RRTS) Corridor, Packag-1",
       project_value:"INR 565 Crores (USD 74 Million)",
@@ -149,6 +195,7 @@ function App({ani}) {
     },{
         date: "2024",
         place:"India",
+        image : port1,
         index:3,
         name:"Subcontract works for Civil Structures in Indian Naval Base",
         project_value:"USD 127 Million",
@@ -156,6 +203,7 @@ function App({ani}) {
     },{
         date: "2023",
         place:"India",
+        image : construction1,
         index:4,
         name:"EPC works for Civil Residential Buildings 9 Towers ( G+38 each )",
         project_value:"USD 354 Million",
@@ -163,6 +211,7 @@ function App({ani}) {
     },{
         date: "2000-2001",
         place:"U.A.E",
+        image : construction2,
         index:4,
         name:"Contract 146 A - main & internal road work for Mussafah Industrial area.",
         project_value:"USD 148 Million",
@@ -170,6 +219,7 @@ function App({ani}) {
     },{
         date: "1998-2000",
         place:"K.S.A",
+        image : construction3,
         index:4,
         name:"E&I works for H652 - Water Treatment & Pumpin stations",
         project_value:"SAR 1.35 Million",
@@ -177,6 +227,7 @@ function App({ani}) {
     },{
       date: "2007-2008",
       place:"U.A.E",
+      image : construction4,
       index:4,
       name:"World Trade center UAE",
       project_value:"AED 3.65 Billion (USD 990 Million)",
@@ -184,6 +235,7 @@ function App({ani}) {
     },{
       date: "2002-2003",
       place:"U.A.E",
+      image : construction5,
       index:4,
       name:"Abu Dhabi Investment Authority (ADIA) Facade system and curtian walling",
       project_value:"USD 130 Million (NSC Scope)",
@@ -191,6 +243,7 @@ function App({ani}) {
   },{
       date: "1998-2000",
       place:"India",
+      image : construction6,
       index:4,
       name:"Tidle Park, Chennai",
       project_value:"USD 53 Million",
@@ -198,6 +251,7 @@ function App({ani}) {
     },{
       date: "2021-22",
       place:"U.A.E",
+      image : power1,
       index:5,
       name:"E&I works for EPC works for potable eater system& Sewage treatment plant",
       project_value:"INR 3.6 Cr (USD 462K)",
@@ -205,6 +259,7 @@ function App({ani}) {
     },{
       date: "2021-22",
       place:"Nepal",
+      image : power2,
       index:5,
       name:"220KV transmission line and Substration Project, Dana- Kusma",
       project_value:"USD 6.78 Million",
@@ -212,6 +267,7 @@ function App({ani}) {
     },{
       date: "2012-13",
       place:"India",
+      image : power3,
       index:5,
       name:"EPC of 1200MW (4 x 300MW) Mega Power Project, Raigarh",
       project_value:"USD 400 Million",
@@ -219,6 +275,7 @@ function App({ani}) {
     },{
       date: "2004-2005",
       place:"U.A.E",
+      image : power4,
       index:5,
       name:"Water Transmissiono Scheme, Abu Dhabi, UAE",
       project_value:"AED 2.2 Billion",
@@ -226,6 +283,7 @@ function App({ani}) {
     },{
       date: "2015",
       place:"U.A.E",
+      image : power5,
       index:5,
       name:"EPC of 54 Nos of 33/11Kv Substations, UAE",
       project_value:"USD 784.14 Million",
@@ -233,6 +291,7 @@ function App({ani}) {
     },{
       date: "2014",
       place:"Yemen",
+      image : power6,
       index:5,
       name:"EPC of 132/33 Kv Substrations, UAE",
       project_value:"USD 80 Million",
@@ -354,7 +413,7 @@ function App({ani}) {
         {currentProjectsPage.map((project, index) => {
           return (
             <div  key={index} className="project-item">
-              <img src={imgproject} alt="project" className="project-img" />
+              <img src={project.image} alt="project" className="project-img" />
               <div className="project-item1">
                 <div id="project-image1">
                   <img
@@ -406,7 +465,7 @@ function App({ani}) {
       <div {...getAosData("fade-left",400)}  id="for-mobile" className="projects2">
         {[projectDetails[currentPageMobile]].map((project, index) => (
           <div key={index} className="project-item">
-            <img src={imgproject} alt="project" className="project-img" />
+            <img src={project.image} alt="project" className="project-img" />
             <div className="project-item1">
               <div id="project-image1">
                 <img

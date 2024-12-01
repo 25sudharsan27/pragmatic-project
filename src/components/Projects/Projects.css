@@ -148,7 +148,9 @@
 
 .project-img{
     border-radius:8px;
-    size-adjust: cover;
+    size-adjust: contain;
+    height:170px;
+
     /* margin:10px; */
 }
 .project-item1{

@@ -19,41 +19,22 @@ import AOS from 'aos'; // Import AOS
 import 'aos/dist/aos.css';
 import './App.css';
 
-const Home = () => {
-  const [isSplashScreenVisible, setSplashScreenVisible] = useState(true); // Show splash screen initially
-  const [isDropdownVisible, setDropdownVisible] = useState(false); // For dropdown menu
+const Home = ({ hasHomeanimation, hasSeenSplash }) => {
+  const [isSplashScreenVisible, setSplashScreenVisible] = useState(hasSeenSplash);
+  const [isDropdownVisible, setDropdownVisible] = useState(false);
   const location = useLocation();
-  const [isanimation, setAnimation] = useState(false);
+  const [isanimation, setAnimation] = useState(hasHomeanimation);
 
-  // Check if we need to skip splash screen based on route state
-  var skipSplashScreen = location.state?.skipSplashScreen;
-  
-  // Function to toggle dropdown visibility
-  const toggleDropdownVisibility = () => {
-    setDropdownVisible(prevState => !prevState);
-  };
-
-  useEffect(()=>{
-    if(!isanimation){
-      skipSplashScreen =false;
-    }
-  },[isanimation])
-  // Handle splash screen timeout or skip logic
+  // Handle splash screen timeout logic
   useEffect(() => {
-    if (!skipSplashScreen) {
-      setAnimation(true);
+    if (isSplashScreenVisible) {
       const splashTimeout = setTimeout(() => {
-        setSplashScreenVisible(false); // Hide splash screen after 2 seconds
-      }, 1500); // 2-second splash screen duration
-
-      return () => clearTimeout(splashTimeout); // Clean up timeout if component is unmounted
-    } else {
-      
-
-      setAnimation(false);
-      setSplashScreenVisible(false); // Skip splash screen immediately
+        setSplashScreenVisible(false); // Hide splash screen after 2.5 seconds
+        sessionStorage.setItem('Home', 'true'); // Set sessionStorage after splash screen is hidden
+      }, 2500); // 2.5-second splash screen duration
+      return () => clearTimeout(splashTimeout);
     }
-  }, [skipSplashScreen]);
+  }, [isSplashScreenVisible]);
 
   // Handle scrolling to "connect" section after splash screen disappears
   useEffect(() => {
@@ -65,108 +46,53 @@ const Home = () => {
     }
   }, [isSplashScreenVisible, location.state]);
 
-  // Initialize AOS animations only if not already initialized (check sessionStorage)
+  // Initialize AOS animations if not already initialized
   useEffect(() => {
-
-    const isAosInitialized = sessionStorage.getItem('isHomeAosInitialized'); // Check if AOS has been initialized for Home page
-
-    // Reset animation state when navigating back to Home (force animation if necessary)
-    if (isAosInitialized && location.pathname === '/') {
-      setAnimation(false); // Prevent animation after initial load if already initialized
-      console.log('Home page AOS already initialized at ' + new Date().toLocaleString());
-    } else {
-      // Initialize AOS if it's not yet initialized or the first time navigating to Home
-      AOS.init({
-        duration: 1000,  // Set animation duration
-        once: true,      // Trigger animations only once
-        startEvent: 'DOMContentLoaded',
-      });
-
-      // Set the flag to indicate AOS has been initialized
+    AOS.init({
+      duration: 1000,
+      once: true, // Trigger animations only once
+      startEvent: 'DOMContentLoaded',
+    });
+    const isAosInitialized = sessionStorage.getItem('isHomeAosInitialized');
+    if (!isAosInitialized) {
       sessionStorage.setItem('isHomeAosInitialized', 'true');
-    
-
-      console.log('Home page AOS initialized');
     }
-
-    return () => {
-      // Optional cleanup logic for AOS (if necessary)
-    };
-  }, [location.pathname]); // Track pathname to detect navigation to Home page
-
-  // Loading state for content visibility
-  const [loading, setLoading] = useState(true);
-  useEffect(() => {
-    const loadingTimeout = setTimeout(() => {
-      setLoading(false); // Hide loading state after 2.5 seconds
-    }, 2500); // 2.5-second loading state duration
-
-    return () => clearTimeout(loadingTimeout); // Clean up timeout if component is unmounted
   }, []);
 
-  // Render the splash screen or main content based on the splash screen visibility and loading state
-  if (!skipSplashScreen && (isSplashScreenVisible || loading)) {
+  // If the animation has already been shown, stop it
+  useEffect(() => {
+    if (hasHomeanimation) {
+      sessionStorage.setItem('Home', 'true'); // Mark Home page as visited to prevent animation
+    }
+  }, [hasHomeanimation]);
+
+  if (isSplashScreenVisible) {
     return <SplashScreen />;
   }
 
-  if(isanimation){
-    return (
-
-      <div className="App">
-        {/* Navbar with dropdown visibility */}
-        <Navbar
-          pos="fixed"
-          isDropdownVisible={isDropdownVisible}
-          toggleDropdownVisibility={toggleDropdownVisibility}
-        />
-        <Slider ani={true} />
-        <About ani={true} />
-        <Value ani={true} />
-        <Service ani={true} />
-        <WhatMakeUs ani={true} />
-        <RoadMap ani={true} />
-        <Projects ani={true} />
-        <div className="glo">
-          <Globe ani={true} />
-        </div>
-        <Company ani={true} />
-        <Blogs ani={true} />
-        <Connect ani={true} />
-        <Footer ani={true} />
+  return (
+    <div className="App">
+      <Navbar
+        pos="fixed"
+        isDropdownVisible={isDropdownVisible}
+        toggleDropdownVisibility={() => setDropdownVisible(!isDropdownVisible)}
+      />
+      <Slider ani={isanimation} />
+      <About ani={isanimation} />
+      <Value ani={isanimation} />
+      <Service ani={isanimation} />
+      <WhatMakeUs ani={isanimation} />
+      <RoadMap ani={isanimation} />
+      <Projects ani={isanimation} />
+      <div className="glo">
+        <Globe ani={isanimation} />
       </div>
-    );
-
-  }
-  else{
-    return (
-
-      <div className="App">
-        {/* Navbar with dropdown visibility */}
-        <Navbar
-          pos="fixed"
-          isDropdownVisible={isDropdownVisible}
-          toggleDropdownVisibility={toggleDropdownVisibility}
-        />
-        <Slider ani={false} />
-        <About ani={false} />
-        <Value ani={false} />
-        <Service ani={false} />
-        <WhatMakeUs ani={false} />
-        <RoadMap ani={false} />
-        <Projects ani={false} />
-        <div className="glo">
-          <Globe ani={false} />
-        </div>
-        <Company ani={false} />
-        <Blogs ani={false} />
-        <Connect ani={false} />
-        <Footer ani={false} />
-      </div>
-    );
-
-  }
-
-  
+      <Company ani={isanimation} />
+      <Blogs ani={isanimation} />
+      <Connect ani={isanimation} />
+      <Footer ani={isanimation} />
+    </div>
+  );
 };
 
 export default Home;

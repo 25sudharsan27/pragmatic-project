@@ -288,7 +288,7 @@
           transform: scale(0.6); /* Scale the container to 80% */
         }
         .label{
-            font-size:20px;
+            font-size:16px;
             /* font-weight:bold; */
         }
       }

@@ -156,6 +156,9 @@ const Services = () => {
 
 
     useEffect(() => {
+
+      sessionStorage.setItem('isHomeAosInitialized', 'true');
+
         // Event listener function to check if clicked outside the sidebar or button
         const handleClickOutside = (event) => {
             if (

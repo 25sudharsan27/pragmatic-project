@@ -12,7 +12,6 @@ import icon8 from '../../components/images/icon8.svg';
 import { useNavigate } from 'react-router-dom';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import { useLocation } from "react-router-dom";
 
 const services = [
     { label: "Expert Witness / Independent Opinion", icon: icon2 },
@@ -48,6 +47,9 @@ const Services = ({ ani }) => {
             sessionStorage.setItem('isServicesAosInitialized', 'true');
 
         }
+        
+
+        
     
     }, [ani]);
 

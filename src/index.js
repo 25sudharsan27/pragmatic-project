@@ -8,13 +8,13 @@ import Blogs from './Pages/Blogs/Blogs';
 import Services from './Pages/Service/Service';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import Services1 from './Pages/Services/Services';
-
+import Connect from './Pages/Connect/Connect';
 // App component
 const App = () => {
   const location = useLocation();
   const [homeanim, setHomeAnim] = useState(sessionStorage.getItem('Home') === 'true'); // Initial state from sessionStorage
   const hasanim = sessionStorage.getItem('isServicesAosInitialized') === 'true';
-
+  const connanim = sessionStorage.getItem("isconnectAosInitialized") === 'true';
   console.log("Home Animation: " + homeanim);
 
   // Synchronize homeanim state with sessionStorage whenever it changes
@@ -34,23 +34,27 @@ const App = () => {
 
   return (
     <TransitionGroup>
-      <CSSTransition
-        key={location.key}
-        timeout={500} // Transition duration
-        classNames="page" // CSS class for animation
-      >
-        <Routes location={location}>
-          <Route
-            path="/"
-            element={<Home hasHomeanimation={!homeanim} hasSeenSplash={!homeanim} />}
-          />
-          <Route path="/blogs" element={<Blogs />} />
-          <Route path="/services/:id" element={<Services />} />
-          <Route path="/blogs/:id" element={<Blogs />} />
-          <Route path="/services" element={<Services1 ani={!hasanim} />} />
-        </Routes>
-      </CSSTransition>
-    </TransitionGroup>
+  <CSSTransition
+    key={location.key}
+    timeout={500}
+    classNames="page"
+  >
+    <div className="page-wrapper">
+      <Routes location={location}>
+        <Route
+          path="/"
+          element={<Home hasHomeanimation={!homeanim} hasSeenSplash={!homeanim} />}
+        />
+        <Route path="/blogs" element={<Blogs />} />
+        <Route path="/services/:id" element={<Services />} />
+        <Route path="/blogs/:id" element={<Blogs />} />
+        <Route path="/services" element={<Services1 ani={!hasanim} />} />
+        <Route path="/connect" element={<Connect ani={connanim} />} />
+      </Routes>
+    </div>
+  </CSSTransition>
+</TransitionGroup>
+  
   );
 };
 

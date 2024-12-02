@@ -71,7 +71,7 @@ const Home = ({ hasHomeanimation, hasSeenSplash }) => {
   }
 
   return (
-    <div className="App">
+    <div id="Home-section" className="App">
       <Navbar
         pos="fixed"
         isDropdownVisible={isDropdownVisible}
@@ -89,7 +89,8 @@ const Home = ({ hasHomeanimation, hasSeenSplash }) => {
       </div>
       <Company ani={isanimation} />
       <Blogs ani={isanimation} />
-      <Connect ani={isanimation} />
+      
+      <Connect color={true} ani={isanimation} />
       <Footer ani={isanimation} />
     </div>
   );

@@ -2,7 +2,7 @@ import './Connect.css';
 import connectimg from '../images/Connect.png';
 import { useEffect } from 'react';
 
-function App({ ani }) {
+function App({color, ani }) {
 
   // Helper function to conditionally apply AOS attributes
   const getAosData = (animation, delay) => {
@@ -10,7 +10,7 @@ function App({ ani }) {
   };
 
   return (
-    <div id="connect3" className="connect1">
+    <div id="connect3" style={{ background: color ?  "linear-gradient(to bottom, #0A1D31, #040b13)" : null }} className="connect1">
       <div className="connect">
         <div {...getAosData("fade-up", 0)} className="connect-image"></div>
 

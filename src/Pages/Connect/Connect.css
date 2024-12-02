@@ -1,0 +1,9 @@
+.connect-connect{
+    padding-top:30px;
+}
+
+@media screen and (max-width: 850px){
+    .connect-connect{
+        padding-top:50px;
+    }
+}

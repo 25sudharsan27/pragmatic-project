@@ -27,6 +27,15 @@ html, body {
 }
 
 
+#Home-section{
+  /* padding-bottom:70px; */
+    margin-top:-4px;
+    /* height:100%; */
+    overflow-y: hidden;
+    overflow-x: hidden;
+    box-sizing: border-box;
+
+}
 
 
 

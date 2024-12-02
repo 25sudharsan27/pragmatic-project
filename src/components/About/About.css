@@ -1,5 +1,6 @@
 /* Default styles for larger screens */
 .about-section {
+  
   /* padding-top:150px; */
   display: flex;
   flex-wrap: wrap;

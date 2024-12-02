@@ -41,7 +41,7 @@ function Navbar({ pos, isDropdownVisible, toggleDropdownVisibility }) {
   
   const handleClick = () => {
     // Navigate to the home page and pass a state to indicate the scroll should happen and skip splash screen
-    navigate('/', { state: { scrollToConnect: true, skipSplashScreen: true } });
+    navigate('/connect');
     
   };
 

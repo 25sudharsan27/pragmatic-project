@@ -16,20 +16,49 @@ code {
 .page-enter {
   opacity: 0;
   transform: translateY(33px); /* Optional: Adds a slight upward animation */
-  
+  will-change: transform, box-shadow, z-index;
 }
 .page-enter-active {
   opacity: 1;
   transform: translateY(0);
   transition: opacity 0.5s ease, transform 0.5s ease;
+  will-change: transform, box-shadow, z-index;
 }
 .page-exit {
+  will-change: transform, box-shadow, z-index;
   opacity: 1;
 }
 .page-exit-active {
+  will-change: transform, box-shadow, z-index;
   opacity: 0;
   transform: translateY(-30px); /* Optional: Moves the old page slightly up */
   transition: opacity 0.5s ease, transform 0.5s ease;
 }
+
+.page-enter, .page-exit {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.page-enter-active, .page-exit-active {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.5s ease;
+}
+
+.page {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
 
 

@@ -1,5 +1,7 @@
 #services123-total{
-    background: linear-gradient(to bottom right, #0A1D31, #040e1d);
+    /* background: linear-gradient(to bottom right, #0A1D31, #040e1d); */
+    background: linear-gradient(to bottom right, #0c2035, #081932);
+
     /* border:1px/ solid white; */
    
 }
@@ -30,7 +32,7 @@
     width:38%;
     margin-top:50px;
     transition: 0.5s;
-    /* box-shadow: 0px 1px 8px rgba(0, 0, 0, 0.4); */
+    box-shadow: 0px 1px 8px rgba(0, 0, 0, 0.4);
 
 }
 #services123-item:hover{
@@ -100,5 +102,9 @@
     #services123-image{
         height:30px;
         width:30px;
+    }
+    #services123-line{
+        border:1px dashed #71c9c6;
+        height:48px;
     }
 }

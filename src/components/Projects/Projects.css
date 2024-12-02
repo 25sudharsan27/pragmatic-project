@@ -225,7 +225,9 @@
   }
   
   .pagination-controls button {
-    background-color: #417f7d;
+    background-color: #71C9C633;
+    border:1px solid white;
+    font-weight:bold;
     color: white;
     padding: 10px 20px;
     margin: 0 10px;
@@ -240,7 +242,7 @@
   }
   
   .pagination-controls button:disabled {
-    background-color: #b0b0b0;
+    background-color: #687070;
     cursor: not-allowed;
   }
   

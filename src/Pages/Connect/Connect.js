@@ -29,7 +29,7 @@ const Connect = ({ani}) =>{
 
     return (
         <div>
-            <Navbar 
+            <Navbar
                 pos="services"
                 isDropdownVisible={isDropdownVisible}
                 toggleDropdownVisibility={toggleDropdownVisibility} 

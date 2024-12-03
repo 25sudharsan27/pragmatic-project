@@ -28,7 +28,7 @@ const Connect = ({ani}) =>{
 
 
     return (
-        <div>
+        <div className="connection-page4">
             <Navbar
                 pos="services"
                 isDropdownVisible={isDropdownVisible}

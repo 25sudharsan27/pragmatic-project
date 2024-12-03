@@ -2,6 +2,10 @@
     padding-top:30px;
 }
 
+.connection-page4{
+    background: linear-gradient(to bottom, #0A1D31,#040b13);
+}
+
 @media screen and (max-width: 850px){
     .connect-connect{
         padding-top:50px;

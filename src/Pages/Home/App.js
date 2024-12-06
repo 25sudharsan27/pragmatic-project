@@ -25,18 +25,16 @@ const Home = ({ hasHomeanimation, hasSeenSplash }) => {
   const location = useLocation();
   const [isanimation, setAnimation] = useState(hasHomeanimation);
 
-  // Handle splash screen timeout logic
   useEffect(() => {
     if (isSplashScreenVisible) {
+      console.log("working" + isSplashScreenVisible);
       const splashTimeout = setTimeout(() => {
-        setSplashScreenVisible(false); // Hide splash screen after 2.5 seconds
-        sessionStorage.setItem('Home', 'true'); // Set sessionStorage after splash screen is hidden
-      }, 2500); // 2.5-second splash screen duration
+        setSplashScreenVisible(false); 
+      }, 2500); 
       return () => clearTimeout(splashTimeout);
     }
   }, [isSplashScreenVisible]);
 
-  // Handle scrolling to "connect" section after splash screen disappears
   useEffect(() => {
     if (!isSplashScreenVisible && location.state?.scrollToConnect) {
       scroller.scrollTo('connect3', {
@@ -46,25 +44,16 @@ const Home = ({ hasHomeanimation, hasSeenSplash }) => {
     }
   }, [isSplashScreenVisible, location.state]);
 
-  // Initialize AOS animations if not already initialized
   useEffect(() => {
     AOS.init({
       duration: 1000,
-      once: true, // Trigger animations only once
+      once: true, 
       startEvent: 'DOMContentLoaded',
     });
-    const isAosInitialized = sessionStorage.getItem('isHomeAosInitialized');
-    if (!isAosInitialized) {
-      sessionStorage.setItem('isHomeAosInitialized', 'true');
-    }
+    
   }, []);
 
-  // If the animation has already been shown, stop it
-  useEffect(() => {
-    if (hasHomeanimation) {
-      sessionStorage.setItem('Home', 'true'); // Mark Home page as visited to prevent animation
-    }
-  }, [hasHomeanimation]);
+ 
 
   if (isSplashScreenVisible) {
     return <SplashScreen />;

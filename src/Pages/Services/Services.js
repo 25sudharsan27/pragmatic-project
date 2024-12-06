@@ -28,29 +28,21 @@ const services = [
     { label: "Delay Claims | Disruption Claims", icon: icon3 }
 ];
 
-const Services = ({ ani }) => {
+const Services = ({ani }) => {
   
     const [isDropdownVisible, setDropdownVisible] = useState(false);
-
+    const [isAnimation, setAnimation] = useState(ani('Services'));
     const toggleDropdownVisibility = () => {
         setDropdownVisible(prevState => !prevState);
     };
 
     useEffect(() => {
-        
-        if(ani){
-            AOS.init({
-                duration: 1000,
-                once: true, // Ensure AOS is only triggered once
-                startEvent: 'DOMContentLoaded',
-            });
-            sessionStorage.setItem('isServicesAosInitialized', 'true');
-
-        }
-        
-
-        
-    
+        AOS.init({
+            duration: 1000,
+            once: true, // Ensure AOS is only triggered once
+            startEvent: 'DOMContentLoaded',
+            offset:100
+        });
     }, [ani]);
 
     return (
@@ -60,7 +52,7 @@ const Services = ({ ani }) => {
                 isDropdownVisible={isDropdownVisible}
                 toggleDropdownVisibility={toggleDropdownVisibility} 
             />
-            <ServicesList isAnimation={ani} />
+            <ServicesList isAnimation={isAnimation} />
         </div>
     );
 };

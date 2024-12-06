@@ -9,52 +9,77 @@ import Services from './Pages/Service/Service';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import Services1 from './Pages/Services/Services';
 import Connect from './Pages/Connect/Connect';
-// App component
+
 const App = () => {
   const location = useLocation();
-  const [homeanim, setHomeAnim] = useState(sessionStorage.getItem('Home') === 'true'); // Initial state from sessionStorage
-  const hasanim = sessionStorage.getItem('isServicesAosInitialized') === 'true';
-  const connanim = sessionStorage.getItem("isconnectAosInitialized") === 'true';
-  console.log("Home Animation: " + homeanim);
 
-  // Synchronize homeanim state with sessionStorage whenever it changes
-  useEffect(() => {
-    const homeState = sessionStorage.getItem('Home');
-    if (homeState === 'true') {
-      setHomeAnim(true);
-    } else {
-      setHomeAnim(false);
-    }
-  }, []); // Run this only once on initial render
+  // Set splash state visibility for first-time visits
+  const [splash, setSplash] = useState(true);
+
+  // Synchronize animation states from sessionStorage
 
   // Scroll to top whenever the route changes
   useEffect(() => {
     window.scroll(0, 0); // Scroll to the top of the page on route change
   }, [location.pathname]);
 
+  // Function to check and set animation state for a specific route
+  const shouldAnimate = (route) => {
+    const routeVisited = sessionStorage.getItem(route);
+    if (routeVisited === null) {
+      // If no animation flag is set for this route, show the animation and set the flag
+      sessionStorage.setItem(route, 'true');
+      console.log(`First time visit to route: ${route}, animation triggered`);
+      return true;
+    }
+    // If flag exists for this route, animation has already been triggered
+    return false;
+  };
+
+  // Handle splash screen visibility based on session storage
+  useEffect(() => {
+    if (sessionStorage.getItem('Home') === 'true') {
+      setSplash(false); // If 'Home' route is visited, skip splash screen
+    }
+  }, []);
+
   return (
     <TransitionGroup>
-  <CSSTransition
-    key={location.key}
-    timeout={500}
-    classNames="page"
-  >
-    <div className="page-wrapper">
-      <Routes location={location}>
-        <Route
-          path="/"
-          element={<Home hasHomeanimation={!homeanim} hasSeenSplash={!homeanim} />}
-        />
-        <Route path="/blogs" element={<Blogs />} />
-        <Route path="/services/:id" element={<Services />} />
-        <Route path="/blogs/:id" element={<Blogs />} />
-        <Route path="/services" element={<Services1 ani={!hasanim} />} />
-        <Route path="/connect" element={<Connect ani={connanim} />} />
-      </Routes>
-    </div>
-  </CSSTransition>
-</TransitionGroup>
-  
+      <CSSTransition
+        key={location.key}
+        timeout={500}
+        classNames="page"
+      >
+        <div className="page-wrapper">
+          <Routes location={location}>
+            <Route
+              path="/"
+              element={<Home hasHomeanimation={shouldAnimate('Home')} hasSeenSplash={splash} />}
+            />
+            <Route
+              path="/blogs"
+              element={<Blogs hasTransition={shouldAnimate('Blogs')} />}
+            />
+            <Route
+              path="/services/:id"
+              element={<Services  />}
+            />
+            <Route
+              path="/blogs/:id"
+              element={<Blogs hasTransition={shouldAnimate('Blogs')} />}
+            />
+            <Route
+              path="/services"
+              element={<Services1 ani={shouldAnimate} />}
+            />
+            <Route
+              path="/connect"
+              element={<Connect ani={shouldAnimate} />}
+            />
+          </Routes>
+        </div>
+      </CSSTransition>
+    </TransitionGroup>
   );
 };
 

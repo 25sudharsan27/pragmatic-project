@@ -8,22 +8,17 @@ import 'aos/dist/aos.css';
 
 const Connect = ({ani}) =>{
     const [isDropdownVisible, setDropdownVisible] = useState(false);
-
+    const [isAnimation,setAnimation] = useState(ani('Connect'));
     const toggleDropdownVisibility = () => {
         setDropdownVisible(prevState => !prevState);
     };
 
     useEffect(()=>{
-        if(ani){
-
-            AOS.init({
-                duration: 1000,
-                once: true, // Ensure AOS is only triggered once
-                startEvent: 'DOMContentLoaded',
-            });
-            sessionStorage.setItem('isConnectAosInitialized', 'true');
-
-        }
+        AOS.init({
+            duration: 1000,
+            once: true, // Ensure AOS is only triggered once
+            startEvent: 'DOMContentLoaded',
+        });
     },[ani])
 
 
@@ -35,7 +30,7 @@ const Connect = ({ani}) =>{
                 toggleDropdownVisibility={toggleDropdownVisibility} 
             />
             <div className="connect-connect">
-                <Connect1 color={false} ani={ani}/>
+                <Connect1 color={false} ani={isAnimation}/>
             </div>
         </div>
     )

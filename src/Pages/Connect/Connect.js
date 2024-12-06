@@ -19,6 +19,7 @@ const Connect = ({ani}) =>{
             once: true, // Ensure AOS is only triggered once
             startEvent: 'DOMContentLoaded',
         });
+        
     },[ani])
 
 

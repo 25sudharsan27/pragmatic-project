@@ -15,7 +15,7 @@ code {
 
 .page-enter {
   opacity: 0;
-  transform: translateY(33px); /* Optional: Adds a slight upward animation */
+  transform: translateY(33px); 
   will-change: transform, box-shadow, z-index;
 }
 .page-enter-active {

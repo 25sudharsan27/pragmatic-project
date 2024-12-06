@@ -14,6 +14,7 @@ function App({ ani }) {
       AOS.init({
         duration: 1000, // Optional: you can customize the animation duration or other settings
         once: true, // Optional: ensures animations only trigger once
+        startEvent: 'DomContentLoaded', // Optional: triggers AOS on specific event
       });
     }
   }, [ani]);

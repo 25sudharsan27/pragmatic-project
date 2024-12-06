@@ -151,7 +151,7 @@ const App = () => {
                 />
                 <Route
                   path="/connect"
-                  element={<Connect ani={shouldAnimate('Connect')} />}
+                  element={<Connect ani={shouldAnimate} />}
                 />
               </Routes>
          

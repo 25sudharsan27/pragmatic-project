@@ -64,14 +64,6 @@ function App({ani}) {
 
   const projectDetails = [
     {
-        date: "2023",
-        place:"KSA",
-        image:oil_gas10,
-        index:0,
-        name:"Subcontracting works for Piping and Equipment Insulation",
-        project_value:"USD 45 Million",
-        Claims_value:"USD 24 Million",
-    },{
       date: "2023",
       place:"Kuwait",
       image:oil_gas2,
@@ -79,7 +71,8 @@ function App({ani}) {
       name:"Subcontracting works for Piping and Equipment Insulation",
       project_value:"KD 1 Million (USD 3.5 Million)",
       Claims_value:"480 Cr (USD 60 Million)",
-  },{
+  },
+    {
     date: "2023",
     place:"Kuwait",
     image:oil_gas3,
@@ -96,6 +89,14 @@ function App({ani}) {
       project_value:"USD 49 Million",
       Claims_value:"USD 11 Million",
     },{
+      date: "2023",
+      place:"KSA",
+      image:oil_gas10,
+      index:0,
+      name:"Subcontracting works for Piping and Equipment Insulation",
+      project_value:"USD 45 Million",
+      Claims_value:"USD 24 Million",
+  },{
       date: "2018-19",
       place:"Oman",
       image:oil_gas5,
@@ -412,7 +413,7 @@ function App({ani}) {
       <div {...getAosData("fade-up",0)}  className="projects">
         {currentProjectsPage.map((project, index) => {
           return (
-            <div  key={index} className="project-item">
+            <div  {...getAosData("fadeu-up",0)}  key={index} className="project-item">
               <img src={project.image} alt="project" className="project-img" />
               <div className="project-item1">
                 <div id="project-image1">

@@ -110,23 +110,28 @@
 
     }
     .navbar-ite{
+    
         margin-right:20px;
         position: relative;
         text-justify: center;
         text-align: center;
-        padding:5px 10px;
-        background-color: rgb(255, 255, 255);
+        padding:5px 15px;
+        background-color: rgb(255, 255, 255,0.1);
+        backdrop-filter: blur(50px);
         border-radius:50%;
         /* margin:10px 0px; */
         text-decoration:none;
-        color:#0A1D31;
-        font-size:14px;
+        color:#ffffff;
+        font-size:16px;
         font-weight:bold;
         font-family:'Plus Jakarta Display', sans-serif;
         transition: 0.7s;
     }
     #navbar-ite1{
-        font-size:14px;
+        background-color: white;
+        color:#000000;
+        font-size:15px;
+        font-weight: 400;
     }
     
     

@@ -26,9 +26,9 @@ const RoadMap = ({ ani }) => {
                 </p>
             </div>
 
-            <div id="difference-btn" className="blg-btn">
+            <div {...getAosData("fade-up", 0)} id="difference-btn" className="blg-btn">
                 <ScrollLink to="connect1" smooth={true} duration={1000}>
-                    <a className="blogs-button" {...getAosData("fade-up", 100)}>Let's Connect</a>
+                    <a className="blogs-button" >Let's Connect</a>
                 </ScrollLink>
             </div>
         </div>

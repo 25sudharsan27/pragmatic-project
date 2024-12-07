@@ -167,9 +167,9 @@ const Blogs = () => {
                         
                     </div>
                     }
-                
-                   
-                </div>
+    {/* <div class='sk-ww-linkedin-page-post' data-embed-id='25496171'></div><script src='https://widgets.sociablekit.com/linkedin-page-posts/widget.js' defer></script> */}
+</div>
+
             </div>
         </div>
     );

@@ -308,8 +308,9 @@ const GlobeWithTags = ({ani}) => {
 
         {/* Prev and Next Buttons */}
         <div className="w35236">
-          <button className="w35236-c" onClick={handlePrev}>{`<`}</button>
-          <button className="w35236-c" onClick={handleNext}>{`>`}</button>
+          
+          <button className="w35236-c" onClick={handlePrev}>{`<`}<span className="labels-country" style={{marginLeft:"20px"}}>{locations[(currentIndex+locations.length-1)%locations.length].name}</span></button>
+          <button className="w35236-c" onClick={handleNext}><span className="labels-country" style={{marginRight:"20px"}}>{locations[(currentIndex+locations.length+1)%locations.length].name}</span>{`>`}</button>
         </div>
       </div>
     </div>

@@ -109,18 +109,38 @@
 }
 
 .w35236 button {
-  background-color: rgba(0, 0, 0, 0.7);
-  color: white;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  /* margin-top:-250px; */
+  background-color: rgba(0, 0, 0, 0.0);
+  color:#71C9C6;
+  height:fit-content;
   border: none;
-  padding: 10px 20px;
+  padding: 10px 40px;
   font-size: 30px;
   cursor: pointer;
   border-radius: 5px;
   transition: background-color 0.3s;
+  transition:0.3s;
+}
+.w35235{
+  background-color: rgb(0, 0, 0,0.7);
 }
 
 .w35236 button:hover {
-  background-color: rgba(0, 0, 0, 0.9);
+  color:#ffffff;
+  background-color: rgba(0, 0, 0, 0.0);
+}
+
+.labels-country{
+  font-size:18px;
+  color:white;
+  transition: 0.4s;
+}
+.labels-country:hover{
+  color:#71C9C6;
 }
 
 
@@ -237,6 +257,17 @@
     font-size:25px;
   }
   .w35236 button{
+    color:white;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding:10px 20px;
     font-size:25px;
   }
+  .w35236 button:hover{
+    color:white;
+    background-color: #000000;
+  }
+  .labels-country{
+    display:none;
+  }
+
 }

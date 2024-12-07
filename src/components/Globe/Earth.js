@@ -82,7 +82,7 @@ const GlobeWithTags = ({ani}) => {
     const cloudMaterial = new THREE.MeshStandardMaterial({
       map: textureLoader.load("/textures/8k_earth_clouds.jpg"),
       transparent: true,
-      opacity: 0.9,
+      opacity: 0.6,
       depthWrite: false,
       blending: THREE.AdditiveBlending,
     });

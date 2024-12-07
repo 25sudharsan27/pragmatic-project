@@ -1,8 +1,17 @@
 import React, { useRef, useEffect, useState } from "react";
 import * as THREE from "three";
 import './Earth.css'; 
-
+import image4 from '../images/coutries/uae.jpg';
+import image5 from '../images/coutries/India.jpg';
+import image6 from '../images/coutries/kuwait.jpg';
+import image7 from '../images/coutries/yemen.jpg';
+import image8 from '../images/coutries/ksa.jpg';
+import image9 from '../images/coutries/kazhakhstan.webp';
+import image10 from '../images/coutries/oman.jpg';
+import image11 from '../images/coutries/qatar.jpg';
+import image12 from '../images/coutries/nepal.webp';
 import tagimg from '../images/India.png'; 
+
 
 const GlobeWithTags = ({ani}) => {
   const mountRef = useRef(null);
@@ -14,15 +23,15 @@ const GlobeWithTags = ({ani}) => {
 
   // Locations with longitude and latitude
   const locations = [
-    { name: "U.A.E", longitude: 152.3, latitude: 78.82, project: 10, value: "AED 2.318 Billion", value1: "$ 631.65 M" },
-    { name: "India", longitude: 141.59, latitude:76.0, project: 12, value: "INR 1640.43 Crores", value1: "$ 210.15 M" },
-    { name: "Kuwait", longitude: 156.2, latitude: 73.0, project: 3, value: "KD 18 Million", value1: "$ 59.4 M" },
-    { name: "Yemen", longitude: 156.2, latitude: 87.0, project: 1, value: "USD 41 Million", value1: "$ 41 M" },
-    { name: "KSA",  longitude: 157.85, latitude: 78.82, project: 2, value: "SAR 90 Million", value1: "$ 24 Million" },
-    { name: "Kazakhastan", longitude: 144.59, latitude:52.0, project: 1, value: "USD 14 Million", value1: " $14 M" },
-    { name: "Oman",  longitude: 151.6, latitude: 78.82, project: 1, value: "OMR 3 Million", value1: "$ 7.8 M" },
-    { name: "Qatar",  longitude: 154.3, latitude: 77.4,  project: 1, value: "QNR 8 Million", value1: "$ 2.2 M" },
-    { name: "Nepal", longitude: 136.9, latitude:75.5, project: 1, value: "USD 2.18 Million", value1: "$ 2.18 M" }
+    {image:image4, name: "U.A.E", longitude: 152.3, latitude: 78.82, project: 10, value: "AED 2.318 Billion", value1: "$ 631.65 M" },
+    { image:image5, name: "India", longitude: 141.59, latitude:76.0, project: 12, value: "INR 1640.43 Crores", value1: "$ 210.15 M" },
+    { image:image6, name: "Kuwait", longitude: 156.2, latitude: 73.0, project: 3, value: "KD 18 Million", value1: "$ 59.4 M" },
+    { image:image7,name: "Yemen", longitude: 156.2, latitude: 87.0, project: 1, value: "USD 41 Million", value1: "$ 41 M" },
+    { image:image8 , name: "KSA",  longitude: 157.85, latitude: 78.82, project: 2, value: "SAR 90 Million", value1: "$ 24 Million" },
+    { image:image9, name: "Kazakhastan", longitude: 144.59, latitude:52.0, project: 1, value: "USD 14 Million", value1: " $14 M" },
+    { image:image10, name: "Oman",  longitude: 151.6, latitude: 78.82, project: 1, value: "OMR 3 Million", value1: "$ 7.8 M" },
+    { image:image11, name: "Qatar",  longitude: 154.3, latitude: 77.4,  project: 1, value: "QNR 8 Million", value1: "$ 2.2 M" },
+    { image:image12, name: "Nepal", longitude: 136.9, latitude:75.5, project: 1, value: "USD 2.18 Million", value1: "$ 2.18 M" }
 ];
 
 
@@ -295,7 +304,7 @@ const GlobeWithTags = ({ani}) => {
 
         {/* Tag Display Above the Globe */}
         <div className="w35235" ref={tagRef}>
-          <img className="w3235-img" src={tagimg} alt="tag" />
+          <img className="w3235-img" src={tag.image} alt="tag" />
           <div className="w3235-name-cont">
             <h2 className="w3235-name">{tag.name}</h2>
             <h2 className="w3235-usd-value">{tag.value1}</h2>

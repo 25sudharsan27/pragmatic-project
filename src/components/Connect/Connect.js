@@ -49,7 +49,7 @@ function App({color, ani }) {
               <p1 {...getAosData("fade-up", 500)} id="connect-lables">Message</p1>
               <textarea {...getAosData("fade-up", 100)} placeholder="Messages" type="text" name="message" className="connect-input" id="connect-message" />
             </div>
-            <button {...getAosData("fade-up", 500)} type="submit" className="connect-button">Submit</button>
+            <button {...getAosData("fade-up", 500)} type="submit" id="connect-button2" className="connect-button">Submit</button>
           </form>
         </div>
       </div>

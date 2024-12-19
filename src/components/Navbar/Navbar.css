@@ -105,7 +105,7 @@
         display:none;
     }
     .navbar-dropdown-mobile{
-        margin-right:10px;
+        margin-right:0px;
         display:flex;
         flex-direction: column;
         justify-content: center;
@@ -148,10 +148,10 @@
         flex-direction: column;
         border-radius:10px;
         position: fixed;
-        top:90px;
+        top:85px;
         backdrop-filter: blur(20px);
         z-index:1000000;
-        right:20px;
+        right:5px;
     }
     #navbar-show{
         display:none;

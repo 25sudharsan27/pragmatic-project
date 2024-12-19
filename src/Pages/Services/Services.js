@@ -67,7 +67,7 @@ const ServicesList = ({ isAnimation }) => {
 
     return (
         <div id="services123-section" className="App">
-            <div  className="service-section-mobile-heading">
+            <div id="service-section-mobile-head"  className="service-section-mobile-heading">
                 Services we offer
             </div>
             <div id="services123-section-content" className="service-section-mobile-content">

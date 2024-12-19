@@ -50,6 +50,10 @@
     -webkit-tap-highlight-color: transparent;
 }
 
+.navbar-right *{
+    cursor: pointer;
+}
+
 .navbar-right{
     /* width:100%; */
     height:100%;

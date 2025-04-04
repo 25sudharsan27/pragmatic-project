@@ -16,7 +16,7 @@ const RoadMap = ({ ani }) => {
         <div className="difference-section">
             <div className="globe-heading-cont" id="project-h-h">
                 <h1 className="globe-heading" {...getAosData("fade-up", 0)}>
-                    What Make us Different
+                    What Makes us Different
                 </h1>
                 <div className="global-line" {...getAosData("fade-up", 0)} id="project-h"></div>
             </div>

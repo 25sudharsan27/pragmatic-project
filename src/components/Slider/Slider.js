@@ -8,18 +8,22 @@ const Slider = ({ ani }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   
   // Slide contents
-  const slides = [
-    "Slide 1 Content",
-    "Slide 2 Content",
-    "Slide 3 Content",
-    "Slide 4 Content",
-    "Slide 5 Content",
-    "Slide 6 Content",
+
+
+  const images = [
+'https://res.cloudinary.com/dbbmdq3uy/image/upload/v1737220109/qmqmuus0bg3o71gfiscv.webp',
+ 'https://res.cloudinary.com/dbbmdq3uy/image/upload/v1737220101/xfx6fo0o9zx5qafr1hgy.webp',
+  'https://res.cloudinary.com/dbbmdq3uy/image/upload/v1737220108/tnwnijmlx49i8qxxz9km.webp',
+  'https://res.cloudinary.com/dbbmdq3uy/image/upload/v1737220106/ty6kkxwmc4srubwjlbpe.webp',
   ];
 
   // Function to go to the next slide
   const nextSlide = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % slides.length);
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+  };
+
+  const changeSlide = (index) => {
+    setCurrentIndex(index);
   };
 
   // Automatically change the slide every 3 seconds
@@ -29,7 +33,10 @@ const Slider = ({ ani }) => {
   }, []);
 
   return (
-    <div className="Slider">
+    <div
+      className="Slider"
+      style={{ backgroundImage: `url(${images[currentIndex]})` }}
+    >
       {/* Slider Content with AOS animation based on 'ani' prop */}
       <div
         className="slider-content"
@@ -57,9 +64,10 @@ const Slider = ({ ani }) => {
 
       {/* Slider Dots to show active slide */}
       <div className="slider-index-c">
-        {slides.map((_, index) => (
+        {images.map((_, index) => (
           <div
             key={index}
+            onClick={() => changeSlide(index)}
             className={`dot ${index === currentIndex ? "active-dot" : ""}`}
           ></div>
         ))}

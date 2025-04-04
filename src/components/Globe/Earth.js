@@ -13,6 +13,7 @@ import image12 from '../images/coutries/nepal.webp';
 import tagimg from '../images/India.png'; 
 
 
+
 const GlobeWithTags = ({ani}) => {
   const mountRef = useRef(null);
   const globeRef = useRef(null); 
@@ -23,18 +24,47 @@ const GlobeWithTags = ({ani}) => {
 
   // Locations with longitude and latitude
   const locations = [
-    {image:image4, name: "U.A.E", longitude: 152.3, latitude: 78.82, project: 10, value: "AED 2.318 Billion", value1: "$ 631.65 M" },
-    { image:image5, name: "India", longitude: 141.59, latitude:76.0, project: 12, value: "INR 1640.43 Crores", value1: "$ 210.15 M" },
-    { image:image6, name: "Kuwait", longitude: 156.2, latitude: 73.0, project: 3, value: "KD 18 Million", value1: "$ 59.4 M" },
-    { image:image7,name: "Yemen", longitude: 156.2, latitude: 87.0, project: 1, value: "USD 41 Million", value1: "$ 41 M" },
-    { image:image8 , name: "KSA",  longitude: 157.85, latitude: 78.82, project: 2, value: "SAR 90 Million", value1: "$ 24 Million" },
-    { image:image9, name: "Kazakhastan", longitude: 144.59, latitude:52.0, project: 1, value: "USD 14 Million", value1: " $14 M" },
-    { image:image10, name: "Oman",  longitude: 151.6, latitude: 78.82, project: 1, value: "OMR 3 Million", value1: "$ 7.8 M" },
-    { image:image11, name: "Qatar",  longitude: 154.3, latitude: 77.4,  project: 1, value: "QNR 8 Million", value1: "$ 2.2 M" },
-    { image:image12, name: "Nepal", longitude: 136.9, latitude:75.5, project: 1, value: "USD 2.18 Million", value1: "$ 2.18 M" }
+    {image: 'https://res.cloudinary.com/dbbmdq3uy/image/upload/v1735996056/pkobdcllgj1mqsrbitrw.webp',      name: "U.A.E", longitude: 152.3, latitude: 78.82, project: 10, value: "AED 2.318 Billion", value1: "$ 631.65 M" },
+    { image:'https://res.cloudinary.com/dbbmdq3uy/image/upload/v1735996050/uggkyak5ntqnqwklaxty.webp', name: "India", longitude: 141.59, latitude:76.0, project: 12, value: "INR 1640.43 Crores", value1: "$ 210.15 M" },
+    { image: 'https://res.cloudinary.com/dbbmdq3uy/image/upload/v1735996052/yfrzxsdmuqf1zqw58edv.webp',name: "Kuwait", longitude: 156.2, latitude: 73.0, project: 3, value: "KD 18 Million", value1: "$ 59.4 M" },
+    { image:  'https://res.cloudinary.com/dbbmdq3uy/image/upload/v1735996053/yltreslml82wkppggwpv.webp',      name: "Yemen", longitude: 156.2, latitude: 87.0, project: 1, value: "USD 41 Million", value1: "$ 41 M" },
+    { image: 'https://res.cloudinary.com/dbbmdq3uy/image/upload/v1735996055/j6zbs1531xbk6tpdwwkc.webp',  name: "KSA",  longitude: 157.85, latitude: 78.82, project: 2, value: "SAR 90 Million", value1: "$ 24 Million" },
+    { image:'https://res.cloudinary.com/dbbmdq3uy/image/upload/v1735996051/pccj0gvixqdpyygmjk2b.webp', name: "Kazakhastan", longitude: 144.59, latitude:52.0, project: 1, value: "USD 14 Million", value1: " $14 M" },
+    { image:'https://res.cloudinary.com/dbbmdq3uy/image/upload/v1735996050/tnh3crfppe4fde6txdog.webp',   name: "Oman",  longitude: 151.6, latitude: 78.82, project: 1, value: "OMR 3 Million", value1: "$ 7.8 M" },
+    { image:  'https://res.cloudinary.com/dbbmdq3uy/image/upload/v1735996051/axgvolktjrfnzuwksnbf.webp', name: "Qatar",  longitude: 154.3, latitude: 77.4,  project: 1, value: "QNR 8 Million", value1: "$ 2.2 M" },
+    { image:  'https://res.cloudinary.com/dbbmdq3uy/image/upload/v1735996051/ljk68xq1ihib4kn06po0.webp', name: "Nepal", longitude: 136.9, latitude:75.5, project: 1, value: "USD 2.18 Million", value1: "$ 2.18 M" }
 ];
 
+  useEffect(() => {
+    const preloadImages = () => {
+      const loadedImages = [];
+      let loadedCount = 0;
 
+      locations.forEach((location) => {
+        const img = new Image();
+        img.src = location.image;
+
+        img.onload = () => {
+          // console.log(`Image loaded: ${location.name}`);
+          loadedCount++;
+          if (loadedCount === locations.length) {
+            // console.log('All images are loaded and cached.');
+          }
+        };
+
+        img.onerror = () => {
+          // console.log(`Failed to load image: ${location.name}`);
+        };
+
+        // Add image to array
+        loadedImages.push(img);
+      });
+    };
+
+    // Trigger preload on initial mount (React lifecycle)
+    preloadImages();
+
+  }, []);
 
 
   // Tag content state
@@ -43,6 +73,9 @@ const GlobeWithTags = ({ani}) => {
   const [isInView, setIsInView] = useState(false); // Track if the globe is in view
 
   useEffect(() => {
+
+
+    
     const width = window.innerWidth;
     const height = window.innerHeight;
 
@@ -59,9 +92,9 @@ const GlobeWithTags = ({ani}) => {
 
     const textureLoader = new THREE.TextureLoader();
 
-    const earthMap = textureLoader.load("/textures/8k_earth_daymap.jpg"); // Base color map
-    const earthBumpMap = textureLoader.load("/textures/01_earthbump1k.jpg"); // Bump map
-    const earthSpecularMap = textureLoader.load("/textures/02_earthspec1k.jpg"); // Specular map (for shine)
+    const earthMap = textureLoader.load("https://res.cloudinary.com/dbbmdq3uy/image/upload/v1735992753/t62m7jrbhw8ehzqwscoi.webp"); // Base color map
+    const earthBumpMap = textureLoader.load("https://res.cloudinary.com/dbbmdq3uy/image/upload/v1735992752/knmquhiyed5xv7gkp9g4.webp"); // Bump map
+    const earthSpecularMap = textureLoader.load("https://res.cloudinary.com/dbbmdq3uy/image/upload/v1735992751/ubwkxc6b5sxcb1la4cso.webp"); // Specular map (for shine)
 
     const earthMaterial = new THREE.MeshStandardMaterial({
       map: earthMap,
@@ -80,7 +113,7 @@ const GlobeWithTags = ({ani}) => {
 
     // Cloud Layer
     const cloudMaterial = new THREE.MeshStandardMaterial({
-      map: textureLoader.load("/textures/8k_earth_clouds.jpg"),
+      map: textureLoader.load("https://res.cloudinary.com/dbbmdq3uy/image/upload/v1735995624/hadqgavb9soop4hrfvzk.webp"),
       transparent: true,
       opacity: 0.6,
       depthWrite: false,

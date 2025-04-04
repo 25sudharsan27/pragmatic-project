@@ -24,18 +24,23 @@ function Company({ ani }) {
         {/* Wrapper for the images that will scroll */}
         <div className="company-images">
           {/* Add duplicate images for seamless infinite scroll */}
-          <img src={company1} alt="company" id="company-image" {...getAosData("fade-up", 200)} />
-          <img src={company2} alt="company" id="company-image" {...getAosData("fade-up", 300)} />
-          <img src={company3} alt="company" id="company-image" {...getAosData("fade-up", 400)} />
-          <img src={company4} alt="company" id="company-image" {...getAosData("fade-up", 500)} />
-          <img src={company5} alt="company" id="company-image" {...getAosData("fade-up", 600)} />
+          <img src='https://res.cloudinary.com/dbbmdq3uy/image/upload/v1735997598/wc0vse2lmzhkz7x4ztne.webp' alt="company" id="company-image" {...getAosData("fade-up", 200)} />
+          <img src='https://res.cloudinary.com/dbbmdq3uy/image/upload/v1735997598/w4lrm9pzgy70f6wkxrjz.webp' alt="company" id="company-image" {...getAosData("fade-up", 300)} />
 
+          <img src='https://res.cloudinary.com/dbbmdq3uy/image/upload/v1736167954/socvzhhj15vj9sk4w52b.webp' alt="company" id="company-image" {...getAosData("fade-up", 400)} />
+          <img src='https://res.cloudinary.com/dbbmdq3uy/image/upload/v1736167954/ygb5u1xrr5i9i8hzhcal.webp' alt="company" id="company-image" {...getAosData("fade-up", 500)} />
+
+          <img src='https://res.cloudinary.com/dbbmdq3uy/image/upload/v1735997598/cjqrkqmmvmjpnujakius.webp' alt="company" id="company-image" {...getAosData("fade-up", 600)} />
+          <img src='https://res.cloudinary.com/dbbmdq3uy/image/upload/v1735997599/d9ugvwlbgdrzhxh4u8oa.webp' alt="company" id="company-image" {...getAosData("fade-up", 700)} />
           {/* Duplicate the images for continuous scrolling */}
-          <img src={company1} alt="company" id="company-image" {...getAosData("fade-up", 700)} />
-          <img src={company2} alt="company" id="company-image" {...getAosData("fade-up", 800)} />
-          <img src={company3} alt="company" id="company-image" {...getAosData("fade-up", 900)} />
-          <img src={company4} alt="company" id="company-image" {...getAosData("fade-up", 1000)} />
-          <img src={company5} alt="company" className="company-image5" id="company-image" {...getAosData("fade-up", 1100)} />
+          <img src='https://res.cloudinary.com/dbbmdq3uy/image/upload/v1735997598/wc0vse2lmzhkz7x4ztne.webp' alt="company" id="company-image" {...getAosData("fade-up", 800)} />
+          <img src='https://res.cloudinary.com/dbbmdq3uy/image/upload/v1735997598/w4lrm9pzgy70f6wkxrjz.webp' alt="company" id="company-image" {...getAosData("fade-up", 900)} />
+
+          <img src='https://res.cloudinary.com/dbbmdq3uy/image/upload/v1736167954/socvzhhj15vj9sk4w52b.webp' alt="company" id="company-image" {...getAosData("fade-up", 1000)} />
+          <img src='https://res.cloudinary.com/dbbmdq3uy/image/upload/v1736167954/ygb5u1xrr5i9i8hzhcal.webp' alt="company" id="company-image" {...getAosData("fade-up", 1100)} />
+
+          <img src='https://res.cloudinary.com/dbbmdq3uy/image/upload/v1735997598/cjqrkqmmvmjpnujakius.webp' alt="company" id="company-image" {...getAosData("fade-up", 1200)} />
+          <img src='https://res.cloudinary.com/dbbmdq3uy/image/upload/v1735997599/d9ugvwlbgdrzhxh4u8oa.webp' alt="company" id="company-image" {...getAosData("fade-up", 1300)} />
         </div>
       </div>
     </div>

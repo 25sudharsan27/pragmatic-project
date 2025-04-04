@@ -14,17 +14,11 @@
     height:100%;
     width:100%;
     /* background: linear-gradient(to bottom, #0A1D31, #040b13); */
-    padding-bottom:70px;
+    /* padding-bottom:70px; */
 }
 
 
-.connect-image{
-    background-image: url("../images/Connect.png");
-    width:50%;
-    border-radius:15px;
-    min-width: 400px;
-    background-size: cover;
-}
+
 
 .connect-box{
     
@@ -185,8 +179,46 @@
 #mobcon{
     display:none;
 }
+.my-connect1{
+    display:flex;
+    /* flex-direction:column; */
+    justify-content: center;
+    /* align-items: center; */
+    margin-top:50px;
+    padding:50px;
+    /* gap:30px; */
+    /* background: linear-gradient(to bottom, #0A1D31, #040b13); */
+    /* padding-bottom:70px; */
+}
+.connect-image{
+    /* background-image: url('https://res.cloudinary.com/dbbmdq3uy/image/upload/v1735998199/ftk20luzfbqi4ppz7auy.webp'); */
+    /* width:50%; */
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+    width: 50%;
+    background-size: cover;
+    object-fit: cover;
+
+}
+.iframe-connect{
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+    height:950px;
+}
 
 @media screen and (max-width : 850px){
+    .connect-image{
+        display:none;
+
+    }
+    .my-connect1{
+        padding:0px;
+    }
+    .iframe-connect{
+        border-top-left-radius: 25px;
+        border-bottom-right-radius: 0px;
+        height:870px;
+    }
     .connect{
         margin:30px;
     }

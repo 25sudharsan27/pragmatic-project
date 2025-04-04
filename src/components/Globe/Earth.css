@@ -109,6 +109,8 @@
 }
 
 .w35236 button {
+  -webkit-tap-highlight-color: transparent;
+
   display:flex;
   justify-content: center;
   align-items: center;

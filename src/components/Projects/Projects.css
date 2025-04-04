@@ -272,7 +272,10 @@
 #for-mobile{
     display:none;
 }
-
+.mobile-pagination{
+    margin-top:-20px;
+    z-index: 10000;
+}
 .project-details1{
     display:flex;
     flex-direction: column;
@@ -282,6 +285,42 @@
     min-width:40%;
 }
 
+#project-item6{
+    padding:10px;
+    
+}
+
+#project-item6{
+    
+    margin:20px;
+    padding: 10px;
+    width:250px;
+    border-radius: 8px; /* Rounded corners for the project item */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+}
+
+
+#project-item6{
+    position:relative;
+    background-color:#71C9C633;
+    display:flex;
+    flex-direction: column;
+    transition: 0.3s;
+   
+}
+.projects2{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.projects10{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding:10px;
+}
 
 
 
@@ -380,5 +419,43 @@
     .projects-container{
         margin-top: -10px;
     }
+
+    
+/* Default state for project items (initially hidden offscreen) */
+.project-item {
+    opacity: 0;
+    transform: translateX(100%); /* Start from the right for right scroll */
+    transition: opacity 0.5s ease, transform 0.5s ease; /* Animation duration should match the timeout in JS */
+  }
+  
+  /* When the project enters the view */
+  .project-item-enter {
+    opacity: 1;
+    transform: translateX(0); /* Move to the center of the screen */
+  }
+  
+  /* When the project exits (moves out to the left) */
+  .project-item-exit {
+    opacity: 0;
+    transform: translateX(-100%); /* Move offscreen to the left */
+  }
+  
+  /* Optional: Mobile specific styling */
+  .project-item-mobile {
+    opacity: 0;
+    transform: translateX(100%); /* Start from the right for mobile */
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+  
+  .project-item-mobile-enter {
+    opacity: 1;
+    transform: translateX(0); /* Slide into the screen */
+  }
+  
+  .project-item-mobile-exit {
+    opacity: 0;
+    transform: translateX(-100%); /* Slide out to the left */
+  }
+   
 
 }

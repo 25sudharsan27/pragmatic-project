@@ -1,8 +1,6 @@
 import React, { useEffect } from 'react';
 import './About.css';
-import image1 from '../images/about1.png';
-import image2 from '../images/about2.png';
-import image3 from '../images/about3.png';
+
 import AOS from 'aos';  // Import AOS
 import 'aos/dist/aos.css';  // Import AOS styles
 
@@ -60,19 +58,19 @@ function App({ ani }) {
       <div className="about-section-right">
         <img 
           id="about1" 
-          src={image1} 
+          src= 'https://res.cloudinary.com/dbbmdq3uy/image/upload/v1735997179/kb75rjld2eubnawiynrk.webp'
           alt="about" 
           {...getAosData("fade-up", 300)} // Fade-up with 300ms delay
         />
         <img 
           id="about2" 
-          src={image2} 
+          src='https://res.cloudinary.com/dbbmdq3uy/image/upload/v1735997170/kmfjuptm1ot2dnqilohx.webp'
           alt="about" 
           {...getAosData("fade-down", 300)} // Fade-down with 300ms delay
         />
         <img 
           id="about3" 
-          src={image3} 
+          src='https://res.cloudinary.com/dbbmdq3uy/image/upload/v1735997170/cyp9bzrzw5t0tnrkzdgw.webp'
           alt="about" 
           {...getAosData("fade-up", 500)} // Fade-up with 500ms delay
         />

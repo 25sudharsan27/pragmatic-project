@@ -62,3 +62,8 @@ code {
 
 
 
+
+*{
+  -webkit-tap-highlight-color: transparent;
+
+}

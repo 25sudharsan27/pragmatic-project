@@ -38,7 +38,6 @@ const App = () => {
       setRouteStack((prevStack) => {
         const newStack = [...prevStack, currentPath];
         sessionStorage.setItem('routeStack', JSON.stringify(newStack)); // Save stack to sessionStorage
-        console.log(newStack);
         return newStack;
       });
     }
@@ -47,11 +46,9 @@ const App = () => {
     else if (routeStack[routeStack.length - 2] === currentPath) {
       
       setTransition(false);
-      console.log('Backward navigation detected');
       setRouteStack((prevStack) => {
         const newStack = prevStack.slice(0, prevStack.length - 1); // Pop the last route
         sessionStorage.setItem('routeStack', JSON.stringify(newStack)); // Save updated stack to sessionStorage
-        console.log(newStack);
         return newStack;
       });
     }
@@ -64,7 +61,7 @@ const App = () => {
     if (routeVisited === null) {
       // If no animation flag is set for this route, show the animation and set the flag
       sessionStorage.setItem(route, 'true');
-      console.log(`First time visit to route: ${route}, animation triggered`);
+      // console.log(`First time visit to route: ${route}, animation triggered`);
       return true;
     }
     // If flag exists for this route, animation has already been triggered
@@ -81,8 +78,47 @@ const App = () => {
   const[transition, setTransition] = useState(false);
 
 
+  // data for blogs 
+
+   const blog = [
+          {
+              component : <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7277925807447068672" height="568" width="504" frameborder="0" allowfullscreen="" title="Embedded post" className="modified-embed"></iframe>,
+              category: 2,
+              link : "https://www.linkedin.com/posts/pragmaticpc_activity-7278635788278374401-j_K6?utm_source=share&utm_medium=member_desktop"
+          },
+          {
+              component : <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7280003683654754305" height="601" width="504" frameborder="0" allowfullscreen="" title="Embedded post" className="modified-embed"></iframe>,
+              category: 1,
+              link : "https://www.linkedin.com/posts/pragmaticpc_activity-7280003684510416897-HmOO?utm_source=share&utm_medium=member_desktop"
+          },{
+            component : <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7281863303608389632" height="943" width="504" frameborder="0" allowfullscreen="" title="Embedded post" className="modified-embed"></iframe>,
+            category : 1,
+            link : "https://www.linkedin.com/posts/pragmaticpc_14-contractual-notice-templates-activity-7281912389145374720-RBzg?utm_source=share&utm_medium=member_desktop"
+          },
+          {
+              component : <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7277887454764785665" height="544" width="504" frameborder="0" allowfullscreen="" title="Embedded post" className="modified-embed"></iframe>,
+              category: 2,
+              link : "https://www.linkedin.com/posts/pragmaticpc_progress-reporting-procedure-activity-7278265865572102145-h62R?utm_source=share&utm_medium=member_desktop"
+          },{
+              component : <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7280004718502785024" height="544" width="504" frameborder="0" allowfullscreen="" title="Embedded post" className="modified-embed"></iframe>,
+              category: 1,
+              link : "https://www.linkedin.com/posts/pragmaticpc_everything-you-should-know-about-construction-activity-7280817686069104640-bTN8?utm_source=share&utm_medium=member_desktop"
+          },{
+              component: <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7279291842725081088" height="1006" width="504" frameborder="0" allowfullscreen="" title="Embedded post" className="modified-embed"></iframe>,
+              category: 1,
+              link : "https://www.linkedin.com/posts/pragmaticpc_50-qa-on-evm-activity-7280085356337623040-S0Im?utm_source=share&utm_medium=member_desktop"
+          },{
+              component : <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7279280055090868224" height="565" width="504" frameborder="0" allowfullscreen="" title="Embedded post" className="modified-embed"></iframe>,
+              category: 1,
+              link : "https://www.linkedin.com/posts/pragmaticpc_contractual-notices-under-fidic-red-book-activity-7279375657845866497-RB1P?utm_source=share&utm_medium=member_desktop"
+          }
+          // Add more blog data here...
+      ];
+
+      
+
   if(routeStack.length <= 1 || routeStack[routeStack.length - 2] !== location.pathname){
-    console.log("transition is true");
+    // console.log("transition is true");
   return (
     <TransitionGroup>
       <CSSTransition
@@ -96,20 +132,21 @@ const App = () => {
           <Routes location={location}>
             <Route
               path="/"
-              element={<Home hasHomeanimation={shouldAnimate('Home')} hasSeenSplash={splash} />}
+              element={<Home hasHomeanimation={shouldAnimate('Home')} hasSeenSplash={splash} blogs={blog.slice(0,2)} />}
             />
             <Route
               path="/blogs"
-              element={<Blogs hasTransition={shouldAnimate('Blogs')} />}
+              element={<Blogs blogs={blog}/>}
+            />
+            <Route
+              path="/blogs/:categoryId/:id"
+              element={<Blogs blogs={blog} />}
             />
             <Route
               path="/services/:id"
               element={<Services />}
             />
-            <Route
-              path="/blogs/:id"
-              element={<Blogs hasTransition={shouldAnimate('Blogs')} />}
-            />
+            
             <Route
               path="/services"
               element={<Services1 ani={shouldAnimate} />}
@@ -125,25 +162,24 @@ const App = () => {
     );
     }
     else{
-      console.log("transition is false");
       return (
        
               <Routes location={location}>
                 <Route
                   path="/"
-                  element={<Home hasHomeanimation={shouldAnimate('Home')} hasSeenSplash={splash} />}
+                  element={<Home hasHomeanimation={shouldAnimate('Home')} hasSeenSplash={splash} blogs={blog.slice(0,2)}  />}
                 />
                 <Route
                   path="/blogs"
-                  element={<Blogs hasTransition={shouldAnimate('Blogs')} />}
+                  element={<Blogs blogs={blog} />}
                 />
                 <Route
                   path="/services/:id"
                   element={<Services />}
                 />
                 <Route
-                  path="/blogs/:id"
-                  element={<Blogs hasTransition={shouldAnimate('Blogs')} />}
+                  path="/blogs/:categoryId/:id"
+                  element={<Blogs blogs={blog} />}
                 />
                 <Route
                   path="/services"

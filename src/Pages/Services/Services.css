@@ -29,16 +29,18 @@
 
 #services123-item{
     cursor:pointer;
-    height:100px;
+    height:75px;
     width:38%;
     margin-top:50px;
     transition: 0.5s;
-    box-shadow: 0px 1px 8px rgba(0, 0, 0, 0.4);
+    /* box-shadow: 2px 4px 4px rgba(255, 255, 255, 0.4); */
+    box-shadow: 0px 4px 1px 1px #1e4555;
+    border-bottom:5px solid #71c9c6;
 
 }
 #services123-item:hover{
     transform: scale(1.05);
-    box-shadow: 0px 1px 8px rgba(0, 0, 0, 0.4);
+    box-shadow: 0px 4px 1px 1px #4ee8e5;
 
 }
 
@@ -47,15 +49,15 @@
 }
 
 #services123-image{
-    height:90px;
-    width:90px;
+    height:50px;
+    width:50px;
 
 }
 
 #services123-label{
     /* border:1px solid white; */
     width:100%;
-    font-size:20px;
+    font-size:18px;
     display:flex;
     padding-left:10px;
     /* text-align: center; */
@@ -72,6 +74,7 @@
 #service-section-mobile-head{
     font-size:30px;
 }
+
 
 
 @media screen and (max-width: 1000px){

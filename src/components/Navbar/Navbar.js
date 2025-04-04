@@ -14,9 +14,12 @@ function Navbar({ pos, isDropdownVisible, toggleDropdownVisibility }) {
     toggleDropdownVisibility(); // Toggle dropdown visibility in parent
   };
 
+  /// !dropdownRef.current.contains(event.target) represents that the click is outside the dropdown and button
+
   useEffect(() => {
     const handleClickOutside = (event) => {
       // If clicked outside dropdown or button, hide the dropdown only if it's visible
+     
       if (
         dropdownRef.current &&
         !dropdownRef.current.contains(event.target) &&
@@ -39,6 +42,11 @@ function Navbar({ pos, isDropdownVisible, toggleDropdownVisibility }) {
 
   const navigate = useNavigate();
   
+
+
+
+
+  
   const handleClick = () => {
     // Navigate to the home page and pass a state to indicate the scroll should happen and skip splash screen
     navigate('/connect');
@@ -48,7 +56,9 @@ function Navbar({ pos, isDropdownVisible, toggleDropdownVisibility }) {
   const handleHomeClick = () =>{
     navigate('/',{state : {skipSplashScreen : true}});
   }
-
+  const handleWhoWeare = () => {
+    navigate('/',{state:{scrollToConnect : true}});
+  }
   const handleServiceClick = () =>{
     const isAosInitialized = sessionStorage.getItem('isServicesAosInitialized');
     navigate('/services',{state : {service : false, skipanimation : isAosInitialized}});
@@ -77,9 +87,9 @@ function Navbar({ pos, isDropdownVisible, toggleDropdownVisibility }) {
             <ScrollLink to="App" smooth={true} duration={1000}>
               <a className="navbar-item">Home</a>
             </ScrollLink>
-            <a href="#" className="navbar-item">
-              Who We are?
-            </a>
+            <ScrollLink offset={-100} to="about-section" smooth={true} duration={1000}>
+              <a className="navbar-item">Who We Are?</a>
+            </ScrollLink>  
             <a className="navbar-item" onClick={handleService1Click}>
               Services
             </a>
@@ -113,26 +123,26 @@ function Navbar({ pos, isDropdownVisible, toggleDropdownVisibility }) {
           </div>
         </div>
         <div
-          ref={dropdownRef}
-          id={isDropdownVisible ? null: 'navbar-show'} // Controlled visibility
-          className="navbar-dropdown1"
-        >
-          <ScrollLink to="App" smooth={true} duration={1000}>
-            <a  className="navbar-item2">Home</a>
-          </ScrollLink>
-          <a href="#" className="navbar-item2">
-            Who We are?
-          </a>
-          <a id="navbar4" className="navbar-item2" onClick={handleServiceClick}>
-              Services
-            </a>
-            <ScrollLink to="connect3" smooth={true} duration={1000}>
-              <a  className="navbar-item2">Connect With Us</a>
-            </ScrollLink> 
-          <Link to="/blogs" className="navbar-item2">
-            Blogs
-          </Link>
-        </div>
+  ref={dropdownRef}
+  className={`navbar-dropdown1 ${isDropdownVisible ? 'show' : ''}`} // Toggle the 'show' class based on visibility
+>
+  <ScrollLink to="App" smooth={true} duration={1000}>
+    <a className="navbar-item2">Home</a>
+  </ScrollLink>
+  <ScrollLink offset={-100} to="about-heading2" smooth={true} duration={1000}>
+    <a id="glitch" className="navbar-item2">Who We Are?</a>
+  </ScrollLink> 
+  <a  className="navbar-item2" onClick={handleServiceClick}>
+    Services
+  </a>
+  <ScrollLink to="connect3" smooth={true} duration={1000}>
+    <a className="navbar-item2">Connect With Us</a>
+  </ScrollLink> 
+  <Link to="/blogs" className="navbar-item2">
+    Blogs
+  </Link>
+</div>
+
       </div>
     );
   }
@@ -154,8 +164,8 @@ function Navbar({ pos, isDropdownVisible, toggleDropdownVisibility }) {
             Home
           </a>
 
-          <a href="#" className="navbar-item">
-            Who We are?
+          <a onClick={handleWhoWeare}  className="navbar-item">
+            Who We Are?
           </a>
           <a className="navbar-item" onClick={handleServiceClick}>
               Services
@@ -192,12 +202,11 @@ function Navbar({ pos, isDropdownVisible, toggleDropdownVisibility }) {
       </div>
       <div
         ref={dropdownRef}
-        id={isDropdownVisible ? null: 'navbar-show'} // Controlled visibility
-        className="navbar-dropdown1"
+        className={`navbar-dropdown1 ${isDropdownVisible ? 'show' : ''}`} // Toggle the 'show' class based on visibility        className="navbar-dropdown1"
       >
           <a onClick={handleHomeClick} className="navbar-item2">Home</a>
-        <a href="#" className="navbar-item2">
-          Who We are?
+        <a onClick={handleWhoWeare} className="navbar-item2">
+          Who We Are?
         </a>
         <a className="navbar-item2" onClick={handleServiceClick}>
               Services
@@ -209,12 +218,12 @@ function Navbar({ pos, isDropdownVisible, toggleDropdownVisibility }) {
       </div>
       <div
           ref={dropdownRef}
-          id={isDropdownVisible ? null: 'navbar-show'} // Controlled visibility
-          className="navbar-dropdown1"
+          className={`navbar-dropdown1 ${isDropdownVisible ? 'show' : ''}`} // Toggle the 'show' class based on visibility
+
         >
             <a onClick={handleHomeClick} className="navbar-item2">Home</a>
-          <a href="#" className="navbar-item2">
-            Who We are?
+          <a onClick={handleWhoWeare} className="navbar-item2">
+            Who We Are?
           </a>
           <a className="navbar-item2" onClick={handleServiceClick}>
               Services
@@ -264,8 +273,8 @@ function Navbar({ pos, isDropdownVisible, toggleDropdownVisibility }) {
           <a onClick={handleHomeClick} className="navbar-item">
             Home
           </a>
-          <a href="#" className="navbar-item">
-            Who We are?
+          <a onClick={handleWhoWeare} className="navbar-item">
+            Who We Are?
           </a>
           <a className="navbar-item" onClick={handleServiceClick}>
               Services
@@ -279,12 +288,12 @@ function Navbar({ pos, isDropdownVisible, toggleDropdownVisibility }) {
         </div>
         <div
           ref={dropdownRef}
-          id={isDropdownVisible ? null: 'navbar-show'} // Controlled visibility
-          className="navbar-dropdown1"
+          id="blogs-dropdown1"
+          className={`navbar-dropdown1 ${isDropdownVisible ? 'show1' : ''}`} // Toggle the 'show' class based on visibility          className="navbar-dropdown1"
         >
             <a onClick={handleHomeClick} className="navbar-item2">Home</a>
           <a href="#" className="navbar-item2">
-            Who We are?
+            Who We Are?
           </a>
           <a className="navbar-item2" onClick={handleServiceClick}>
               Services

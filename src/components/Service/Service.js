@@ -1,5 +1,7 @@
 import React, { useEffect } from 'react';
-import './Service.css';
+import { useNavigate } from 'react-router-dom';
+
+// images
 import icon1 from '../images/icon1.svg';
 import icon2 from '../images/icon2.svg';
 import icon3 from '../images/icon3.svg';
@@ -8,10 +10,14 @@ import icon5 from '../images/icon5.svg';
 import icon6 from '../images/icon6.svg';
 import icon7 from '../images/icon7.svg';
 import icon8 from '../images/icon8.svg';
+
+// CSS and Animation
+import './Service.css';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import { useNavigate } from 'react-router-dom';
 
+
+// hard coded data
 const services = [
     { label: "Expert Witness / Independent Opinion", icon: icon2 },
     { label: "Project cost & budget control", icon: icon3 },
@@ -21,10 +27,10 @@ const services = [
     { label: "Prolongation Claims", icon: icon8 },
     { label: "Planning & Project Control", icon: icon1 },
     { label: "Earned Value Management", icon: icon5 },
-    { label : "Forensic Delay Analysis" , icon : icon5 },
-    { label : "Contract & Schedule Risk Management" , icon: icon2 },
-    { label : "Training on Project Control", icon : icon4 },
-    { label : "Delay Claims | Disruption Claims", icon : icon3 }
+    { label: "Forensic Delay Analysis", icon: icon5 },
+    { label: "Contract & Schedule Risk Management", icon: icon2 },
+    { label: "Training on Project Control", icon: icon4 },
+    { label: "Delay Claims | Disruption Claims", icon: icon3 }
 ];
 
 const dottedLineStyles = [
@@ -36,31 +42,33 @@ const dottedLineStyles = [
     { transform: "translate(-0%, -75%) rotate(-110deg)", marginLeft: "130px" },
     { transform: "translate(0%, -50%) rotate(90deg)", marginLeft: "155px" },
     { transform: "translate(-20%, -30%) rotate(-255deg)", marginLeft: "160px" },
-    { transform : "translate(0%,-15%) rotate(-70deg)",marginLeft:"140px" },
-    { transform : "translate(-0%,-20%) rotate(70deg)",marginLeft:"-200px" },
+    { transform: "translate(0%,-15%) rotate(-70deg)", marginLeft: "140px" },
+    { transform: "translate(-0%,-20%) rotate(70deg)", marginLeft: "-200px" },
     { transform: "translate(-0%, -75%) rotate(-120deg)", marginLeft: "130px" },
-    { transform: "translate(-0%, -75%) rotate(120deg)" , marginLeft:"-160px" }
+    { transform: "translate(-0%, -75%) rotate(120deg)", marginLeft: "-160px" }
 ];
 
-const App = ({ ani }) => {
+const Service = ({ ani }) => {
     const navigate = useNavigate();
 
+    // Functions
+    const getAosData = (animation, delay) => {
+        return ani ? { "data-aos": animation, "data-aos-delay": delay } : {};
+    };
+
+    // UseEffect
     useEffect(() => {
         if (ani) {
             AOS.init({
-                duration: 1000,  // Animation duration
-                once: true,      // Trigger only once when scrolled into view
+                duration: 1000,  
+                once: true,      
                 offset: -50,
                 startEvent: 'DOMContentLoaded'
             });
         }
     }, [ani]);
 
-    // Helper function to conditionally apply AOS animations
-    const getAosData = (animation, delay) => {
-        return ani ? { "data-aos": animation, "data-aos-delay": delay } : {};
-    };
-
+    // Rendered Component
     return (
         <div>
             <div className="container">
@@ -119,4 +127,4 @@ const App = ({ ani }) => {
     );
 };
 
-export default App;
+export default Service;

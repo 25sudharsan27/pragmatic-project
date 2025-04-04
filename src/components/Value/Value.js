@@ -1,19 +1,25 @@
 import React, { useState, useEffect } from 'react';
-import AOS from 'aos';
-import 'aos/dist/aos.css'; // Import AOS styles
-import './Value.css';
 
+
+// Images
 import money1 from '../images/money1.svg';
 import money2 from '../images/money2.svg';
 import money3 from '../images/money3.svg';
 
-function App({ ani }) {
+// CSS and Animation
+import AOS from 'aos';
+import 'aos/dist/aos.css'; // Import AOS styles
+import './Value.css';
+
+
+const Value = ({ ani }) => {
+  // States
   const [counter1, setCounter1] = useState(0);
   const [counter2, setCounter2] = useState(0);
   const [counter3, setCounter3] = useState(0);
   const [hasAnimated, setHasAnimated] = useState(false); // Flag to check if animation has already run
 
-  // Function to animate numbers
+  // Function
   const incrementCounter = (target, setCounter) => {
     let start = 0;
     let end = target;
@@ -34,44 +40,44 @@ function App({ ani }) {
     step();
   };
 
+  // UseEffects
   useEffect(() => {
     if (ani) {
-      // Initialize AOS if animations are enabled
       AOS.init({
-        duration: 1000,  // Animation duration
-        once: true,      // Trigger only once when scrolled into view
+        duration: 1000,  
+        once: true,      
         startEvent: 'DOMContentLoaded',
       });
     }
 
+    
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting && !hasAnimated) {
-            // Start number increment only once when the element is in view
             incrementCounter(522, setCounter1); // $522M
             incrementCounter(6.1, setCounter2); // $6.1B
             incrementCounter(95.3, setCounter3); // 95.3%
 
-            // Set the flag to prevent further increments
             setHasAnimated(true);
           }
         });
       },
       {
-        threshold: 0.5, // Trigger when 50% of the element is in view
+        threshold: 1, // Trigger when 50% of the element is in view
       }
     );
 
     const valueSection = document.querySelector('.value');
-    if (valueSection) observer.observe(valueSection);
-
+    if (valueSection){
+      observer.observe(valueSection);
+    }
     return () => {
       observer.disconnect();
     };
   }, [ani, hasAnimated]); // Add `hasAnimated` as a dependency to ensure it tracks the flag
 
-  // Helper function to conditionally apply AOS animations
+  // Helper function to conditionally Valuely AOS animations
   const getAosData = (animation, delay) => {
     return ani ? { "data-aos": animation, "data-aos-delay": delay } : {};
   };
@@ -111,4 +117,4 @@ function App({ ani }) {
   );
 }
 
-export default App;
+export default Value;

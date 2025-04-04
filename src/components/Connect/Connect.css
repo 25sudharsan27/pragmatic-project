@@ -17,7 +17,9 @@
     /* padding-bottom:70px; */
 }
 
-
+#connect3{
+    padding-bottom: 30px;
+}
 
 
 .connect-box{
@@ -191,7 +193,7 @@
     /* padding-bottom:70px; */
 }
 .connect-image{
-    /* background-image: url('https://res.cloudinary.com/dbbmdq3uy/image/upload/v1735998199/ftk20luzfbqi4ppz7auy.webp'); */
+    background-image: url('https://res.cloudinary.com/dbbmdq3uy/image/upload/v1735998199/ftk20luzfbqi4ppz7auy.webp');
     /* width:50%; */
     border-top-left-radius: 25px;
     border-bottom-left-radius: 25px;

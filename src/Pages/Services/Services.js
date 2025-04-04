@@ -1,6 +1,10 @@
+import { useState } from "react";
+import { Helmet } from "react-helmet";
+
+// Components
 import Navbar from "../../components/Navbar/Navbar";
-import { useState, useEffect } from "react";
-import "./Services.css";
+
+// Images
 import icon1 from '../../components/images/icon1.svg';
 import icon2 from '../../components/images/icon2.svg';
 import icon3 from '../../components/images/icon3.svg';
@@ -10,10 +14,12 @@ import icon6 from '../../components/images/icon6.svg';
 import icon7 from '../../components/images/icon7.svg';
 import icon8 from '../../components/images/icon8.svg';
 import { useNavigate } from 'react-router-dom';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
-import { Helmet } from "react-helmet";
 
+// CSS and Animation
+import 'aos/dist/aos.css';
+import "./Services.css";
+
+// Hard coded data
 const services = [
     { label: "Expert Witness / Independent Opinion", icon: icon2 },
     { label: "Project cost & budget control", icon: icon3 },
@@ -29,23 +35,20 @@ const services = [
     { label: "Delay Claims | Disruption Claims", icon: icon3 }
 ];
 
+
+// Exporting Component
 const Services = ({ani }) => {
-  
+    // State variables
     const [isDropdownVisible, setDropdownVisible] = useState(false);
     const [isAnimation, setAnimation] = useState(ani('Services'));
+
+    // Functions
     const toggleDropdownVisibility = () => {
         setDropdownVisible(prevState => !prevState);
     };
 
-    useEffect(() => {
-        AOS.init({
-            duration: 1000,
-            once: true, // Ensure AOS is only triggered once
-            startEvent: 'DOMContentLoaded',
-            offset:100
-        });
-    }, [ani]);
 
+    // Rendered Component
     return (
         <div id="services123-total" className="App">
             <Navbar 
@@ -58,14 +61,18 @@ const Services = ({ani }) => {
     );
 };
 
+
+// ServicesList Component
 const ServicesList = ({ isAnimation }) => {
+    // State variables
     const navigate = useNavigate();
 
-    // Get AOS data only if animation is enabled
+    // Functions
     const getAosData = (animation, delay) => {
         return isAnimation ? { "data-aos": animation, "data-aos-delay": delay } : {};
     };
 
+    // Rendered Component
     return (
         <>
             <Helmet>

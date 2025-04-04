@@ -1,6 +1,6 @@
 /* General Container Styles */
 .projects-container {
-    background: linear-gradient(to bottom, #0A1D31,#071422);
+    background: linear-gradient(to bottom, #0A1D31, #071422);
     box-sizing: border-box;
 
     width: 100%;
@@ -10,13 +10,12 @@
     justify-content: center;
     align-items: center;
     margin-top: 70px;
-    /* padding: 0 20px; */
 }
 
 /* Heading Styles */
 .projects-heading {
     width: 100%;
-    
+
     text-align: center;
     font-family: 'Plus Jakarta Display', sans-serif;
     color: white;
@@ -26,17 +25,17 @@
 }
 
 /* Paragraph Styles */
-#project-h{
-    padding:0px;
+#project-h {
+    padding: 0px;
 }
 
-#project-h-h{
-    padding-top:20px;
-    padding-bottom:20px;
+#project-h-h {
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
 .projects-para {
-    font-family: 'Jost','sans-serif';
+    font-family: 'Jost', 'sans-serif';
     width: 80%;
     text-align: center;
     color: white;
@@ -88,15 +87,18 @@
 
 .nav-item:hover,
 .nav-item.active {
-    background-color: #71C9C633;  /* Active state background */
+    background-color: #71C9C633;
+    /* Active state background */
     border-radius: 50px;
     margin: 0px 10px;
-    transform: scale(1.05);  /* Slight scaling on hover */
+    transform: scale(1.05);
+    /* Slight scaling on hover */
 }
 
 /* Active Item Highlight */
 .nav-active {
-    background-color: #71C9C633;  /* Active state background */
+    background-color: #71C9C633;
+    /* Active state background */
     border-radius: 50px;
     font-weight: 500;
     /* padding: 10px 20px; */
@@ -106,113 +108,116 @@
 .nav-img {
     height: 30px;
     width: 30px;
-    margin-right: 10px;  /* Space between icon and text */
+    margin-right: 10px;
+    /* Space between icon and text */
 }
 
 .projects {
-    height:100%;
-    
-    width:100%;
-    padding:50px;
-    display:flex;
+    height: 100%;
+
+    width: 100%;
+    padding: 50px;
+    display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    
-    /* grid-template-columns: repeat(3, 1fr); */
-    padding: 20px; /* Optional padding around the entire grid */
+    padding: 20px;
+    /* Optional padding around the entire grid */
 }
 
 
 .project-item {
-    
-    margin:20px;
+
+    margin: 20px;
     padding: 10px;
-    width:250px;
-    border-radius: 8px; /* Rounded corners for the project item */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+    width: 250px;
+    border-radius: 8px;
+    /* Rounded corners for the project item */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Add a subtle shadow */
 }
 
 
-.project-item{
-    position:relative;
-    background-color:#71C9C633;
-    display:flex;
+.project-item {
+    position: relative;
+    background-color: #71C9C633;
+    display: flex;
     flex-direction: column;
     transition: 0.3s;
-   
+
 }
 
 
 
 
 
-.project-img{
-    border-radius:8px;
+.project-img {
+    border-radius: 8px;
     size-adjust: contain;
-    height:170px;
-
-    /* margin:10px; */
+    height: 170px;
 }
-.project-item1{
-    width:100%;
-    display:flex;
+
+.project-item1 {
+    width: 100%;
+    display: flex;
     justify-content: space-between;
     align-items: center;
-    /* margin:10px; */
-}
-.project-date{
-    font-family:'Plus Jakarta Display', sans-serif;
-    color:white;
-    margin-right:20px;
-    font-size:12px;
 }
 
-.project-text{
-    font-family:'Plus Jakarta Display', sans-serif;
-    color:white;
-    font-size:12px;
-    font-weight:300;
+.project-date {
+    font-family: 'Plus Jakarta Display', sans-serif;
+    color: white;
+    margin-right: 20px;
+    font-size: 12px;
 }
 
-.project-image{
-    height:20px;
-    margin-right:10px;
+.project-text {
+    font-family: 'Plus Jakarta Display', sans-serif;
+    color: white;
+    font-size: 12px;
+    font-weight: 300;
 }
 
-#project-image1{
+.project-image {
+    height: 20px;
+    margin-right: 10px;
+}
+
+#project-image1 {
     background-color: #71c9c683;
-    margin:10px;
-    padding:10px 10px;
-    border-radius:17px;
+    margin: 10px;
+    padding: 10px 10px;
+    border-radius: 17px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.project-name{
-    font-family:'Plus Jakarta Display', sans-serif;
-    color:white;
-    font-size:16px;
-    margin:10px;
-    font-weight:500;
-}
-.project-details{
-    display:flex;
-}
-.project-value1{
-    font-family:'Plus Jakarta Display', sans-serif;
-    color:#A9A9A9;
-    font-size:13px;
-    margin:10px;
-    font-weight:300;
+.project-name {
+    font-family: 'Plus Jakarta Display', sans-serif;
+    color: white;
+    font-size: 16px;
+    margin: 10px;
+    font-weight: 500;
 }
 
-.project-value{
-    font-family:'Plus Jakarta Display', sans-serif;
-    color:white;
-    font-size:13px;
-    margin:10px;
-    font-weight:300;
+.project-details {
+    display: flex;
+}
+
+.project-value1 {
+    font-family: 'Plus Jakarta Display', sans-serif;
+    color: #A9A9A9;
+    font-size: 13px;
+    margin: 10px;
+    font-weight: 300;
+}
+
+.project-value {
+    font-family: 'Plus Jakarta Display', sans-serif;
+    color: white;
+    font-size: 13px;
+    margin: 10px;
+    font-weight: 300;
 }
 
 /* Pagination Styles */
@@ -222,12 +227,12 @@
     align-items: center;
     margin-top: 30px;
     font-size: 16px;
-  }
-  
-  .pagination-controls button {
+}
+
+.pagination-controls button {
     background-color: #71C9C633;
-    border:1px solid white;
-    font-weight:bold;
+    border: 1px solid white;
+    font-weight: bold;
     color: white;
     padding: 10px 20px;
     margin: 0 10px;
@@ -235,111 +240,120 @@
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-  }
-  
-  .pagination-controls button:hover {
+}
+
+.pagination-controls button:hover {
     background-color: #5aafaf;
-  }
-  
-  .pagination-controls button:disabled {
+}
+
+.pagination-controls button:disabled {
     background-color: #687070;
     cursor: not-allowed;
-  }
-  
-  .pagination-controls span {
+}
+
+.pagination-controls span {
     font-weight: bold;
-  }
-  .page-number{
-    font-family:'Manrope', sans-serif;
-    color:white;
-    font-size:16px;
-    margin:8px;
-    font-weight:300;
-  }
-
-  .project-item:hover{
-    transform: scaleX(1.05) scaleY(1.05); /* Scale the project item on hover */
-    transition: 0.3s ;
-  }
-  
-
-
-
-
-#second{
-    display:none;
 }
-#for-mobile{
-    display:none;
+
+.page-number {
+    font-family: 'Manrope', sans-serif;
+    color: white;
+    font-size: 16px;
+    margin: 8px;
+    font-weight: 300;
 }
-.mobile-pagination{
-    margin-top:-20px;
+
+.project-item:hover {
+    transform: scaleX(1.05) scaleY(1.05);
+    transition: 0.3s;
+}
+
+
+
+
+
+#second {
+    display: none;
+}
+
+#for-mobile {
+    display: none;
+}
+
+.mobile-pagination {
+    margin-top: -20px;
     z-index: 10000;
 }
-.project-details1{
-    display:flex;
+
+.project-details1 {
+    display: flex;
     flex-direction: column;
 }
 
-.project-value1{
-    min-width:40%;
+.project-value1 {
+    min-width: 40%;
 }
 
-#project-item6{
-    padding:10px;
-    
-}
-
-#project-item6{
-    
-    margin:20px;
+#project-item6 {
     padding: 10px;
-    width:250px;
-    border-radius: 8px; /* Rounded corners for the project item */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+
+}
+
+#project-item6 {
+
+    margin: 20px;
+    padding: 10px;
+    width: 250px;
+    border-radius: 8px;
+    /* Rounded corners for the project item */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Add a subtle shadow */
 }
 
 
-#project-item6{
-    position:relative;
-    background-color:#71C9C633;
-    display:flex;
+#project-item6 {
+    position: relative;
+    background-color: #71C9C633;
+    display: flex;
     flex-direction: column;
     transition: 0.3s;
-   
+
 }
-.projects2{
-    display:flex;
+
+.projects2 {
+    display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.projects10{
-    display:flex;
+.projects10 {
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding:10px;
+    padding: 10px;
 }
 
 
 
 /* Responsive Design for Smaller Screens */
 @media (max-width: 1100px) {
-    .nav-item{
-        margin:0px;
-        padding:0px;
+    .nav-item {
+        margin: 0px;
+        padding: 0px;
     }
-    .nav-text{
-        display:none;
-        
-        
+
+    .nav-text {
+        display: none;
+
+
     }
+
     .projects-para {
         width: 90%;
         font-size: 15px;
     }
-    
+
 
     .projects-heading {
         font-size: 36px;
@@ -352,53 +366,57 @@
     .nav-img {
         height: 25px;
         width: 25px;
-        padding:10px 0px;
-        margin:0px;
-        
+        padding: 10px 0px;
+        margin: 0px;
+
     }
-    
-    
+
+
 }
 
 @media (max-width: 480px) {
-    .pagination-controls{
-        display:none;
+    .pagination-controls {
+        display: none;
     }
-    #second{
-        margin-top:-25px;
+
+    #second {
+        margin-top: -25px;
     }
-    #for-mobile{
-        width:100%;
-        display:flex;
+
+    #for-mobile {
+        width: 100%;
+        display: flex;
         justify-content: center;
         align-items: center;
-        
+
     }
 
-    .nav-item{
+    .nav-item {
         cursor: pointer;
-    -webkit-tap-highlight-color: transparent;
+        -webkit-tap-highlight-color: transparent;
     }
 
-    
-    
-    
+
+
+
     .k8 {
         display: block;
     }
-    #second{
-        display:block;
+
+    #second {
+        display: block;
     }
-    #first1{
-        display:none;
+
+    #first1 {
+        display: none;
     }
-    
-    .projects{
-        display:none;
+
+    .projects {
+        display: none;
     }
+
     .projects-para {
-        /* width: 100%; */
-        line-height:20px;
+        line-height: 20px;
         font-size: 13px;
     }
 
@@ -413,49 +431,56 @@
     .nav-img {
         height: 20px;
         width: 20px;
-        margin:0px;
+        margin: 0px;
     }
 
-    .projects-container{
+    .projects-container {
         margin-top: -10px;
     }
 
-    
-/* Default state for project items (initially hidden offscreen) */
-.project-item {
-    opacity: 0;
-    transform: translateX(100%); /* Start from the right for right scroll */
-    transition: opacity 0.5s ease, transform 0.5s ease; /* Animation duration should match the timeout in JS */
-  }
-  
-  /* When the project enters the view */
-  .project-item-enter {
-    opacity: 1;
-    transform: translateX(0); /* Move to the center of the screen */
-  }
-  
-  /* When the project exits (moves out to the left) */
-  .project-item-exit {
-    opacity: 0;
-    transform: translateX(-100%); /* Move offscreen to the left */
-  }
-  
-  /* Optional: Mobile specific styling */
-  .project-item-mobile {
-    opacity: 0;
-    transform: translateX(100%); /* Start from the right for mobile */
-    transition: opacity 0.5s ease, transform 0.5s ease;
-  }
-  
-  .project-item-mobile-enter {
-    opacity: 1;
-    transform: translateX(0); /* Slide into the screen */
-  }
-  
-  .project-item-mobile-exit {
-    opacity: 0;
-    transform: translateX(-100%); /* Slide out to the left */
-  }
-   
+
+    /* Default state for project items (initially hidden offscreen) */
+    .project-item {
+        opacity: 0;
+        transform: translateX(100%);
+        /* Start from the right for right scroll */
+        transition: opacity 0.5s ease, transform 0.5s ease;
+        /* Animation duration should match the timeout in JS */
+    }
+
+    /* When the project enters the view */
+    .project-item-enter {
+        opacity: 1;
+        transform: translateX(0);
+        /* Move to the center of the screen */
+    }
+
+    /* When the project exits (moves out to the left) */
+    .project-item-exit {
+        opacity: 0;
+        transform: translateX(-100%);
+        /* Move offscreen to the left */
+    }
+
+    /* Optional: Mobile specific styling */
+    .project-item-mobile {
+        opacity: 0;
+        transform: translateX(100%);
+        /* Start from the right for mobile */
+        transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    .project-item-mobile-enter {
+        opacity: 1;
+        transform: translateX(0);
+        /* Slide into the screen */
+    }
+
+    .project-item-mobile-exit {
+        opacity: 0;
+        transform: translateX(-100%);
+        /* Slide out to the left */
+    }
+
 
 }

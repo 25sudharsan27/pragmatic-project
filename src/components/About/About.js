@@ -1,27 +1,30 @@
 import React, { useEffect } from 'react';
+
+// CSS and Animation
 import './About.css';
+import AOS from 'aos';  
+import 'aos/dist/aos.css'; 
 
-import AOS from 'aos';  // Import AOS
-import 'aos/dist/aos.css';  // Import AOS styles
+const App = ({ ani }) => {
 
-function App({ ani }) {
-  
-  // Initialize AOS when component mounts, if ani is true
+   // Functions
+   const getAosData = (animation, delay) => {
+    return ani ? { "data-aos": animation, "data-aos-delay": delay } : {};
+  };
+
+  // UseEffects 
   useEffect(() => {
     if (ani) {
       AOS.init({
-        duration: 1000, // Optional: you can customize the animation duration or other settings
-        once: true, // Optional: ensures animations only trigger once
-        startEvent: 'DomContentLoaded', // Optional: triggers AOS on specific event
+        duration: 1000, 
+        once: true,
+        startEvent: 'DomContentLoaded', 
       });
     }
   }, [ani]);
 
-  // Helper function to conditionally apply AOS animations
-  const getAosData = (animation, delay) => {
-    return ani ? { "data-aos": animation, "data-aos-delay": delay } : {};
-  };
-
+ 
+  // Rendered Component
   return (
     <div className="about-section">
       <div className="about-section-left">
@@ -29,7 +32,7 @@ function App({ ani }) {
           <h1 
             id="about11" 
             className="about-heading" 
-            {...getAosData("fade-up", 0)} // Fade-up animation with no delay
+            {...getAosData("fade-up", 0)} 
           >
             About Us
           </h1>
@@ -39,7 +42,7 @@ function App({ ani }) {
         <h1 
           id="about22" 
           className="about-para1" 
-          {...getAosData("fade-up", 100)} // Fade-up with 100ms delay
+          {...getAosData("fade-up", 100)} 
         >
           Your strategic partner for healthy and successful projects
         </h1>
@@ -48,7 +51,7 @@ function App({ ani }) {
           <p 
             id="about33" 
             className="about-para2" 
-            {...getAosData("fade-up", 200)} // Fade-up with 200ms delay
+            {...getAosData("fade-up", 200)} 
           >
             Our team of experienced professionals brings a wealth of knowledge and expertise to every project we undertake. From conception to completion, we ensure that every detail is meticulously planned and executed to perfection.
           </p>
@@ -60,19 +63,19 @@ function App({ ani }) {
           id="about1" 
           src= 'https://res.cloudinary.com/dbbmdq3uy/image/upload/v1735997179/kb75rjld2eubnawiynrk.webp'
           alt="about" 
-          {...getAosData("fade-up", 300)} // Fade-up with 300ms delay
+          {...getAosData("fade-up", 300)} 
         />
         <img 
           id="about2" 
           src='https://res.cloudinary.com/dbbmdq3uy/image/upload/v1735997170/kmfjuptm1ot2dnqilohx.webp'
           alt="about" 
-          {...getAosData("fade-down", 300)} // Fade-down with 300ms delay
+          {...getAosData("fade-down", 300)} 
         />
         <img 
           id="about3" 
           src='https://res.cloudinary.com/dbbmdq3uy/image/upload/v1735997170/cyp9bzrzw5t0tnrkzdgw.webp'
           alt="about" 
-          {...getAosData("fade-up", 500)} // Fade-up with 500ms delay
+          {...getAosData("fade-up", 500)} 
         />
       </div>
     </div>

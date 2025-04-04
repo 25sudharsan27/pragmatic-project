@@ -44,9 +44,6 @@
     align-items: center;
     width:fit-content;
     height:fit-content;
-    /* height:20px; */
-    /* overflow: visible; */
-
 }
 
 
@@ -87,10 +84,6 @@
     padding:20px 25px;
     background-color: #0A1D31;
     border:1px dashed #71C9C6;
-}
-
-.roadmap-height-norm{
-    
 }
 
 .roadmap-content{

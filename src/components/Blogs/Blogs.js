@@ -4,7 +4,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { useEffect } from 'react';
 
-function Blogs({ ani, blogs }) {
+function Blogs({ ani }) {
 
   var counter = 200;
 

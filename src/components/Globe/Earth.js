@@ -1,20 +1,118 @@
 import React, { useRef, useEffect, useState } from "react";
 import * as THREE from "three";
-import './Earth.css'; 
-import image4 from '../images/coutries/uae.jpg';
-import image5 from '../images/coutries/India.jpg';
-import image6 from '../images/coutries/kuwait.jpg';
-import image7 from '../images/coutries/yemen.jpg';
-import image8 from '../images/coutries/ksa.jpg';
-import image9 from '../images/coutries/kazhakhstan.webp';
-import image10 from '../images/coutries/oman.jpg';
-import image11 from '../images/coutries/qatar.jpg';
-import image12 from '../images/coutries/nepal.webp';
-import tagimg from '../images/India.png'; 
 
+
+// CSS
+import './Earth.css'; 
+
+
+// Function to convert real-world coordinates to app coordinates
+function convertToAppCoordinates(realLat, realLng) {
+  const appLat = -1 * realLat + 102;
+  const appLng = -0.5 * realLng + 180;
+  return {
+    latitude: parseFloat(appLat.toFixed(2)),
+    longitude: parseFloat(appLng.toFixed(2)),
+  };
+}
+
+// hard coded data
+const locations = [
+  {
+    name: "U.A.E",
+    realLat: 23.4241,
+    realLng: 53.8478,
+    ...convertToAppCoordinates(23.4241, 53.8478),
+    image: 'https://res.cloudinary.com/dbbmdq3uy/image/upload/v1735996056/pkobdcllgj1mqsrbitrw.webp',
+    project: 10,
+    value: "AED 2.318 Billion",
+    value1: "$ 631.65 M"
+  },
+  {
+    name: "India",
+    realLat: 20.5937,
+    realLng: 78.9629,
+    ...convertToAppCoordinates(20.5937, 78.9629),
+    image: 'https://res.cloudinary.com/dbbmdq3uy/image/upload/v1735996050/uggkyak5ntqnqwklaxty.webp',
+    project: 12,
+    value: "INR 1640.43 Crores",
+    value1: "$ 210.15 M"
+  },
+  {
+    name: "Kuwait",
+    realLat: 29.3759,
+    realLng: 47.9774,
+    ...convertToAppCoordinates(29.3759, 47.9774),
+    image: 'https://res.cloudinary.com/dbbmdq3uy/image/upload/v1735996052/yfrzxsdmuqf1zqw58edv.webp',
+    project: 3,
+    value: "KD 18 Million",
+    value1: "$ 59.4 M"
+  },
+  {
+    name: "Yemen",
+    realLat: 15.5527,
+    realLng: 48.5164,
+    ...convertToAppCoordinates(15.5527, 48.5164),
+    image: 'https://res.cloudinary.com/dbbmdq3uy/image/upload/v1735996053/yltreslml82wkppggwpv.webp',
+    project: 1,
+    value: "USD 41 Million",
+    value1: "$ 41 M"
+  },
+  {
+    name: "KSA",
+    realLat: 23.8859,
+    realLng: 45.0792,
+    ...convertToAppCoordinates(23.8859, 45.0792),
+    image: 'https://res.cloudinary.com/dbbmdq3uy/image/upload/v1735996055/j6zbs1531xbk6tpdwwkc.webp',
+    project: 2,
+    value: "SAR 90 Million",
+    value1: "$ 24 Million"
+  },
+  {
+    name: "Kazakhastan",
+    realLat: 48.0196,
+    realLng: 66.9237,
+    ...convertToAppCoordinates(48.0196, 66.9237),
+    image: 'https://res.cloudinary.com/dbbmdq3uy/image/upload/v1735996051/pccj0gvixqdpyygmjk2b.webp',
+    project: 1,
+    value: "USD 14 Million",
+    value1: " $14 M"
+  },
+  {
+    name: "Oman",
+    realLat: 21.4735,
+    realLng: 55.9754,
+    ...convertToAppCoordinates(21.4735, 55.9754),
+    image: 'https://res.cloudinary.com/dbbmdq3uy/image/upload/v1735996050/tnh3crfppe4fde6txdog.webp',
+    project: 1,
+    value: "OMR 3 Million",
+    value1: "$ 7.8 M"
+  },
+  {
+    name: "Qatar",
+    realLat: 25.3548,
+    realLng: 51.1839,
+    ...convertToAppCoordinates(25.3548, 51.1839),
+    image: 'https://res.cloudinary.com/dbbmdq3uy/image/upload/v1735996051/axgvolktjrfnzuwksnbf.webp',
+    project: 1,
+    value: "QNR 8 Million",
+    value1: "$ 2.2 M"
+  },
+  {
+    name: "Nepal",
+    realLat: 28.3949,
+    realLng: 84.1240,
+    ...convertToAppCoordinates(28.3949, 84.1240),
+    image: 'https://res.cloudinary.com/dbbmdq3uy/image/upload/v1735996051/ljk68xq1ihib4kn06po0.webp',
+    project: 1,
+    value: "USD 2.18 Million",
+    value1: "$ 2.18 M"
+  }
+];
 
 
 const GlobeWithTags = ({ani}) => {
+  // State and Refs
   const mountRef = useRef(null);
   const globeRef = useRef(null); 
   const cameraRef = useRef(null);
@@ -23,47 +121,22 @@ const GlobeWithTags = ({ani}) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   // Locations with longitude and latitude
-  const locations = [
-    {image: 'https://res.cloudinary.com/dbbmdq3uy/image/upload/v1735996056/pkobdcllgj1mqsrbitrw.webp',      name: "U.A.E", longitude: 152.3, latitude: 78.82, project: 10, value: "AED 2.318 Billion", value1: "$ 631.65 M" },
-    { image:'https://res.cloudinary.com/dbbmdq3uy/image/upload/v1735996050/uggkyak5ntqnqwklaxty.webp', name: "India", longitude: 141.59, latitude:76.0, project: 12, value: "INR 1640.43 Crores", value1: "$ 210.15 M" },
-    { image: 'https://res.cloudinary.com/dbbmdq3uy/image/upload/v1735996052/yfrzxsdmuqf1zqw58edv.webp',name: "Kuwait", longitude: 156.2, latitude: 73.0, project: 3, value: "KD 18 Million", value1: "$ 59.4 M" },
-    { image:  'https://res.cloudinary.com/dbbmdq3uy/image/upload/v1735996053/yltreslml82wkppggwpv.webp',      name: "Yemen", longitude: 156.2, latitude: 87.0, project: 1, value: "USD 41 Million", value1: "$ 41 M" },
-    { image: 'https://res.cloudinary.com/dbbmdq3uy/image/upload/v1735996055/j6zbs1531xbk6tpdwwkc.webp',  name: "KSA",  longitude: 157.85, latitude: 78.82, project: 2, value: "SAR 90 Million", value1: "$ 24 Million" },
-    { image:'https://res.cloudinary.com/dbbmdq3uy/image/upload/v1735996051/pccj0gvixqdpyygmjk2b.webp', name: "Kazakhastan", longitude: 144.59, latitude:52.0, project: 1, value: "USD 14 Million", value1: " $14 M" },
-    { image:'https://res.cloudinary.com/dbbmdq3uy/image/upload/v1735996050/tnh3crfppe4fde6txdog.webp',   name: "Oman",  longitude: 151.6, latitude: 78.82, project: 1, value: "OMR 3 Million", value1: "$ 7.8 M" },
-    { image:  'https://res.cloudinary.com/dbbmdq3uy/image/upload/v1735996051/axgvolktjrfnzuwksnbf.webp', name: "Qatar",  longitude: 154.3, latitude: 77.4,  project: 1, value: "QNR 8 Million", value1: "$ 2.2 M" },
-    { image:  'https://res.cloudinary.com/dbbmdq3uy/image/upload/v1735996051/ljk68xq1ihib4kn06po0.webp', name: "Nepal", longitude: 136.9, latitude:75.5, project: 1, value: "USD 2.18 Million", value1: "$ 2.18 M" }
-];
+
 
   useEffect(() => {
     const preloadImages = () => {
       const loadedImages = [];
-      let loadedCount = 0;
-
       locations.forEach((location) => {
         const img = new Image();
         img.src = location.image;
-
-        img.onload = () => {
-          // console.log(`Image loaded: ${location.name}`);
-          loadedCount++;
-          if (loadedCount === locations.length) {
-            // console.log('All images are loaded and cached.');
-          }
-        };
-
         img.onerror = () => {
           // console.log(`Failed to load image: ${location.name}`);
         };
 
-        // Add image to array
         loadedImages.push(img);
       });
     };
-
-    // Trigger preload on initial mount (React lifecycle)
     preloadImages();
-
   }, []);
 
 
@@ -323,6 +396,7 @@ const GlobeWithTags = ({ani}) => {
   const getAosData = (animation, delay) => {
     return ani ? { "data-aos": animation, "data-aos-delay": delay } : {};
   };
+
   return (
     <div className="glb-com">
       <div className="globe-heading-cont2">
@@ -350,7 +424,6 @@ const GlobeWithTags = ({ani}) => {
 
         {/* Prev and Next Buttons */}
         <div className="w35236">
-          
           <button className="w35236-c" onClick={handlePrev}>{`<`}<span className="labels-country" style={{marginLeft:"20px"}}>{locations[(currentIndex+locations.length-1)%locations.length].name}</span></button>
           <button className="w35236-c" onClick={handleNext}><span className="labels-country" style={{marginRight:"20px"}}>{locations[(currentIndex+locations.length+1)%locations.length].name}</span>{`>`}</button>
         </div>

@@ -1,17 +1,17 @@
-import './WhatMakeUs.css';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
-import { useEffect } from 'react';
 import { Link as ScrollLink } from 'react-scroll';
 
+// CSS and Animation
+import './WhatMakeUs.css';
+import 'aos/dist/aos.css';
+
 const RoadMap = ({ ani }) => {
-    
-    
-    // Helper function to conditionally apply AOS animations
+
+    // Functions
     const getAosData = (animation, delay) => {
         return ani ? { "data-aos": animation, "data-aos-delay": delay } : {};
     };
 
+    // Rendered Component
     return (
         <div className="difference-section">
             <div className="globe-heading-cont" id="project-h-h">

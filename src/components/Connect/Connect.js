@@ -1,54 +1,63 @@
+// CSS and Images
 import './Connect.css';
-import connectimg from '../images/Connect.png';
-import { useEffect } from 'react';
-import { useState } from 'react';
-function App({color, ani }) {
 
-  // Helper function to conditionally apply AOS attributes
+
+const Connect = ({ color, ani }) => {
+  // State and Variables
+
+  // Function
   const getAosData = (animation, delay) => {
     return ani ? { "data-aos": animation, "data-aos-delay": delay } : {};
   };
-  const windows_screen = window.screen.width;
-  useEffect(()=>{
-    if(windows_screen <= 780){
 
-    }
-  },[windows_screen])
 
-  const [aosData, setAosData] = useState({}); 
-
-  useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth > 780) {
-        setAosData({ 'data-aos': 'fade-left', 'data-aos-delay': '200' });
-      } else {
-        setAosData({ 'data-aos': 'fade-up', 'data-aos-delay': '200' }); 
-      }
-    };
-
-    handleResize(); // Initial check on window size
-    window.addEventListener('resize', handleResize);
-
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
+  // Rendered Component
   return (
-    <div id="connect3" style={{ background: color ?  "linear-gradient(to bottom, #0A1D31, #040b13)" : null }} className="connect1">
-      <div  className="my-connect1">
-      <img src={connectimg} {...getAosData("fade-right", 200)} className="connect-image" />
-      
-      <iframe 
-      aria-label='Get In Touch' 
-      {...getAosData(aosData["data-aos"], aosData["data-aos-delay"])}
-      className="iframe-connect" 
-      frameBorder="0" 
-      style={{ width: "100%", border: "none", backgroundColor: 'black' }} 
-      src='https://forms.zohopublic.in/sriramarkk1gm1/form/ContactUs/formperma/QtNE-1KO28yW_D236Nvw7Mr_JK9i2sNZ29x8wCLTyGE' 
-    />
+    <div id="connect3" style={{ background: color ? "linear-gradient(to bottom, #0A1D31, #040b13)" : null }} className="connect1">
+      <div className="connect">
+        <div {...getAosData("fade-up", 0)} className="connect-image"></div>
+
+        <div className="connect-box">
+          <div className="conn-fix">
+            <h1 {...getAosData("fade-up", 100)} className="connect-heading">Get In</h1>
+            <h1 {...getAosData("fade-up", 100)} className="connect-heading" id="con-heading2">Touch</h1>
+          </div>
+          <h1 {...getAosData("fade-left", 300)} className="connect-content">
+            Have a project in mind? Reach us directly for a personalized experience.
+          </h1>
+          <form className="connect-form">
+            <div className="connect-form-1">
+              <div className="connect-names">
+                <p1 {...getAosData("fade-up", 500)} id="connect-lables">First Name</p1>
+                <input {...getAosData("fade-up", 100)} placeholder='First Name' type="text" name="first-name" className="connect-input" />
+              </div>
+              <div className="connect-names">
+                <p1 {...getAosData("fade-up", 500)} id="connect-lables">Last Name</p1>
+                <input {...getAosData("fade-up", 100)} placeholder="Last Name" type="text" name="last-name" className="connect-input" />
+              </div>
+            </div>
+            <div id="mobcon" className="connect-form-2">
+              <p1 {...getAosData("fade-up", 500)} id="connect-lables">First Name</p1>
+              <input {...getAosData("fade-up", 100)} placeholder="First Name" type="text" name="first-name" className="connect-input" />
+            </div>
+            <div id="mobcon" className="connect-form-2">
+              <p1 {...getAosData("fade-up", 500)} id="connect-lables">Last Name</p1>
+              <input {...getAosData("fade-up", 100)} placeholder="Last Name" type="text" name="last-name" className="connect-input" />
+            </div>
+            <div className="connect-form-2">
+              <p1 {...getAosData("fade-up", 500)} id="connect-lables">Email</p1>
+              <input {...getAosData("fade-up", 100)} placeholder="Email" type="text" name="email" className="connect-input" />
+            </div>
+            <div id="con-msg" className="connect-form-2">
+              <p1 {...getAosData("fade-up", 500)} id="connect-lables">Message</p1>
+              <textarea {...getAosData("fade-up", 100)} placeholder="Messages" type="text" name="message" className="connect-input" id="connect-message" />
+            </div>
+            <button {...getAosData("fade-up", 500)} type="submit" id="connect-button2" className="connect-button">Submit</button>
+          </form>
+        </div>
       </div>
     </div>
-  );
+  )
 }
 
-export default App;
+export default Connect;

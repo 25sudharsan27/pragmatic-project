@@ -1,8 +1,8 @@
-.difference-section{
-    display:flex;
-    flex-direction:column;
-    width:100%;
-    padding-top:70px;
+.difference-section {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding-top: 70px;
     justify-content: center;
     align-items: center;
 }
@@ -10,15 +10,15 @@
 
 
 
-#roadmap-btn{
-    padding-bottom:30px;
+#roadmap-btn {
+    padding-bottom: 30px;
 }
 
-#whatmakeus{
-    display:flex;
+#whatmakeus {
+    display: flex;
     justify-content: center;
 }
 
-#difference-btn{
-    margin-top:-10px;
+#difference-btn {
+    margin-top: -10px;
 }

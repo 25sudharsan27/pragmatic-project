@@ -1,18 +1,17 @@
-import "./Service.css";
+import { useState } from "react";
+import { useParams } from "react-router-dom";
+import { Helmet } from "react-helmet";
+
+// Components
 import Navbar from "../../components/Navbar/Navbar";
+import Connect from "../../components/Connect/Connect";
 
-import { useEffect, useState, useRef } from "react";
-
-import Aos from "aos";
+// CSS and Animation and images
+import "./Service.css";
 import "aos/dist/aos.css";
 import img from "../../components/images/India.png";
 
-import { useParams } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
-// import { GiWindowBars } from "react-icons/gi";
-import { Helmet } from "react-helmet";
-import Connect from "../../components/Connect/Connect";
-
+// hard coded data
 const servicesWithExplanations = [
   {
     label: "Expert Witness / Independent Opinion",
@@ -91,91 +90,52 @@ const servicesWithExplanations = [
 
 
 const Services = () => {
-  const navigator = useNavigate();
-
+  // State and Variables
   const { id } = useParams();
-  // {
-  //   label: "Expert Witness / Independent Opinion",
-  //   explanation: "Expert witness services offer independent, professional opinions based on technical expertise to support legal disputes. They provide objective analysis, offering testimony and evidence in court regarding complex technical issues, such as construction delays, design flaws, contract violations, or safety concerns. Expert witnesses are often specialized in fields such as construction, engineering, architecture, or other relevant industries. They are called upon to offer their unbiased assessments, which can help clarify complicated technical matters that are difficult for non-experts to understand. The expert witness’s role is to explain these technical aspects in clear, understandable terms to judges, juries, or arbitrators. Their testimony can be pivotal in determining the outcome of a dispute by assisting the court in comprehending the intricacies of the issue. Their reports and testimonies must meet high standards of accuracy, integrity, and professionalism. Expert witnesses are essential in ensuring fairness and clarity in legal proceedings, making them crucial assets in dispute resolution processes where technical knowledge is required.",
-  //   image:  img
-  // }
-  const [service, setService] = useState(servicesWithExplanations[id]);
-  const [isSidebarVisible, setIsSidebarVisible] = useState(false); // State to manage sidebar visibility
-  const sidebarRef = useRef(null); // Ref for sidebar
-  const toggleBtnRef = useRef(null); // Ref for the toggle button
-
-  useEffect(() => {
-    sessionStorage.setItem("isHomeAosInitialized", "true");
-
-    // Event listener function to check if clicked outside the sidebar or button
-    const handleClickOutside = (event) => {
-      if (
-        sidebarRef.current &&
-        !sidebarRef.current.contains(event.target) &&
-        toggleBtnRef.current &&
-        !toggleBtnRef.current.contains(event.target)
-      ) {
-        setIsSidebarVisible(false); // Close the sidebar if clicked outside
-      }
-    };
-
-    // Add the event listener when the component is mounted
-    document.addEventListener("click", handleClickOutside);
-
-    // Cleanup the event listener when the component is unmounted
-    return () => {
-      document.removeEventListener("click", handleClickOutside);
-    };
-  }, []);
-
   const [isDropdownVisible, setDropdownVisible] = useState(false); // Initially hidden
+  const [service, setService] = useState(servicesWithExplanations[id]); // Get the service data based on the id
 
+  // Functions
   const toggleDropdownVisibility = () => {
     setDropdownVisible((prev) => !prev); // Toggle visibility
   };
 
+  // Rendered Component
   return (
     <>
-    <Helmet>
-      <title>{servicesWithExplanations[id].label}</title>
-      <meta property="og:title" content={"Service "+servicesWithExplanations[id].label+" - Pragmatic PC"} />
+      <Helmet>
+        <title>{servicesWithExplanations[id].label}</title>
+        <meta property="og:title" content={"Service " + servicesWithExplanations[id].label + " - Pragmatic PC"} />
         <meta property="og:description" content={`Details for service ${servicesWithExplanations[id].label} offered by Pragmatic PC`} />
         <meta property="og:url" content={`https://pragmaticpc.com/service/${id}`} />
         <meta property="og:image" content={`https://pragmaticpc.com/images/services/service-${id}.jpg`} />
-   
-    </Helmet>
-    <div id="service-sec" className="App">
-      {/* <button
-                        
-                        ref={toggleBtnRef} // Set reference for the toggle button
-                        className="sidebar-toggle-btn"
-                        onClick={() => setIsSidebarVisible(!isSidebarVisible)}>
-                        ☰
-                </button> */}
-      <Navbar
-        pos="services"
-        isDropdownVisible={isDropdownVisible}
-        toggleDropdownVisibility={toggleDropdownVisibility}
-      />
 
-      <div className="services-page1">
-      
-        <div className="blogs" id="service-p">
-          <h1 className="service-page-heading">{service.label}</h1>
-          <u1 className="service-page-content1">
-            {service.explanation.split(".").map((point, index) =>
-              point != "" ? (
-                <li key={index} className="service-page-content">
-                  {point}
-                </li>
-              ) : null
-            )}
-          </u1>
+      </Helmet>
+      <div id="service-sec" className="App">
+        <Navbar
+          pos="services"
+          isDropdownVisible={isDropdownVisible}
+          toggleDropdownVisibility={toggleDropdownVisibility}
+        />
 
-          <Connect />
+        <div className="services-page1">
+
+          <div className="blogs" id="service-p">
+            <h1 className="service-page-heading">{service.label}</h1>
+            <u1 className="service-page-content1">
+              {service.explanation.split(".").map((point, index) =>
+                point != "" ? (
+                  <li key={index} className="service-page-content">
+                    {point}
+                  </li>
+                ) : null
+              )}
+            </u1>
+
+            <Connect />
+          </div>
         </div>
       </div>
-    </div>
     </>
   );
 };

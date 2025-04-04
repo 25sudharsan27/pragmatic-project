@@ -1,19 +1,16 @@
+// CSS
 import './Company.css';
-import company1 from '../images/company1.png';
-import company2 from '../images/company2.png';
-import company3 from '../images/company3.png';
-import company4 from '../images/company4.png';
-import company5 from '../images/company5.png';
 
-function Company({ ani }) {
-  // Initialize AOS only if animations are enabled
- 
 
-  // Helper function to conditionally apply AOS attributes
+const Company = ({ ani }) => {
+
+  // Functions
   const getAosData = (animation, delay) => {
     return ani ? { "data-aos": animation, "data-aos-delay": delay } : {};
   };
 
+
+  // Rendered Component
   return (
     <div className="company-container">
       <div className="globe-heading-cont" id="project-h-h">

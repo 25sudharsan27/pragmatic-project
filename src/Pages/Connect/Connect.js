@@ -1,19 +1,26 @@
-import './Connect.css';
+import { Helmet } from 'react-helmet';
+import { useState,useEffect } from 'react';
+
+// Components
 import Connect1 from '../../components/Connect/Connect';
 import Navbar from '../../components/Navbar/Navbar';
-import { useState } from 'react';
-import { useEffect } from 'react';
+
+// CSS and Animation
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import { Helmet } from 'react-helmet';
+import './Connect.css';
+
 
 const Connect = ({ani}) =>{
+    // State
     const [isDropdownVisible, setDropdownVisible] = useState(false);
-    // const [isAnimation,setAnimation] = useState(ani('Connect'));
+
+    // Functions
     const toggleDropdownVisibility = () => {
         setDropdownVisible(prevState => !prevState);
     };
 
+    // UseEffects
     useEffect(()=>{
         AOS.init({
             duration: 1000,
@@ -21,9 +28,9 @@ const Connect = ({ani}) =>{
             startEvent: 'DOMContentLoaded',
         });
         
-    },[ani])
+    },[])
 
-
+    // Rendered Component
     return (
         <>
             <Helmet>

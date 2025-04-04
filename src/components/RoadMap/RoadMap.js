@@ -1,26 +1,27 @@
+// CSS and images
 import './RoadMap.css';
-import AOS from 'aos';
 import 'aos/dist/aos.css';
-import { useEffect } from 'react';
 import img from '../images/map.svg';
 
+
+// hard coded data
+const roadmap_data = [
+    "Identification of Claims",
+    "Investigation, Impact Cause & Effect Analyse",
+    "Notification & Change order Log",
+    "Defence Preparation & Quantification",
+    "Dispute Resolution - ADR (Negotiation, Mediation, Arbitration)",
+    "Litigation"
+];
+
+
 const RoadMap = ({ ani }) => {
-    const roadmap_data = [
-        "Identification of Claims",
-        "Investigation, Impact Cause & Effect Analyse",
-        "Notification & Change order Log",
-        "Defence Preparation & Quantification",
-        "Dispute Resolution - ADR (Negotiation, Mediation, Arbitration)",
-        "Litigation"
-    ];
-
-  
-
-    // Helper function to conditionally apply AOS attributes
+    // Functions
     const getAosData = (animation, delay) => {
         return ani ? { "data-aos": animation, "data-aos-delay": delay } : {};
     };
 
+    // Rendered Component
     return (
         <div className="roadmap-container">
             <h1 id="road-map-claims" className="globe-heading" {...getAosData("fade-up", 0)}>

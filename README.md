@@ -57,7 +57,7 @@ frontend/
 1. **Clone the repository**
    ```bash
    git clone https://github.com/25sudharsan27/pragmatic-project.git
-   cd business-website
+   cd pragmatic-project
    ```
 
 2. **Install dependencies**

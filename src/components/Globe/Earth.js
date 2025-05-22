@@ -146,9 +146,6 @@ const GlobeWithTags = ({ani}) => {
   const [isInView, setIsInView] = useState(false); // Track if the globe is in view
 
   useEffect(() => {
-
-
-    
     const width = window.innerWidth;
     const height = window.innerHeight;
 

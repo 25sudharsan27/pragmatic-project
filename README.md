@@ -1,70 +1,112 @@
-# Getting Started with Create React App
+# 🌐 Pragmatic Project Consilium (Business Website)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A modern, interactive business website built using **React.js**, featuring a 3D globe for client geographical visualization, circular service representation, and a roadmap to showcase the company's workflow.
 
-## Available Scripts
+## 📌 About the Project
 
-In the project directory, you can run:
+This project provides an engaging and professional platform for businesses to:
+- Display global client reach using an **interactive 3D globe** (Three.js)
+- Showcase their **services in a circular innovative layout**
+- Walk visitors through the **stepwise roadmap** of how the company works
 
-### `npm start`
+## Pages
 
-Runs the app in the development mode.\
+- Home Page
+![alt text](image.png)
+![alt text](image-1.png)
+![alt text](image-2.png)
+![alt text](image-3.png)
+- Blogs Page
+![alt text](image-4.png)
+![alt text](image-5.png)
+- Services Page
+![alt text](image-6.png)
+![alt text](image-7.png)
+- Connect With us Page
+![alt text](image-8.png)
+
+---
+
+## 🚀 Technologies Used
+
+- **React.js** – Component-based UI development
+- **Three.js** – 3D graphics rendering for interactive globe ( used Mesh Standard Material and 4 Lights added (2 DirectionalLight, 1 AmbientLight, 1 HemisphereLight) )
+- **Axios** – For HTTP requests
+- **AOS (Animate On Scroll)** – Smooth scroll-triggered animations ( Restricted animation only executes for one time per tab using localStorge)
+
+---
+
+## 🗂️ Folder Structure
+
+```
+frontend/
+├── node_modules/
+├── public/
+├── src/
+│   ├── components/    # Reusable UI components
+│   ├── pages/         # Page-level components
+├── index.js
+├── index.css
+└── package.json
+```
+
+---
+
+## 📦 Installation & Setup
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/25sudharsan27/pragmatic-project.git
+   cd business-website
+   ```
+
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
+
+3. **Start the development server**
+   ```bash
+   npm start
+   ```
+
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 📸 Features
 
-### `npm test`
+- 🌍 Interactive 3D Globe (using Three.js)
+- 💠 Circular UI for Services
+- 🧭 Step-by-step Roadmap section
+- 🎨 Scroll animations with AOS
+- 📱 Responsive Design
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 🧪 Scripts
 
-### `npm run build`
+| Command | Description |
+|---------|-------------|
+| `npm start` | Run the app in dev mode |
+| `npm run build` | Build the app for production |
+| `npm test` | Launch test runner |
+| `npm run eject` | Eject the app (not recommended) |
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 🐛 Common Errors & Solutions
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+| Error | Solution |
+|-------|----------|
+| **3D globe not displaying** | Make sure Three.js is imported correctly and the canvas is properly mounted |
+| **AOS animations not working** | Ensure you initialized AOS in `useEffect()` or `componentDidMount` and imported AOS styles |
+| **CORS error on API requests** | Enable CORS on the backend or use a proxy in development |
+| **Environment variables not loading** | Ensure `.env` is placed at the root and variables are prefixed with `REACT_APP_` |
+| **Blank page after deployment** | Check `homepage` in `package.json` and make sure all assets are correctly linked |
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 📄 License
 
-### `npm run eject`
+This project is open-source and available under the MIT License.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## 🤝 Acknowledgements
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- [Three.js Documentation](https://threejs.org/docs/)
+- [AOS Library](https://michalsnik.github.io/aos/)
+- [React Documentation](https://reactjs.org/docs/)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+---
